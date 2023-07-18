@@ -6,7 +6,8 @@ const Bonus = () => {
   return (
     <div className='bg-primary-color-20'>
     <Hero firstHeading={"BONUSOVÉ ČLÁNKY"} secondHeading={""} />
-    <BonusPost />
+    <BonusPost reversed={false} />
+    <BonusPost reversed={true} />
     </div>
   )
 }

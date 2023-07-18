@@ -1,7 +1,7 @@
 import React from "react";
 import SlideGallery from "./SlideGallery";
 
-const BonusPost = () => {
+const BonusPost = ({ reversed }) => {
   const images = [
     { src: "/books.jpg", alt: "Image X" },
     { src: "/logo copy.png", alt: "Image Y" },
@@ -9,7 +9,8 @@ const BonusPost = () => {
   ];
 
   return (
-    <div className="m-8 w-full  flex flex-row">
+    <div className="p-2 w-full  flex justify-center flex-row">
+      {reversed && <SlideGallery images={images} />}
       <div className="  w-1/2 ">
         <div
           className="  p-8 border-r-4 border-primary-color"
@@ -36,7 +37,7 @@ const BonusPost = () => {
           </div>
         </div>
       </div>
-      <SlideGallery images={images}  />
+      {!reversed && <SlideGallery images={images} />}
     </div>
   );
 };

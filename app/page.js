@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Hero from "../components/Hero";
 import PageDescripiton from "@/components/PageDescripiton";
+import CTA from "@/components/CTA";
 
 export default function Home() {
   return  <main>
@@ -8,6 +9,7 @@ export default function Home() {
       <Hero firstHeading={" STUDENTSKÝ<br />ČASOPIS"} secondHeading={"GYMNÁZIUM OPATOV"}
       showReadButton={true} />
       <PageDescripiton />
+      <CTA />
     
     </main>
 }

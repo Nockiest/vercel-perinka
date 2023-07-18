@@ -1,21 +1,8 @@
-"use client";
-import React, { useState } from "react";
-import Image from "next/image";
+import React from 'react'
 import Link from "next/link";
-
-const Navbar = () => {
-  const [activeButton, setActiveButton] = useState("");
-
-  const handleButtonClick = (buttonName) => {
-    setActiveButton(buttonName);
-  };
-
-  return (
-    <div className="flex px-8 justify-between items-center bg-[var(--primary-color-20)] xl:box-shadow-xl">
-      <div className="flex items-center gap-8 w-212 pr-0">
-        <Image src="/logofull.png" alt="peřinka logo" width={56} height={31} className="cursor-pointer" />
-        <h1 className="cursor-pointer">Peřinka</h1>
-      </div>
+const NavList = ({ handleButtonClick, activeButton }) => {
+    console.log(activeButton);
+    return (
       <div className="btn-row flex gap-4 mt-4 mb-4">
         <Link
           href="/aboutUs"
@@ -45,11 +32,10 @@ const Navbar = () => {
         >
           Bonusove Čtení
         </Link>
+       
       </div>
-    </div>
-  );
-};
-
-export default Navbar;
-
-//https://ibb.co/Mhvsycy
+    );
+  };
+  
+  export default NavList;
+  
