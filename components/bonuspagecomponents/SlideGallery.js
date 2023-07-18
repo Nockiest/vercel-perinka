@@ -1,7 +1,8 @@
 "use client"
 import React, {useState} from 'react'
- 
-const SlideGallery = ({ images }) => {
+import Slider from './Slider';
+ import Image from 'next/image';
+ const SlideGallery = ({ images }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const goToSlide = (index) => {
@@ -19,31 +20,30 @@ const SlideGallery = ({ images }) => {
   };
 
   return (
-    <div className='bg-primary-color'>
+    <div className='m-12 '>
       <div>
         {images.map((image, index) => (
-          <div
-            key={index}
-            style={{ display: index === currentSlide ? 'block' : 'none' }}
-          >
-            <img src={image.src} alt={image.alt} width={400} height={300} />
+          <div key={index} style={{ display: index === currentSlide ? 'block' : 'none' }}>
+            <div className='w-64 h-64'>
+            <div className="flex justify-center items-center w-full h-full">
+              <Image src={image.src} alt={image.alt} width={300} height={300} />
+            </div>
+
+            </div>
           </div>
         ))}
       </div>
-      <div className="flex justify-center space-x-4">
-        <button className="btn-clicked bg-color-red" onClick={goToPreviousSlide}>
-          Previous
-        </button>
-        <button  className="btn-clicked" onClick={goToNextSlide}>Next</button>
+      <div className="flex flex-col mw-auto space-x-4">
+        <Slider number={currentSlide} setCurrentNumber={setCurrentSlide} maxNumber={images.length - 1} />
+        {currentSlide+1}/{images.length}
       </div>
       <div className="flex justify-center space-x-4">
-        <butto className="btn-clicked">GALERIE</butto>
-        <button  className="btn-clicked">SDÍLET</button>
+        <button className="btn-clicked">GALERIE</button>
+        <button className="btn-clicked">SDÍLET</button>
       </div>
     </div>
   );
 };
-
 
  
 

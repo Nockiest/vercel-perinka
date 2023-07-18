@@ -4,12 +4,12 @@ import SlideGallery from "./SlideGallery";
 const BonusPost = () => {
   const images = [
     { src: "/books.jpg", alt: "Image X" },
-    // { src: "/y", alt: "Image Y" },
-    // { src: "/z", alt: "Image Z" },
+    { src: "/logo copy.png", alt: "Image Y" },
+    { src: "/logofull.png", alt: "Image Z" },
   ];
 
   return (
-    <div className="m-8  w-full  flex flex-row">
+    <div className="m-8 w-full  flex flex-row">
       <div className="  w-1/2 ">
         <div
           className="  p-8 border-r-4 border-primary-color"
@@ -36,7 +36,7 @@ const BonusPost = () => {
           </div>
         </div>
       </div>
-      <SlideGallery images={images} />
+      <SlideGallery images={images}  />
     </div>
   );
 };

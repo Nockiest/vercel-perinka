@@ -17,10 +17,7 @@
     --text-color: #110e0e;
   }
 }
-
-body {
  
-}
 p {
   @apply text-base  ;
   font-size: var(--body-font-size);
@@ -64,8 +61,6 @@ p {
     font-family: "sans-serif";
   }
 
-   
-
   button {
     @apply   font-normal leading-tight uppercase m-4 p-3;
     font-family: "Inder", sans-serif;
@@ -73,8 +68,7 @@ p {
     font-weight: 700;
   }
 
-  .
- 
+    
   .nav-btn {
     @apply bg-[var(--primary-color-40)] p-3 lg:p-4 justify-center items-center md:gap-8 rounded-lg;
     transition-duration: 150ms

@@ -4,7 +4,7 @@ import React from 'react'
 
 const Bonus = () => {
   return (
-    <div>
+    <div className='bg-primary-color-20'>
     <Hero firstHeading={"BONUSOVÉ ČLÁNKY"} secondHeading={""} />
     <BonusPost />
     </div>
