@@ -3,11 +3,14 @@ import Image from "next/image";
 
 const CTA = () => {
   return (
-    <div className="bg-primary-color-40 p-6 flex flex-col items-center justify-center">
-      <div> <div className="flex items-center gap-4 mr-6">
-        <Image src={"/books.jpg"} alt="Image"  width={350} height={150} />
-        <div className="  max-w-2xl">
-          <h1>PŘIPOJ SE K NÁM!</h1>
+    <div className="bg-primary-color-40 p-12 flex flex-col items-center justify-center">
+      <div className="flex  flex-col-reverse md:flex-row space-x-4 items-center gap-4 mr-6 mb-2">
+        <div className="p-4">
+          <Image src={"/books.jpg"} alt="Image" width={300} height={150} />
+        </div>
+
+        <div className="max-w-xl">
+          <h1 className="mb-4  ">PŘIPOJ SE K NÁM!</h1>
           <p>
             Hledáme další zkušené studenty příspívající do časopisu .......... Non commodo labore excepteur sunt. Velit
             sint esse pariatur cillum
@@ -19,8 +22,7 @@ const CTA = () => {
           </p>
         </div>
       </div>
-      </div>
-      <button className="bg-secondary-color-80 hover:bg-secondary-color">ODESLAT SVŮJ VLASTNÍ ČLÁNEK</button>
+      <button className="bg-secondary-color-80 hover:bg-secondary-color">ODESLAT SVŮJ ČLÁNEK</button>
     </div>
   );
 };

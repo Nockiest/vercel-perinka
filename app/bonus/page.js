@@ -29,7 +29,7 @@ const Bonus = () => {
 
   return (
     <div className="bg-primary-color-20">
-      <Hero firstHeading={"BONUSOVÉ ČLÁNKY"} secondHeading={""} />
+      <Hero firstHeading={"BONUSOVÉ ČLÁNKY"} secondHeading={"BONUSOVÉ ČLÁNKY"} />
       {allPictures.map((pictures, index) => (
         <BonusPost
           key={index}

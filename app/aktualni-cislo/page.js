@@ -6,7 +6,7 @@ const NewNumber = () => {
  
   return (
     <div>
-      <Hero firstHeading={"AKTUÁLNÍ <br />ČÍSLO"} secondHeading={"PEŘINKA"}   showReadButton={true} />
+      <Hero firstHeading={"AKTUÁLNÍ <br />ČÍSLO"} secondHeading={"AKTUÁLNÍ ČÍSLO"}  />
       <ArticleSummary reversed={false}/>
       <ArticleSummary reversed={true} />
     </div>

@@ -19,7 +19,7 @@
 }
 
 p {
-  @apply text-base;
+  @apply   text-base;
   font-size: var(--body-font-size);
   font-family: nunito, sans-serif;
   font-weight: 400;
@@ -70,7 +70,7 @@ p {
   }
   
   .nav-btn {
-    @apply bg-[var(--primary-color-40)] p-3 lg:p-4 justify-center items-center md:gap-8 rounded-lg;
+    @apply bg-[var(--primary-color-40)] p-3 lg:p-4 justify-center items-center md:m-2 rounded-lg;
     transition: box-shadow 150ms;
     box-shadow: none;
   }
@@ -95,7 +95,7 @@ p {
 
   .bio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1rem;
   }
   .outlined-text {

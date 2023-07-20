@@ -1,9 +1,8 @@
-import React, {useState} from 'react'
+import React, { useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 
 const NavList = ({ handleButtonClick, activeButton }) => {
-  const router = useRouter();
   const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseEnter = () => {
@@ -13,58 +12,30 @@ const NavList = ({ handleButtonClick, activeButton }) => {
   const handleMouseLeave = () => {
     setIsHovered(false);
   };
+
+  const navButtons = [
+    { name: "home", label: "Home" },
+    { name: "about", label: "O Peřince" },
+    { name: "aktualni-cislo", label: "Aktuální Číslo" },
+    { name: "archiv", label: "Archiv" },
+    { name: "bonus", label: "Bonus" },
+  ];
+
   return (
-    <div className="btn-row flex gap-4 mt-4 mb-4">
-     
-        <Link
-      href="/"
-      passHref // Add the passHref prop here
-      className={`nav-btn ${activeButton === "home" ? "btn-clicked" : ""}`}
-      onClick={() => handleButtonClick("home")}
-    >
-      Home
-    </Link> 
-    
-      {router.pathname}
-      <Link
-        href="/aboutUs"
-           passHref // Add the passHref prop here
-        className={`nav-btn ${activeButton === "aboutUs" ? "btn-clicked" : ""}`}
-        onClick={() => handleButtonClick("aboutUs")}
-      >
-        O Peřince
-      </Link>
-      <Link
-        href="/aktualni-cislo"
-           passHref // Add the passHref prop here
-        className={`nav-btn ${activeButton === "Aktuální Číslo" ? "btn-clicked" : ""}`}
-        onClick={() => handleButtonClick("Aktuální Číslo")}
-      >
-        Aktuální Číslo
-      </Link>
-      <Link
-        href="/archiv"
-           passHref // Add the passHref prop here
-        className={`nav-btn ${activeButton === "Archiv" ? "btn-clicked" : ""}`}
-        onClick={() => handleButtonClick("Archiv")}
-      >
-        Archiv
-      </Link>
-      <Link
-        href="/bonus"
-           passHref // Add the passHref prop here
-        className={`nav-btn ${activeButton === "Bonusove Čtení" ? "btn-clicked" : ""}`}
-        onClick={() => handleButtonClick("Bonusove Čtení")}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-      >
-        Bonus 
-     
-      </Link>
-      
+    <div className="btn-row flex  m-4 ">
+      {navButtons.map((button) => (
+        <button
+          key={button.name}
+          className={`nav-btn ${activeButton === button.name ? "btn-clicked" : ""}`}
+          onClick={() => handleButtonClick(button.name)}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
+          {button.label}
+        </button>
+      ))}
     </div>
   );
 };
- 
-  export default NavList;
-  
+
+export default NavList;

@@ -6,28 +6,38 @@ import Link from "next/link";
 import NavList from "@/components/navbar/NavList";
 import HamburgerNavList from "@/components/navbar/HamburgerNavList";
 import { useMediaQuery } from "react-responsive";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 const Navbar = () => {
   const router = useRouter();
-  const [activeButton, setActiveButton] = useState("home");
-
-  const isMobile = useMediaQuery({ maxWidth: 788 });
+  const [activeButton, setActiveButton] = useState("");
+  const pathname = usePathname()
+  const isMobile = useMediaQuery({ maxWidth: 858 });
 
   const handleButtonClick = (buttonName) => {
-    setActiveButton(buttonName);
+   if(buttonName === "home"){
+    router.push("/")
+   } else {
+    router.push(buttonName)
+   }
   };
-
+  
+  useEffect(() => {
+    console.log(pathname);
+  }, []);
   // Extract the second segment from the pathname
   useEffect(() => {
-    const pathname = router.pathname;
-    console.log(pathname, router)
-    const segments = pathname?.split("/");
-    console.log(segments)
-    if (segments && segments.length >= 2) {
-      console.log(segments)
-      setActiveButton(segments[1]);
+    let newPathname =  pathname;
+    if (newPathname?.startsWith("/")) {
+      newPathname = newPathname.substring(1);
     }
-  }, [router]);
+    if(newPathname===""){
+      setActiveButton("home");
+    } else {
+      setActiveButton(newPathname);
+    }
+   
+    console.log(newPathname)
+  }, [pathname]);
 
   useEffect(() => {
     const navToggle = document.querySelector(".nav-toggle");

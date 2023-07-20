@@ -2,7 +2,7 @@ import React from "react";
 
 const PageDescripiton = () => {
   return (
-    <div className="w-1/2 mx-auto mt-3">
+    <div className="p-6 md:w-1/2 mx-auto m-3">
       <p className="text-base   leading-8">
         Vítáme Vás na stránkách Peřinky, oficiálního studentského časopisu Gymnázia Opatov! Jsme moc rádi, že jste sem zabloudili.
         <br />
