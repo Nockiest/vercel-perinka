@@ -20,14 +20,14 @@ const Hero = ({ firstHeading, secondHeading, showReadButton }) => {
           </h2>
         )}
       </div>
-      {showReadButton && (
+     
         <Link href="/read"> 
           <button className="flex absolute bottom-1/16 left-1/16  z-20 rounded bg-neutral text-text-color-80 items-center space-x-2"  >
             <span className="mr-2">ČÍST AKTUÁLNÍ ČÍSLO</span>
             <Image src="/right.svg" width={12} height={12} alt="right arrow" />
           </button>
         </Link>
-      )}
+     
     </div>
   );
 };
