@@ -5,7 +5,7 @@ const ArticleSummary = ({ reversed }) => {
     <> 
    {!reversed?  <div className='flex justify-center  '>
          <div className='m-2 mt-auto mb-auto flex flex-col items-center'> 
-        <Image src={"/books.jpg"} width={400} height={400}/>
+        <Image src={"/books.jpg"} alt="books" width={400} height={400}/>
       </div>
         <div className="  m-2 border-l-4 border-primary-color w-1/2 ">
         <div
@@ -50,7 +50,7 @@ const ArticleSummary = ({ reversed }) => {
          
         </div>
             <div className='m-2 mt-auto mb-auto flex flex-col items-center'> 
-            <Image src={"/books.jpg"} width={400} height={400}/>
+            <Image src={"/books.jpg"} alt="books" width={400} height={400}/>
         </div>
       
       </div>

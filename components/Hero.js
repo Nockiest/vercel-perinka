@@ -1,33 +1,35 @@
+"use client"
 import React from 'react'
 import Image from 'next/image'
+import Link from 'next/link';
  
 const Hero = ({ firstHeading, secondHeading, showReadButton }) => {
   return (
-    <div className="relative w-screen" style={{ height: '518px' }}>
-      <Image src="/books.jpg" alt="Books" layout="fill" objectFit="cover" />
-
-      <div className="absolute top-1/2 left-1/4  transform -translate-x-1/2 -translate-y-1/2 w-150 pr-8 pt-4 pl-6 pb-4 flex flex-col items-start  gap-2 bg-gradient-to-br from-primary-color to-white shadow-lg">
-      <h1 className="p-0 text-white whitespace-normal leading-relaxed outlined-text">
-  <span dangerouslySetInnerHTML={{ __html: firstHeading }} />
-</h1>
-        
-          {secondHeading !== "" && 
-           <h2 className="leading-tight">
-         { secondHeading}
-          </h2>
-          }
-
-      
+    <div className="w-full relative" style={{ height: '518px' }}>
+      <div className='w-full'> 
+        <Image src="/books.jpg" alt="Books" layout="fill" objectFit="cover" />
       </div>
-     {showReadButton && <button className='flex absolute bottom-1/16 right-1/16 p-2 z-20 rounded bg-neutral text-text-color-80 items-center space-x-2'>
-        <span className=' mr-2'>ČÍST AKTUÁLNÍ ČISLO</span> 
-        <Image src="/right.svg" width={12} height={12} alt="right arrow" />
-      </button>}
-
+      <div className="absolute top-1/3 right-0 w-150   left-1/16 sm:right-1/2 pr-24 pt-8 pl-8 pb-6 flex flex-col items-start gap-2 bg-gradient-to-br from-primary-color to-white shadow-lg">
+        <h1 className="p-0 text-white whitespace-normal leading-relaxed outlined-text">
+          <span dangerouslySetInnerHTML={{ __html: firstHeading }} />
+        </h1>
+        {secondHeading !== '' && (
+          <h2 className="leading-tight">
+            {secondHeading}
+          </h2>
+        )}
+      </div>
+      {showReadButton && (
+        <Link href="/read"> 
+          <button className="flex absolute bottom-1/16 left-1/16  z-20 rounded bg-neutral text-text-color-80 items-center space-x-2"  >
+            <span className="mr-2">ČÍST AKTUÁLNÍ ČÍSLO</span>
+            <Image src="/right.svg" width={12} height={12} alt="right arrow" />
+          </button>
+        </Link>
+      )}
     </div>
   );
 };
 
-export default Hero;
 
- 
+export default Hero;

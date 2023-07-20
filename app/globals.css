@@ -22,6 +22,7 @@ p {
   @apply text-base;
   font-size: var(--body-font-size);
   font-family: nunito, sans-serif;
+  font-weight: 400;
 }
 @layer components {
   h1 {
@@ -65,15 +66,21 @@ p {
     font-family: "Inder", sans-serif;
     color: white;
     font-weight: 700;
+    transition: box-shadow 150ms;
   }
-
+  
   .nav-btn {
     @apply bg-[var(--primary-color-40)] p-3 lg:p-4 justify-center items-center md:gap-8 rounded-lg;
-    transition-duration: 150ms;
+    transition: box-shadow 150ms;
+    box-shadow: none;
   }
+  
   .btn-clicked {
-    @apply flex items-center justify-center gap-8 rounded  bg-secondary-color  border-2 border-black;
+    @apply flex items-center justify-center gap-8 rounded bg-secondary-color;
+    box-shadow: inset 0 0 0 2px black;
   }
+  
+  
   .nav-btn:hover {
     @apply bg-[var(--secondary-color-60)];
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);

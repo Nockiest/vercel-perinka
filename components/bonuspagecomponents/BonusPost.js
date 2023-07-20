@@ -1,19 +1,23 @@
 import React from "react";
 import SlideGallery from "./SlideGallery";
+import { useMediaQuery } from '@react-hook/media-query';
 
-const BonusPost = ({ reversed }) => {
-  const images = [
-    { src: "/books.jpg", alt: "Image X" },
-    { src: "/logo copy.png", alt: "Image Y" },
-    { src: "/logofull.png", alt: "Image Z" },
-  ];
+const BonusPost = ({ reversed, pictures, setFullScreenGalleryIndex, setShowFullScreenGallery, index }) => {
+  const handleGalleryButtonClick = (index) => {
+    setFullScreenGalleryIndex(index);
+    setShowFullScreenGallery(true);
+    console.log("hello", index);
+  };
 
+  const isMediumScreenOrSmaller = useMediaQuery('(max-width: 1000px)'); 
   return (
-    <div className="p-2 w-full  flex justify-center flex-row">
-      {reversed && <SlideGallery images={images} />}
-      <div className="  w-1/2 ">
+    <div className="p-2 w-full space-y-2  items-center flex justify-center flex-col lg:flex-row ">
+       {reversed && !isMediumScreenOrSmaller && (
+        <SlideGallery index={index} images={pictures} handleGalleryButtonClick={handleGalleryButtonClick} />
+      )}
+      <div className=" ml-8 mr-8 lg:w-1/2 ">
         <div
-          className="  p-8 border-r-4 border-primary-color"
+          className=" mt-8 p-8 border-r-4 items-center border-primary-color"
           style={{ border: "1px solid var(--main-main-100, #9E8751)", background: "#FFF" }}
         >
           <h1 className="ml-2">TITLE</h1>
@@ -37,7 +41,12 @@ const BonusPost = ({ reversed }) => {
           </div>
         </div>
       </div>
-      {!reversed && <SlideGallery images={images} />}
+      {!reversed && !isMediumScreenOrSmaller && (
+        <SlideGallery index={index} images={pictures} handleGalleryButtonClick={handleGalleryButtonClick} />
+      )}
+      {isMediumScreenOrSmaller && (
+        <SlideGallery index={index} images={pictures} handleGalleryButtonClick={handleGalleryButtonClick} />
+      )}
     </div>
   );
 };
