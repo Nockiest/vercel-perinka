@@ -7,6 +7,8 @@ import NavList from "@/components/navbar/NavList";
 import HamburgerNavList from "@/components/navbar/HamburgerNavList";
 import { useMediaQuery } from "react-responsive";
 import { useRouter, usePathname } from "next/navigation";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars} from "@fortawesome/free-solid-svg-icons";
 const Navbar = () => {
   const router = useRouter();
   const [activeButton, setActiveButton] = useState("");
@@ -81,6 +83,7 @@ const Navbar = () => {
 
           <div className="right-nav">
             <div className="nav">
+            {/* <FontAwesomeIcon icon="fa-solid fa-bars" /> */}
               <HamburgerNavList handleButtonClick={handleButtonClick} activeButton={activeButton} />
             </div>
           </div>
