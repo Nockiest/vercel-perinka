@@ -26,7 +26,7 @@ const NavList = ({ handleButtonClick, activeButton }) => {
       {navButtons.map((button) => (
         <button
           key={button.name}
-          className={`nav-btn ${activeButton === button.name ? "btn-clicked" : ""}`}
+          className={` nav-btn ${activeButton === button.name ? "btn-clicked" : ""}`}
           onClick={() => handleButtonClick(button.name)}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
