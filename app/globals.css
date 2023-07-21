@@ -19,7 +19,7 @@
 }
 
 p {
-  @apply   text-base;
+  @apply text-base;
   font-size: var(--body-font-size);
   font-family: nunito, sans-serif;
   font-weight: 400;

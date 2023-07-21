@@ -40,15 +40,17 @@ const Navbar = () => {
    
     console.log(newPathname)
   }, [pathname]);
-
+  const handleNavToggle = () => {
+    console.log("Nav-toggle")
+    document.body.classList.toggle("nav-open");
+  };
   useEffect(() => {
     const navToggle = document.querySelector(".nav-toggle");
     const navLinks = document.querySelectorAll(".nav__link");
 
-    const handleNavToggle = () => {
-      document.body.classList.toggle("nav-open");
-    };
+    
     const handleNavLinkClick = () => {
+      console.log("nav-open")
       document.body.classList.remove("nav-open");
     };
 
@@ -77,7 +79,7 @@ const Navbar = () => {
       </div>
       {isMobile ? (
         <>
-          <button className="nav-toggle" aria-label="toggle navigation">
+          <button className="nav-toggle" aria-label="toggle navigation" onClick={() => handleNavToggle}>
             <span className={`hamburger`}></span>
           </button>
 

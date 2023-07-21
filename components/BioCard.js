@@ -10,7 +10,7 @@ const BioCard = ({ title, index }) => {
      </div>
     
       <h3>{title}</h3>
-      <p className="h-32 ml-2  overflow-hidden">
+      <p className="h-32 ml-2   text-base  leading-8   overflow-hidden">
         lorem ipsgup sagssdp jag gasjg las g§asgdsj pgd ap jdsdg sadj dsagpgjddajdslj lgj sadgilsjd
         glsdijg dps gjdsali gjdsalgjs sd l aepofjw gúwq jgoagw wpig jdasg jsgs jla jd
       </p>

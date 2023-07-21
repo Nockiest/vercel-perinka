@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 
-const ArticleSummary = ({ reversed }) => {
+const ArticleSummary = ({ reversed, pdfSrc }) => {
   return (
    
       <div className={`  flex m-4 flex-col md:flex-row justify-center`}>
@@ -13,7 +13,7 @@ const ArticleSummary = ({ reversed }) => {
   </div>}
         <div className={`p-8 m-auto border-primary-color border-b-4 md:border-l-4 md:border-b-0 md:w-1/2 md:m-2  `}>
           <h1 className="ml-2">TITLE</h1>
-          <p className="m-2">
+          <p className="m-2 ">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna.
             Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae
             mattis tellus. Nullam quis imperdiet augue. Vestibulum auctor ornare leo, non suscipit magna interdum

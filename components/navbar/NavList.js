@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
 
+ 
 const NavList = ({ handleButtonClick, activeButton }) => {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -21,13 +22,27 @@ const NavList = ({ handleButtonClick, activeButton }) => {
     { name: "bonus", label: "Bonus" },
   ];
 
+ const router = useRouter();
+  const   pathname   = usePathname();
+
+  const handleCustomButtonClick = (buttonName) => {
+    // Extract the current directory from the pathname (e.g., "/x")
+   
+    
+   
+    // Push the new URL to navigate to the desired route
+    // router.push(router.pathname, undefined, { shallow: true, replace: true });
+
+    router.push(`/${buttonName}`);
+  };
+
   return (
     <div className="btn-row flex  m-4 ">
       {navButtons.map((button) => (
         <button
           key={button.name}
           className={` nav-btn ${activeButton === button.name ? "btn-clicked" : ""}`}
-          onClick={() => handleButtonClick(button.name)}
+          onClick={() => handleCustomButtonClick(button.name)}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
@@ -39,3 +54,5 @@ const NavList = ({ handleButtonClick, activeButton }) => {
 };
 
 export default NavList;
+
+ 

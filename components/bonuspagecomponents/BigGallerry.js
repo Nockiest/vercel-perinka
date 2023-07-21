@@ -27,7 +27,7 @@ const BigGallery = ({ pics, closeFullScreenGallery }) => {
         {pics.map((image, index) => (
           <div key={index} style={{ display: index === currentSlide ? "block" : "none" }}>
             <div className="w-64 h-64">
-              <div className="flex justify-center items-center w-full h-full">
+              <div className="flex opacity-100 justify-center items-center w-full h-full">
                 <Image src={image.src} alt={image.alt} width={2000} height={2000} />
               </div>
             </div>

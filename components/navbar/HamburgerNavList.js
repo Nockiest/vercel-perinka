@@ -31,11 +31,6 @@ const HamburgerNavList = () => {
             Home
           </Link>
         </li>
-        <li className="nav__item">
-          <Link href="/" className="nav__link font-bold">
-            Home
-          </Link>
-        </li>
       </ul>
     );
   };

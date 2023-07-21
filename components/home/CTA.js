@@ -11,7 +11,7 @@ const CTA = () => {
 
         <div className="max-w-xl">
           <h1 className="mb-4  ">PŘIPOJ SE K NÁM!</h1>
-          <p>
+          <p className="text-base  leading-8">
             Hledáme další zkušené studenty příspívající do časopisu .......... Non commodo labore excepteur sunt. Velit
             sint esse pariatur cillum
             <br />
