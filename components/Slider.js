@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+ 
 import Image from "next/image";
 const Slider = ({ number, setCurrentNumber, maxNumber }) => {
   const [dotPositions, setDotPositions] = useState([]);

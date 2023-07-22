@@ -1,5 +1,5 @@
 "use client";
-/////////////////////////////font awesmome
+ 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,7 +7,7 @@ import NavList from "@/components/navbar/NavList";
 import HamburgerNavList from "@/components/navbar/HamburgerNavList";
 import { useMediaQuery } from "react-responsive";
 import { useRouter, usePathname } from "next/navigation";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+ 
  
 const Navbar = () => {
   const router = useRouter();
@@ -53,7 +53,7 @@ const Navbar = () => {
 
           <div className="right-nav">
             <div className="nav">
-            {/* <FontAwesomeIcon icon="fa-solid fa-bars" /> */}
+           
               <HamburgerNavList handleButtonClick={handleButtonClick} activeButton={activeButton} />
             </div>
           </div>
