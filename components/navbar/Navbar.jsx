@@ -22,11 +22,6 @@ const Navbar = () => {
     router.push(buttonName)
    }
   };
-  
-  useEffect(() => {
-    console.log(pathname);
-  }, []);
-  // Extract the second segment from the pathname
   useEffect(() => {
     let newPathname =  pathname;
     if (newPathname?.startsWith("/")) {
@@ -40,34 +35,7 @@ const Navbar = () => {
    
     console.log(newPathname)
   }, [pathname]);
-  const handleNavToggle = () => {
-    console.log("Nav-toggle")
-    document.body.classList.toggle("nav-open");
-  };
-  useEffect(() => {
-    const navToggle = document.querySelector(".nav-toggle");
-    const navLinks = document.querySelectorAll(".nav__link");
-
-    
-    const handleNavLinkClick = () => {
-      console.log("nav-open")
-      document.body.classList.remove("nav-open");
-    };
-
-    navToggle?.addEventListener("click", handleNavToggle);
-
-    navLinks.forEach((link) => {
-      link.addEventListener("click", handleNavLinkClick);
-    });
-
-    return () => {
-      navToggle.removeEventListener("click", handleNavToggle);
-
-      navLinks.forEach((link) => {
-        link.removeEventListener("click", handleNavLinkClick);
-      });
-    };
-  }, []);
+  
 
   return (
     <div className="h-20 flex px-8 justify-between items-center bg-[var(--primary-color-20)] xl:box-shadow-xl">
@@ -77,7 +45,7 @@ const Navbar = () => {
         </Link>
         <h1 className=" ">Peřinka</h1>
       </div>
-      {isMobile ? (
+      {isMobile   ? (
         <>
           <button className="nav-toggle" aria-label="toggle navigation" onClick={() => handleNavToggle}>
             <span className={`hamburger`}></span>
