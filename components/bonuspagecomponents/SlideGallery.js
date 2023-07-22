@@ -34,7 +34,7 @@ const SlideGallery = ({ index, images, handleGalleryButtonClick }) => {
       </div>
       <div className="flex flex-col justify-center items-center md:ml-4">
         <div className="flex flex-col   md:flex-row md:items-center  mw-auto space-x-4">
-          <div className="flex justify-center items-center">
+          <div className="flex pt-2 justify-center items-center">
             <Slider number={currentSlide} setCurrentNumber={setCurrentSlide} maxNumber={images.length - 1} />
           </div>
           <div className="ml-auto text-center" style={{ userSelect: "none" }}>

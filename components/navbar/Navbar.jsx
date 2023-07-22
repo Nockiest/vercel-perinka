@@ -1,5 +1,5 @@
 "use client";
-
+/////////////////////////////font awesmome
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,7 +8,7 @@ import HamburgerNavList from "@/components/navbar/HamburgerNavList";
 import { useMediaQuery } from "react-responsive";
 import { useRouter, usePathname } from "next/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars} from "@fortawesome/free-solid-svg-icons";
+ 
 const Navbar = () => {
   const router = useRouter();
   const [activeButton, setActiveButton] = useState("");

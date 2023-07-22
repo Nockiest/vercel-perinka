@@ -1,9 +1,6 @@
 import React from "react";
 import Image from "next/image";
-// import { FontAwesomeIcon } from '@fontawesome/react-fontawesome';
-// import { faInstagram, faEnvelope } from '@fontawesome/free-brands-svg-icons';
-// import { faPen } from '@fontawesome/free-solid-svg-icons';
-
+ 
 const Contact = ({ contactName, contactSvgUrl, contactLink }) => {
   const handleContactClick = () => {
     window.open(contactLink, '_blank');

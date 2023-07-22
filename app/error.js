@@ -22,7 +22,7 @@ export default function Error({
       >
         Try again
       </button>
-      <p>HELLO  Is someone there??</p>
+ 
     </div>
   )
 }

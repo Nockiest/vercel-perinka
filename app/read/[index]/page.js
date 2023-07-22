@@ -1,13 +1,5 @@
 "use client"
 import { useRouter, usePathname } from 'next/navigation'
- 
-// export default function Page() {
-//   const router = useRouter()
-//   const pathname = usePathname()
-//   console.log(pathname)
-//   return <p>Post: {pathname}</p>
-// }
-
 import { useState, useEffect } from "react";
  
 function Resume() {

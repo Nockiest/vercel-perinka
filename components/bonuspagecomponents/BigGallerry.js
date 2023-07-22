@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleLeft, faCircleRight } from "@fortawesome/free-solid-svg-icons";
+
 import Image from "next/image";
 import Slider from "../Slider";
 
@@ -37,12 +37,13 @@ const BigGallery = ({ pics, closeFullScreenGallery }) => {
       <div className="flex flex-col mw-auto space-x-4">
         <Slider number={currentSlide} setCurrentNumber={setCurrentSlide} maxNumber={pics.length - 1} />
       </div>
-      <div className="absolute top-0 left-0 m-8">
-        <FontAwesomeIcon
+      <div className="absolute top-0 left-0 m-8" onClick={closeFullScreenGallery}>
+        <Image height={32} width={32} src="circle-left-solid.svg" alt={"escape"} />
+        {/* <FontAwesomeIcon
           icon={faCircleLeft}
           className="text-secondary-color text-4xl cursor-pointer"
           onClick={closeFullScreenGallery}
-        />
+        /> */}
       </div>
     </div>
   );
