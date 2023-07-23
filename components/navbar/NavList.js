@@ -27,28 +27,35 @@ const NavList = ({ handleButtonClick, activeButton }) => {
 
   const handleCustomButtonClick = (buttonName) => {
     // Extract the current directory from the pathname (e.g., "/x")
-   
+    console.trace("hello", buttonName)
+   if(buttonName === "home" ){
+    router.push("/")
+   } else {
+    router.push(`/${buttonName}`)
+   }
     
    
     // Push the new URL to navigate to the desired route
     // router.push(router.pathname, undefined, { shallow: true, replace: true });
 
-    router.push(`/${buttonName}`);
+    
   };
 
   return (
     <div className="btn-row flex  m-4 ">
-      {navButtons.map((button) => (
+      {navButtons.map((button) => {
+       
+       return  (
         <button
           key={button.name}
           className={` nav-btn ${activeButton === button.name ? "btn-clicked" : ""}`}
-          onClick={() => handleCustomButtonClick(button.name)}
+          onClick={() => handleCustomButtonClick(  button.name )}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
           {button.label}
         </button>
-      ))}
+      )})}
     </div>
   );
 };

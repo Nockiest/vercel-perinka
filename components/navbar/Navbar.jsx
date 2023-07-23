@@ -15,13 +15,14 @@ const Navbar = () => {
   const pathname = usePathname()
   const isMobile = useMediaQuery({ maxWidth: 858 });
 
-  const handleButtonClick = (buttonName) => {
-   if(buttonName === "home"){
-    router.push("/")
-   } else {
-    router.push(buttonName)
-   }
-  };
+  const handleButtonClick =   (buttonName) => {
+  console.trace("hello")
+  //  if(buttonName === "home" ){
+  //   router.push("/")
+  //  } else {
+  //   router.push(buttonName)
+  //  }
+     };
   useEffect(() => {
     let newPathname =  pathname;
     if (newPathname?.startsWith("/")) {
