@@ -17,11 +17,11 @@ const Navbar = () => {
 
   const handleButtonClick =   (buttonName) => {
   console.trace("hello")
-  //  if(buttonName === "home" ){
-  //   router.push("/")
-  //  } else {
-  //   router.push(buttonName)
-  //  }
+   if(buttonName === "home" ){
+    router.push("/")
+   } else {
+    router.push(buttonName)
+   }
      };
   useEffect(() => {
     let newPathname =  pathname;

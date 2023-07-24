@@ -34,11 +34,7 @@ const NavList = ({ handleButtonClick, activeButton }) => {
     router.push(`/${buttonName}`)
    }
     
-   
-    // Push the new URL to navigate to the desired route
-    // router.push(router.pathname, undefined, { shallow: true, replace: true });
-
-    
+ 
   };
 
   return (
