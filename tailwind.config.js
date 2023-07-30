@@ -46,7 +46,13 @@ module.exports = {
         "text-color-40": "var(--text-color-40)",
         "text-color-20": "var(--text-color-20)",
 
-        "neutral": "#F5F5F5"
+        "neutral": "#F5F5F5",
+        "leden-color": "#ead6e5",
+        "leden-color-2": "#893a5d",
+        "březen-color": "#efffe0",
+        "březen-color-2": "#486d03",
+        "květen-color":"#fffaf5",
+        "květen-color-2":"#8a2717",
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

@@ -4,11 +4,31 @@ import ArchiveMagazinePreview from '@/components/ArchiveMagazinePreview'
 export const Archiv = () => {
   return (
     <div>
-        <Hero firstHeading={"STÁRÁ ČÍSLA"} secondHeading={"STÁRÁ ČÍSLA"}  d/>
-        <ArchiveMagazinePreview name={"Květen/Červen"}color="text-pink-400" border="border-pink-400" pdfSrc={"květen-červen.pdf"} />
-        <ArchiveMagazinePreview name={"Břetzen/Duben"}color="text-red-400" border="border-red-400" bgColor="bg-red-100" pdfSrc={"březen-duben.pdf"} />
-        <ArchiveMagazinePreview name={"Leden/Únor"}color="text-blue-400" border="border-blue-400" pdfSrc={"leden-únor.pdf"}/>
+      <Hero firstHeading={"STÁRÁ ČÍSLA"} secondHeading={"STÁRÁ ČÍSLA"} />
+      <div className="grid grid-cols-1 lg:grid-cols-2      ">
+        <ArchiveMagazinePreview
+          name={"Květen/Červen"}
+          color="text-leden-color-2"
+          border="border-leden-color-2"
+          bgColor="bg-leden-color"
+          pdfSrc={"květen-červen.pdf"}
+        />
+        <ArchiveMagazinePreview
+          name={"Březen/Duben"}
+          color="text-březen-color-2"
+          border="border-březen-color-2"
+          bgColor="bg-březen-color"
+          pdfSrc={"březen-duben.pdf"}
+        />
+        <ArchiveMagazinePreview
+          name={"Leden/Únor"}
+          color="text-květen-color-2"
+          border="border-květen-color-2"
+          bgColor="bg-květen-color"
+          pdfSrc={"leden-únor.pdf"}
+        />
+      </div>
     </div>
-  )
-}
+  );
+};
 export default Archiv
