@@ -12,24 +12,24 @@ const ArticleSummary = ({ reversed, pdfSrc }) => {
           <Image src="/books.jpg" alt="books" width={400} height={400} />
         </div>
       )}
-      <div
-        className={`p-8 m-auto border-primary-color border-b-4 md:border-b-0 md:w-1/2 md:m-2 ${
-          reversed ? "border-l-4" : "border-r-4"
-        }`}
-      >
-        <p className="m-2 ">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna.
-          Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis
-          tellus. Nullam quis imperdiet augue. Vestibulum auctor ornare leo, non suscipit magna interdum eu. Curabitur
-          pellentesque nibh nibh, at maximus ante fermentum sit amet. Pellentesque commodo lacus at sodales sodales.
-          Quisque sagittis orci ut diam condimentum, vel euismod erat placerat. In iaculis arcu eros, eget tempus orci
-          facilisis id. Praesent lorem orci, mattis non efficitur id, ultricies vel nibh. Sed volutpat lacus vitae
-          gravida viverra. Fusce vel tempor elit. Proin tempus, magna id scelerisque vestibulum, nulla ex pharetra
-          sapien, tempor posuere massa neque nec felis. Aliquam sem ipsum, vehicula ac tortor vel, egestas ullamcorper
-          dui. Curabitur at risus sodales, tristique est id, euismod justo. Mauris nec leo non libero sodales lobortis.
-          Quisque a neque pretium, dictum tellus vitae, euismod neque. Nulla facilisi.
-        </p>
-      </div>
+     <div className={`p-8 m-auto border-primary-color border-4 border-t-0 sm:border-b-0 md:w-1/2 md:m-2  
+          
+          ${reversed ? 'sm:border-r-0 md:border-l-4' : 'sm:border-l-0 md:border-r-4'}`}
+ >
+   <p className="m-2">
+     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna.
+     Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis
+     tellus. Nullam quis imperdiet augue. Vestibulum auctor ornare leo, non suscipit magna interdum eu. Curabitur
+     pellentesque nibh nibh, at maximus ante fermentum sit amet. Pellentesque commodo lacus at sodales sodales.
+     Quisque sagittis orci ut diam condimentum, vel euismod erat placerat. In iaculis arcu eros, eget tempus orci
+     facilisis id. Praesent lorem orci, mattis non efficitur id, ultricies vel nibh. Sed volutpat lacus vitae
+     gravida viverra. Fusce vel tempor elit. Proin tempus, magna id scelerisque vestibulum, nulla ex pharetra
+     sapien, tempor posuere massa neque nec felis. Aliquam sem ipsum, vehicula ac tortor vel, egestas ullamcorper
+     dui. Curabitur at risus sodales, tristique est id, euismod justo. Mauris nec leo non libero sodales lobortis.
+     Quisque a neque pretium, dictum tellus vitae, euismod neque. Nulla facilisi.
+   </p>
+ </div>
+ 
       {reversed && (
         <div className={` mx-auto flex flex-col  justify-center order-first  md:m-2 md:ml-automd:w-1/2    `}>
           <Image src="/books.jpg" alt="books" width={400} height={400} />
