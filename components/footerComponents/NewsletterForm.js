@@ -16,8 +16,8 @@ const NewsletterForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col flex-grow gap-4 min-w-10 w-64   mx-16">
-    <h3>Přihlaš se k odběru ať ti nic neuteče!</h3>
+    <form onSubmit={handleSubmit} className="flex flex-col flex-grow gap-4 min-w-10 w-64 sm:mx-16">
+    <h3 className='text-center'>Přihlaš se k odběru ať ti nic neuteče!</h3>
     <div className="flex flex-col">
       <label htmlFor="email">Email:</label>
       <input

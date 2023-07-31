@@ -62,7 +62,7 @@ const HamburgerNavList = () => {
           </Link>
         </li>
         <li className="nav__item">
-          <Link href="/aboutUs" className="nav__link font-bold">
+          <Link href="/" className="nav__link font-bold">
             Home
           </Link>
         </li>

@@ -16,13 +16,14 @@ const Navbar = () => {
   const isMobile = useMediaQuery({ maxWidth: 858 });
 
   const handleButtonClick =   (buttonName) => {
-  console.trace("hello")
+ 
    if(buttonName === "home" ){
     router.push("/")
    } else {
     router.push(buttonName)
    }
      };
+
   useEffect(() => {
     let newPathname =  pathname;
     if (newPathname?.startsWith("/")) {
@@ -48,7 +49,7 @@ const Navbar = () => {
       </div>
       {isMobile   ? (
         <>
-          <button className="nav-toggle" aria-label="toggle navigation" onClick={() => handleNavToggle}>
+          <button className="nav-toggle" aria-label="toggle navigation" >
             <span className={`hamburger`}></span>
           </button>
 

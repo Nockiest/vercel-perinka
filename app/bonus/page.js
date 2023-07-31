@@ -10,8 +10,8 @@ const Bonus = () => {
       { src: "/instagram.svg", alt: "Image X" },
       { src: "/logo copy.png", alt: "Image Y" },
       { src: "/logofull.png", alt: "Image Z" },
-      { src: "/logofull.png", alt: "Image Z" },
-      { src: "/logofull.png", alt: "Image Z" },
+      { src: "/instagram.svg", alt: "Image Z" },
+      { src: "/logo copy.png", alt: "Image Z" },
     ],
     [
       { src: "/books.jpg", alt: "Image X" },
