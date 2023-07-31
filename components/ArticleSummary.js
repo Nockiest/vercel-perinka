@@ -13,9 +13,9 @@ const ArticleSummary = ({ reversed, pdfSrc }) => {
         </div>
       )}
       <div
-        className={`p-8 m-auto border-primary-color border-b-4 md:border-b-0   md:w-1/2 md:m-2 md:${
-          reversed? "border-l-4" : "border-r-4"
-        }  `}
+        className={`p-8 m-auto border-primary-color border-b-4 md:border-b-0 md:w-1/2 md:m-2 ${
+          reversed ? "border-l-4" : "border-r-4"
+        }`}
       >
         <p className="m-2 ">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna.

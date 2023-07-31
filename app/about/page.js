@@ -17,10 +17,9 @@ const AboutUs = () => {
   return (
     <div>
     <Hero  firstHeading={" STUDENTSKÝ</br>ČASOPIS"} secondHeading={"O PEŘINCE"} />
-    <p className="p-4 text-left md:w-1/2 md:text-center mx-auto mt-3">sdjog  sdlgijsag lafdsal alsihjal gslighwli glis ligjli lisvia  
-      sald ishdl ia lijgdaslig jli wiv jwadli jadsvljlisdv walid vjasdl   sald ishdl ia lijgdaslig jli wiv jwadli jadsvljlisdv walid vjasdl
-      sald ishdl ia lijgdaslig jli wiv jwadli jadsvljlisdv walid vjasdl
-      sald ishdl ia lijgdaslig jli wiv jwadli jadsvljlisdv walid vjasdl
+    <p className="p-4 text-left md:w-1/2 md:text-center mx-auto mt-3"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque
+        sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis
+        imperdiet augue. Vestibulum auctor ornare leo, non suscipit magna interdum eu. Curabitur pellentesque nibh nibh.
     </p>
     <h1 className='text-center m-5'>REDAKCE</h1>
     <div className="bio-grid w-full grid bg-primary-color-20   p-16  ">
