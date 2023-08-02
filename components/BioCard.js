@@ -10,7 +10,7 @@ const BioCard = ({ title, index }) => {
       } w-72 border-solid border-black p-6`}
     >
       <div className="flex justify-center m-2">
-        <Image width={200} height={200} src="/books.jpg" alt="xyz" />
+        <Image width={200} height={200} src="/books.jpg" alt={title} />
       </div>
 
       <h3>{title}</h3>

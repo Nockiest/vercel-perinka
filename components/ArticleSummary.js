@@ -9,7 +9,7 @@ const ArticleSummary = ({ reversed, pdfSrc }) => {
         </div> */}
       {!reversed && (
         <div className={` mx-auto flex flex-col  justify-center order-first    md:w-1/2    md:order-last  `}>
-          <Image src="/books.jpg" alt="books" width={400} height={400} />
+          <Image src="/books.jpg" alt="náhledový obrázek" width={400} height={400} />
         </div>
       )}
      <div className={`p-8 m-auto border-primary-color border-4 border-t-0 sm:border-b-0 md:w-1/2 md:m-2  
@@ -28,7 +28,9 @@ const ArticleSummary = ({ reversed, pdfSrc }) => {
      dui. Curabitur at risus sodales, tristique est id, euismod justo. Mauris nec leo non libero sodales lobortis.
      Quisque a neque pretium, dictum tellus vitae, euismod neque. Nulla facilisi.
    </p>
+   <p className="  text-right"><span className="font-semibold">Napsal:</span>  Honza Novák 9.O.</p>
  </div>
+        
  
       {reversed && (
         <div className={` mx-auto flex flex-col  justify-center order-first  md:m-2 md:ml-automd:w-1/2    `}>

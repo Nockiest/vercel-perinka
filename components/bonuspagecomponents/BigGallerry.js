@@ -39,11 +39,7 @@ const BigGallery = ({ pics, closeFullScreenGallery }) => {
       </div>
       <div className="absolute top-0 left-0 m-8" onClick={closeFullScreenGallery}>
         <Image height={32} width={32} src="circle-left-solid.svg" alt={"escape"} />
-        {/* <FontAwesomeIcon
-          icon={faCircleLeft}
-          className="text-secondary-color text-4xl cursor-pointer"
-          onClick={closeFullScreenGallery}
-        /> */}
+         
       </div>
     </div>
   );

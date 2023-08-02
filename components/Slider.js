@@ -48,16 +48,8 @@ const Slider = ({ number, setCurrentNumber, maxNumber }) => {
         onClick={() => handleClick(-1)}
         style={{ transition: "opacity 0.3s" }}
       >
-        <Image src="chevron-left-solid.svg" alt="chevron left" height={28} width={28} />
-
-        {/* <FontAwesomeIcon
-          icon={faAngleLeft}
-          size="3x"
-          className={`transition-all cursor-pointer transform-gpu text-ternary-color-80 hover:scale-110 focus:scale-90 ${
-            number === 0 ? "invisible" : ""
-          }`}
-          style={{ opacity: hideLeftArrow ? 0 : 1 }}
-        /> */}
+        <Image src="chevron-left-solid.svg" alt="  left" height={28} width={28} />
+ 
       </div>
       <div className="space-x-1 flex">
         {[-2, -1, 0, 1, 2].map((move, index) => {
@@ -82,6 +74,7 @@ const Slider = ({ number, setCurrentNumber, maxNumber }) => {
                 src="circle-solid.svg"
                 height={Math.abs(move) === 0 ? 20 : Math.abs(move) === 1? 16 : 12}
                 width={Math.abs(move) === 0 ? 20 : Math.abs(move) === 1? 16 : 12}
+                alt={"slider dot"}
               />
             </div>
           );
@@ -97,15 +90,8 @@ const Slider = ({ number, setCurrentNumber, maxNumber }) => {
         onClick={() => handleClick(1)}
         style={{ transition: "opacity 0.3s" }}
       >
-        <Image src="chevron-right-solid.svg" alt="chevron left" height={28} width={28} />
-        {/* <FontAwesomeIcon
-          icon={faAngleRight}
-          size="3x"
-          className={`transition-all cursor-pointer transform-gpu text-ternary-color-80 hover:scale-110  click:scale-50 ${
-            number === maxNumber ? "invisible" : ""
-          }`}
-          style={{ opacity: hideRightArrow ? 0 : 1 }}
-        /> */}
+        <Image src="chevron-right-solid.svg" alt="right" height={28} width={28} />
+   
       </div>
     </div>
   );
