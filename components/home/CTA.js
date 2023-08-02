@@ -5,7 +5,7 @@ const CTA = () => {
   return (
     <div className="bg-primary-color-40 p-12 flex flex-col items-center justify-center">
       <div className="flex  flex-col-reverse md:flex-row space-x-4 items-center gap-4 mr-6 mb-2">
-        <div className="p-4">
+        <div className="p-4 mx-auto">
           <Image src={"/books.jpg"} alt="WE NEED YOU" width={300} height={150} />
         </div>
 

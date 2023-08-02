@@ -41,32 +41,32 @@ const HamburgerNavList = () => {
 
     return (
       <ul className="z-100 nav__list bg-black text-white">
-        <li className="nav__item">
-          <Link href="/about" className="nav__link font-bold">
-            O Peřince
-          </Link>
-        </li>
-        <li className="nav__item">
-          <Link href="/aktualni-cislo" className="nav__link font-bold">
-            Aktuální Číslo
-          </Link>
-        </li>
-        <li className="nav__item">
-          <Link href="/archiv" className="nav__link font-bold">
-            Archiv
-          </Link>
-        </li>
-        <li className="nav__item">
-          <Link href="/bonus" className="nav__link font-bold">
-            Bonusove Čtení
-          </Link>
-        </li>
-        <li className="nav__item">
-          <Link href="/" className="nav__link font-bold">
-            Home
-          </Link>
-        </li>
-      </ul>
+      <li className="nav__item">
+        <Link href="/" className="nav__link font-bold text-2xl md:text-base">
+          Home
+        </Link>
+      </li>
+      <li className="nav__item">
+        <Link href="/about" className="nav__link font-bold text-2xl md:text-base">
+          O Peřince
+        </Link>
+      </li>
+      <li className="nav__item">
+        <Link href="/aktualni-cislo" className="nav__link font-bold text-2xl md:text-base">
+          Aktuální Číslo
+        </Link>
+      </li>
+      <li className="nav__item">
+        <Link href="/archiv" className="nav__link font-bold text-2xl md:text-base">
+          Archiv
+        </Link>
+      </li>
+      <li className="nav__item">
+        <Link href="/bonus" className="nav__link font-bold text-2xl md:text-base">
+          Bonusove Čtení
+        </Link>
+      </li>
+    </ul>
     );
   };
   
