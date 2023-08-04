@@ -1,51 +1,128 @@
- "use client"
-import  { useState } from 'react';
+import { useState } from 'react';
+import { decode } from 'html-entities';
 
-const NewsletterForm = () => {
-  const [email, setEmail] = useState('');
-  const [name, setName] = useState('');
+// const NewsletterForm = ( { status, message, onValidated }) => {
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Perform form submission logic here
-    console.log('Email:', email);
-    console.log('Name:', name);
-    // Reset form fields
-    setEmail('');
-    setName('');
-  };
+//   const [ error, setError ] = useState(null);
+//   const [ email, setEmail ] = useState(null);
+
+//   /**
+//    * Handle form submit.
+//    *
+//    * @return {{value}|*|boolean|null}
+//    */
+//   const handleFormSubmit = () => {
+//     setError(null);
+  
+//     if (!email) {
+//       setError('Please enter a valid email address');
+//       return null;
+//     }
+  
+//     const isFormValidated = onValidated({ EMAIL: email });
+  
+//     // On success return true
+//     return email && email.indexOf('@') > -1 && isFormValidated;
+//   };
+  
+
+//   /**
+//    * Handle Input Key Event.
+//    *
+//    * @param event
+//    */
+//   const handleInputKeyEvent = (event) => {
+//     setError(null);
+//     // "Enter" is the "Enter" key on the keyboard
+//     if (event.key === 'Enter') {
+//       // Cancel the default action, if needed
+//       event.preventDefault();
+//       // Trigger the button element with a click
+//       handleFormSubmit();
+//     }
+//   };
+  
+//   /**
+//    * Extract message from string.
+//    *
+//    * @param {String} message
+//    * @return {null|*}
+//    */
+//   const getMessage = (message) => {
+//     if ( !message ) {
+//      return null;
+//     }
+//     const result = message?.split('-') ?? null;
+//     if ( "0" !== result?.[0]?.trim() ) {
+//      return decode(message);
+//     }
+//     const formattedMessage = result?.[1]?.trim() ?? null;
+//     return formattedMessage ? decode( formattedMessage ) : null;
+//   }
+
+//   return (
+//     <>
+//       <div className="d-flex newsletter-input-fields">
+//         <div className="mc-field-group">
+//           <input
+//             onChange={(event) => setEmail(event?.target?.value ?? '')}
+//             type="email"
+//             placeholder="Your email"
+//             className="mr-2"
+//             onKeyUp={(event) => handleInputKeyEvent(event)}
+//           />
+//         </div>
+//         <div className="button-wrap wp-block-button">
+//           <button className="wp-block-button__link" onClick={handleFormSubmit}>
+//             Submit
+//           </button>
+//         </div>
+//       </div>
+//       <div className="newsletter-form-info">
+//         {status === "sending" && <div>Sending...</div>}
+//         {status === "error" || error ? (
+//           <div
+//             className="newsletter-form-error"
+//             dangerouslySetInnerHTML={{ __html: error || getMessage( message ) }}
+//           />
+//         ) : null }
+//         {status === "success" && status !== "error" && !error && (
+//           <div dangerouslySetInnerHTML={{ __html: decode(message) }} />
+//         )}
+//       </div>
+//     </>
+//   );
+// }
+
+// export default NewsletterForm
+
+import React, { useEffect } from 'react';
+
+const EmailForm = () => {
+  useEffect(() => {
+    // Load Mailjet Embedded form script
+    const script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = 'https://app.mailjet.com/pas-nc-embedded-v1.js';
+    script.async = true;
+    document.body.appendChild(script);
+
+    // Clean up on unmount
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col flex-grow gap-4 min-w-10 w-64 sm:mx-16">
-    <h3 className='text-center'>Přihlaš se k odběru ať ti nic neuteče!</h3>
-    <div className="flex flex-col">
-      <label htmlFor="email">Email:</label>
-      <input
-        type="email"
-        id="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        required
-        className="border p-2"
-      />
-    </div>
-    <div className="flex flex-col">
-      <label htmlFor="name">Name:</label>
-      <input
-        type="text"
-        id="name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        required
-        className="border p-2"
-      />
-    </div>
-    <button type="submit" className="w-1/2 mx-auto  bg-secondary-color hover:opacity-80 transition-shadow duration-300 shadow-lg  text-white font-bold py-2 px-4 rounded ">
-      Submit
-    </button>
-  </form>
-  
+    <iframe
+    title="Mailjet Embedded Form"
+    src="https://096sz.mjt.lu/wgt/096sz/km0/form?c=43740b5b"
+    width="100%"
+    height="100"
+    style={{ border: 'none', overflow: 'hidden' }}
+  ></iframe>
   );
 };
 
-export default NewsletterForm;
+export default EmailForm;
+ 
