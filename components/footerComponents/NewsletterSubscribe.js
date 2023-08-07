@@ -1,219 +1,56 @@
  "use client"
  import   { useState } from 'react';
- import MailchimpSubscribe from 'react-mailchimp-subscribe';
-//  import NewsletterForm from './NewsletterSubscribe';
-import EmailForm from './NewsletterForm';
+  
 import { sendDataToFirebase } from '@/firebase';
 
+
+ 
 const NewsletterForm = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    // Add other form fields here as needed
-  });
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    // Call the function to send data to Firebase
-    sendDataToFirebase(formData)
-      .then(() => {
-        console.log('Data sent successfully to Firebase.');
-        // Optionally, you can reset the form after successful submission
-        setFormData({
-          name: '',
-          email: '',
-          // Reset other form fields here as needed
-        });
-      })
-      .catch((error) => {
-        console.error('Error sending data to Firebase:', error);
-      });
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formData = { name, email };
+    try {
+      await sendDataToFirebase(formData);
+      console.log('Data sent to Firebase successfully!');
+      // Do something after successful submission, e.g., display a success message or redirect the user.
+    } catch (error) {
+      console.error('Error sending data to Firebase:', error);
+      // Handle error, e.g., display an error message to the user.
+    }
   };
 
   return (
-        <form onSubmit={handleSubmit} className="flex flex-col flex-grow gap-4 min-w-10 w-64 sm:mx-16">
-    <h3 className='text-center'>Přihlaš se k odběru ať ti nic neuteče!</h3>
-    <div className="flex flex-col">
-       <label htmlFor="name">Jméno:</label>
-     <input
-      type="text"
-      id="name"
-      name="name"
-      className='p-1 border rounded'
-      value={formData.name}
-      onChange={handleChange}
-      required
-      />
-    </div>
-    <div className="flex flex-col">
-     <label htmlFor="email">E-mail:</label>
-       <input
-        type="email"
-        className='p-1 border rounded'
-        id="email"
-        name="email"
-        value={formData.email}
-        onChange={handleChange}
-        required
-      />
-    </div>
-    <button type="submit" className="w-1/2 mx-auto  bg-secondary-color hover:opacity-80 transition-shadow duration-300 shadow-lg  text-white font-bold py-2 px-4 rounded ">
-      Submit
-    </button>
-  </form>
-    // <form onSubmit={handleSubmit}>
-    //   <label htmlFor="name">Name:</label>
-    //   <input
-    //     type="text"
-    //     id="name"
-    //     name="name"
-    //     value={formData.name}
-    //     onChange={handleChange}
-    //     required
-    //   />
-
-    //   <label htmlFor="email">Email:</label>
-    //   <input
-    //     type="email"
-    //     id="email"
-    //     name="email"
-    //     value={formData.email}
-    //     onChange={handleChange}
-    //     required
-    //   />
-
-    //   {/* Add other form fields here as needed */}
-
-    //   <button type="submit">Submit</button>
-    // </form>
+    <form onSubmit={handleSubmit}>
+      <div>
+        <label htmlFor="name">Name:</label>
+        <input
+          type="text"
+          id="name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+      </div>
+      <div>
+        <label htmlFor="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+      </div>
+      <button type="submit">Submit</button>
+    </form>
   );
 };
 
- export default NewsletterForm
-// const NewsletterForm = () => {
-//   const handleSubmit = async (event) => {
-//     event.preventDefault();
-//     const form = event.target;
-//     const formData = new FormData(form);
-  
-//     try {
-//       const response = await fetch('/add', {
-//         method: 'POST',
-//         body: formData,
-//       });
-  
-//       if (response.ok) {
-//         const data = await response.json();
-//         // Do something with the response data if needed
-//         console.log('File added successfully:', data);
-//         // Reset the form after successful submission
-//         form.reset();
-//       } else {
-//         console.error('Failed to add file:', response.statusText);
-//       }
-//     } catch (error) {
-//       console.error('Error adding file:', error);
-//     }
-//   };
-  
-
-//   return (
- 
-//   <div className="file-form">
-//   <h2>Add New File</h2>
-//   <form
-//     className="add-form"
-//     onSubmit={handleSubmit}
-//     encType="multipart/form-data"
-//   >
-//     <label htmlFor="name">Name:</label>
-//     <input type="text" id="name" name="name" required />
-//     <label htmlFor="email">Email:</label>
-//     <input type="email" id="email" name="email" required />
-//     <input type="submit" value="Upload" />
-//   </form>
-// </div>
-
-//   );
-// };
-
-// export default NewsletterForm;
-
-  //   <form onSubmit={handleSubmit} className="flex flex-col flex-grow gap-4 min-w-10 w-64 sm:mx-16">
-  //   <h3 className='text-center'>Přihlaš se k odběru ať ti nic neuteče!</h3>
-  //   <div className="flex flex-col">
-  //     <label htmlFor="email">Email:</label>
-  //     <input
-  //       type="email"
-  //       id="email"
-  //       value={email}
-  //       onChange={(e) => setEmail(e.target.value)}
-  //       required
-  //       className="border p-2"
-  //     />
-  //   </div>
-  //   <div className="flex flex-col">
-  //     <label htmlFor="name">Name:</label>
-  //     <input
-  //       type="text"
-  //       id="name"
-  //       value={name}
-  //       onChange={(e) => setName(e.target.value)}
-  //       required
-  //       className="border p-2"
-  //     />
-  //   </div>
-  //   <button type="submit" className="w-1/2 mx-auto  bg-secondary-color hover:opacity-80 transition-shadow duration-300 shadow-lg  text-white font-bold py-2 px-4 rounded ">
-  //     Submit
-  //   </button>
-  // </form>
+export default NewsletterForm;
 
 
-
-
-
-
-
-
-
-
-
-//  const NewsletterSubscribe = () => {
-
-//   const MAILCHIMP_URL = process.env.NEXT_PUBLIC_MAILCHIMP_URL;
-
-//   return (
-   
-//     <EmailForm />
-//     // <MailchimpSubscribe
-//     //   url={ MAILCHIMP_URL }
-//     //   render={ ( props ) => {
-//     //     const { subscribe, status, message } = props || {};
-        
-//     //     return (
-    
-//     //       <NewsletterForm
-//     //         status={ status }
-//     //         message={ message }
-//     //         onValidated={ formData => subscribe( formData ) }
-//     //       />
-//     //     );
-//     //   } }
-//     // />
-//   );
-// };
-
-// export default NewsletterSubscribe;
- 
+//**** froma na poslání do firebase */
 //  const NewsletterForm = () => {
 //    const [email, setEmail] = useState('');
 //    const [name, setName] = useState('');
@@ -309,4 +146,186 @@ const NewsletterForm = () => {
 //  export default NewsletterForm;
  
  
+
+
+
+
+
+
+
+//  const NewsletterSubscribe = () => {
+//   const MAILCHIMP_URL = process.env.NEXT_PUBLIC_MAILCHIMP_URL;
+//   return ( 
+//     // <EmailForm />
+//     <MailchimpSubscribe
+//       url={ MAILCHIMP_URL }
+//       render={ ( props ) => {
+//         const { subscribe, status, message } = props || {};      
+//         return (    
+//           <NewsletterForm
+//             status={ status }
+//             message={ message }
+//             onValidated={ formData => subscribe( formData ) }
+//           />
+//         );
+//       } }
+//     />
+//   );
+// };
+
+// export default NewsletterSubscribe;
+ 
+
+//**forma na poslání do mailchimp */
+// const NewsletterForm = () => {
+//   const [formData, setFormData] = useState({
+//     name: '',
+//     email: '',
+//     // Add other form fields here as needed
+//   });
+
+//   const handleChange = (event) => {
+//     const { name, value } = event.target;
+//     setFormData((prevFormData) => ({
+//       ...prevFormData,
+//       [name]: value,
+//     }));
+//   };
+
+//   const handleSubmit = (event) => {
+//     event.preventDefault();
+
+//     // Call the function to send data to Firebase
+//     sendDataToFirebase(formData)
+//       .then(() => {
+//         console.log('Data sent successfully to Firebase.');
+//         // Optionally, you can reset the form after successful submission
+//         setFormData({
+//           name: '',
+//           email: '',
+//           // Reset other form fields here as needed
+//         });
+//       })
+//       .catch((error) => {
+//         console.error('Error sending data to Firebase:', error);
+//       });
+//   };
+
+//   return (
+//         <form onSubmit={handleSubmit} className="flex flex-col flex-grow gap-4 min-w-10 w-64 sm:mx-16">
+//     <h3 className='text-center'>Přihlaš se k odběru ať ti nic neuteče!</h3>
+//     <div className="flex flex-col">
+//        <label htmlFor="name">Jméno:</label>
+//      <input
+//       type="text"
+//       id="name"
+//       name="name"
+//       className='p-1 border rounded'
+//       value={formData.name}
+//       onChange={handleChange}
+//       required
+//       />
+//     </div>
+//     <div className="flex flex-col">
+//      <label htmlFor="email">E-mail:</label>
+//        <input
+//         type="email"
+//         className='p-1 border rounded'
+//         id="email"
+//         name="email"
+//         value={formData.email}
+//         onChange={handleChange}
+//         required
+//       />
+//     </div>
+//     <button type="submit" className="w-1/2 mx-auto  bg-secondary-color hover:opacity-80 transition-shadow duration-300 shadow-lg  text-white font-bold py-2 px-4 rounded ">
+//       Submit
+//     </button>
+//   </form>
+    
+//   );
+// };
+
+//  export default NewsletterForm
+
+// const NewsletterForm = () => {
+//   const handleSubmit = async (event) => {
+//     event.preventDefault();
+//     const form = event.target;
+//     const formData = new FormData(form);
+  
+//     try {
+//       const response = await fetch('/add', {
+//         method: 'POST',
+//         body: formData,
+//       });
+  
+//       if (response.ok) {
+//         const data = await response.json();
+//         // Do something with the response data if needed
+//         console.log('File added successfully:', data);
+//         // Reset the form after successful submission
+//         form.reset();
+//       } else {
+//         console.error('Failed to add file:', response.statusText);
+//       }
+//     } catch (error) {
+//       console.error('Error adding file:', error);
+//     }
+//   };
+  
+
+//   return (
+ 
+//   <div className="file-form">
+//   <h2>Add New File</h2>
+//   <form
+//     className="add-form"
+//     onSubmit={handleSubmit}
+//     encType="multipart/form-data"
+//   >
+//     <label htmlFor="name">Name:</label>
+//     <input type="text" id="name" name="name" required />
+//     <label htmlFor="email">Email:</label>
+//     <input type="email" id="email" name="email" required />
+//     <input type="submit" value="Upload" />
+//   </form>
+// </div>
+
+//   );
+// };
+
+// export default NewsletterForm;
+
+  //   <form onSubmit={handleSubmit} className="flex flex-col flex-grow gap-4 min-w-10 w-64 sm:mx-16">
+  //   <h3 className='text-center'>Přihlaš se k odběru ať ti nic neuteče!</h3>
+  //   <div className="flex flex-col">
+  //     <label htmlFor="email">Email:</label>
+  //     <input
+  //       type="email"
+  //       id="email"
+  //       value={email}
+  //       onChange={(e) => setEmail(e.target.value)}
+  //       required
+  //       className="border p-2"
+  //     />
+  //   </div>
+  //   <div className="flex flex-col">
+  //     <label htmlFor="name">Name:</label>
+  //     <input
+  //       type="text"
+  //       id="name"
+  //       value={name}
+  //       onChange={(e) => setName(e.target.value)}
+  //       required
+  //       className="border p-2"
+  //     />
+  //   </div>
+  //   <button type="submit" className="w-1/2 mx-auto  bg-secondary-color hover:opacity-80 transition-shadow duration-300 shadow-lg  text-white font-bold py-2 px-4 rounded ">
+  //     Submit
+  //   </button>
+  // </form>
+
+
+
 

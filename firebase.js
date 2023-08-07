@@ -1,16 +1,12 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app'
 import {
-  getFirestore, collection, onSnapshot,
-  addDoc, deleteDoc, doc, orderBy,
-  query, where, serverTimestamp,
-  getDoc, updateDoc
+  getFirestore, collection, 
+  addDoc,  
+  serverTimestamp,
+    updateDoc
 } from 'firebase/firestore'
-// import {
-//   getAuth, createUserWithEmailAndPassword,
-//   signInWithEmailAndPassword, signOut,
-//   onAuthStateChanged
-// } from 'firebase/auth'
+ 
  
 const firebaseConfig = {
   apiKey: "AIzaSyBNdwjfoG-he6dme2HgFQzDRz19p4TEh04",
@@ -24,13 +20,12 @@ const firebaseConfig = {
  
 const app = initializeApp(firebaseConfig);
 const db = getFirestore();
-// const auth = getAuth();//authentication
 const colRef = collection(db, 'users');
  
 
 // Function to save data to Firebase
 const sendDataToFirebase = async (formData) => {
-  console.log("hello", formData)
+  
    
   addDoc(colRef, {
 
@@ -38,11 +33,6 @@ const sendDataToFirebase = async (formData) => {
     email:formData.email,
     createdAt: serverTimestamp(),
   })
-  // Create the data object to be stored in the database
-  
-
-  // Save the data to the database under the 'formData' node with the generated key
-  // return database.ref(`formData/${newKey}`).set(data);
 };
 
 export {  sendDataToFirebase };
