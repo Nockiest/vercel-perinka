@@ -1,53 +1,53 @@
- "use client"
- import   { useState } from 'react';
+//  "use client"
+//  import   { useState } from 'react';
   
-import { sendDataToFirebase } from '@/firebase';
+// import { sendDataToFirebase } from '@/firebase';
 
 
  
-const NewsletterForm = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
+// const NewsletterForm = () => {
+//   const [name, setName] = useState('');
+//   const [email, setEmail] = useState('');
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const formData = { name, email };
-    try {
-      await sendDataToFirebase(formData);
-      console.log('Data sent to Firebase successfully!');
-      // Do something after successful submission, e.g., display a success message or redirect the user.
-    } catch (error) {
-      console.error('Error sending data to Firebase:', error);
-      // Handle error, e.g., display an error message to the user.
-    }
-  };
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+//     const formData = { name, email };
+//     try {
+//       await sendDataToFirebase(formData);
+//       console.log('Data sent to Firebase successfully!');
+//       // Do something after successful submission, e.g., display a success message or redirect the user.
+//     } catch (error) {
+//       console.error('Error sending data to Firebase:', error);
+//       // Handle error, e.g., display an error message to the user.
+//     }
+//   };
 
-  return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="name">Name:</label>
-        <input
-          type="text"
-          id="name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-      </div>
-      <div>
-        <label htmlFor="email">Email:</label>
-        <input
-          type="email"
-          id="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-      </div>
-      <button type="submit">Submit</button>
-    </form>
-  );
-};
+//   return (
+//     <form onSubmit={handleSubmit}>
+//       <div>
+//         <label htmlFor="name">Name:</label>
+//         <input
+//           type="text"
+//           id="name"
+//           value={name}
+//           onChange={(e) => setName(e.target.value)}
+//         />
+//       </div>
+//       <div>
+//         <label htmlFor="email">Email:</label>
+//         <input
+//           type="email"
+//           id="email"
+//           value={email}
+//           onChange={(e) => setEmail(e.target.value)}
+//         />
+//       </div>
+//       <button type="submit">Submit</button>
+//     </form>
+//   );
+// };
 
-export default NewsletterForm;
+// export default NewsletterForm;
 
 
 //**** froma na poslání do firebase */

@@ -12,7 +12,7 @@
  
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-
+import React from "react"
 function Resume() {
   const router = useRouter();
   const [selectedPdf, setSelectedPdf] = useState("/leden-únor.pdf");

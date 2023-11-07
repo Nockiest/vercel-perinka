@@ -4,9 +4,7 @@ import Image from "next/image";
 const ArticleSummary = ({ reversed, pdfSrc }) => {
   return (
     <div className={`  flex m-4 flex-col md:flex-row justify-center`}>
-      {/* <div className={`pw-auto flex flex-col justify-center  mt-32 mb-32 md:m-2 md:w-1/2 ${reversed ? 'order-first md:order-last' : ''}`}>
-          <Image src="/books.jpg" alt="books" width={400} height={400} />
-        </div> */}
+    
       {!reversed && (
         <div className={` mx-auto flex flex-col  justify-center order-first    md:w-1/2    md:order-last  `}>
           <Image src="/books.jpg" alt="náhledový obrázek" width={400} height={400} />

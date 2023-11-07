@@ -1,6 +1,6 @@
 "use client"
 import React from 'react'
-import Image from 'next/image'
+import Image from 'next/legacy/image'
 import Link from 'next/link';
  
 const Hero = ({ firstHeading, secondHeading, showReadButton }) => {
@@ -11,7 +11,6 @@ const Hero = ({ firstHeading, secondHeading, showReadButton }) => {
       </div>
       <div className="absolute top-1/5 right-0 w-150  left-1/16 md:right-1/2 pr-24 pt-8 pl-8 pb-6 flex flex-col items-start gap-2 bg-gradient-to-br from-primary-color to-white shadow-lg">
         <h1 className="p-0 text-white whitespace-normal leading-relaxed outlined-text">
-          {/* <span dangerouslySetInnerHTML={{ __html: firstHeading }} /> */}
           STUDENTSKÝ <br /> ČASOPIS
         </h1>
         {secondHeading !== '' && (

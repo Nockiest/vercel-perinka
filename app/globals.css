@@ -11,7 +11,7 @@
     --main-color: #9e8751;
     --main-bg-start: rgb(var(--background-start-rgb));
     --main-bg-end: rgb(var(--background-end-rgb));
-    --secondary-color: #55edb2; /* Replace with your secondary color value */
+    --secondary-color: #55edb2;  
     --ternary-color: #edb93e;
     --error-color: #f00;
     --text-color: #110e0e;
@@ -220,4 +220,4 @@ p {
       transform: rotate(90deg);
     }
   }
-}
+} 

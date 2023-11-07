@@ -1,6 +1,5 @@
 "use client";
 import React, { useState, useEffect } from "react";
- 
 import Image from "next/image";
 const Slider = ({ number, setCurrentNumber, maxNumber }) => {
   const [dotPositions, setDotPositions] = useState([]);
@@ -98,14 +97,3 @@ const Slider = ({ number, setCurrentNumber, maxNumber }) => {
 };
 
 export default Slider;
-
-// <FontAwesomeIcon
-//   key={move}
-//   icon={faCircle}
-//   size={Math.abs(move) === 0 ? "lg" : Math.abs(move) === 1 ? "sm" : "xs"}
-//   className={`cursor-pointer hover:scale-110  focus:scale-90 ${
-//     isVisible ? "text-primary-color-80" : "invisible"
-//   }`}
-//   style={dotStyle}
-//   onClick={() => handleClick(move)}
-// />

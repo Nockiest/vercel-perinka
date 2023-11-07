@@ -1,7 +1,7 @@
 "use client"
 import { useRouter, usePathname } from 'next/navigation'
 import { useState, useEffect } from "react";
- 
+import React from "react"
 function Resume() {
   const router = useRouter();
   const [selectedPdf, setSelectedPdf] = useState("/leden-únor.pdf");

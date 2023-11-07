@@ -1,5 +1,5 @@
-import React from "react";
-import Image from "next/image";
+
+import Image from "next/legacy/image";
  
 const Contact = ({ contactName, contactSvgUrl, contactLink }) => {
   const handleContactClick = () => {

@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import BigGallery from "@/components/bonuspagecomponents/BigGallerry";
 import BonusPost from "@/components/bonuspagecomponents/BonusPost";
 import Hero from "@/components/Hero";
