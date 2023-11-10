@@ -22,7 +22,8 @@ const BigGallery = ({ pics, closeFullScreenGallery }) => {
   };
 
   return (
-    <div className="flex flex-col fixed top-0 left-0 w-screen h-screen bg-black opacity-90 z-1000  items-center justify-center">
+    <div className="flex flex-col fixed top-0 left-0 w-screen h-screen bg-black opacity-90 z-10   items-center justify-center">
+        <button className="sticky top-0 left-0 m-4" onClick={closeFullScreenGallery}>JÍT ZPÁTKY</button>
       <div className="relative">
         {pics.map((image, index) => (
           <div key={index} style={{ display: index === currentSlide ? "block" : "none" }}>

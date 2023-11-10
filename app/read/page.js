@@ -15,11 +15,8 @@ import { useRouter } from "next/navigation";
 import React from "react"
 function Resume() {
   const router = useRouter();
-  const [selectedPdf, setSelectedPdf] = useState("/leden-únor.pdf");
-
-  // Sync the state with the URL when the component mounts
-   
-
+  const [selectedPdf, setSelectedPdf] = useState("/květen-červen.pdf");
+ 
   const handleChangePdf = (e) => {
     const selectedValue = e.target.value;
     setSelectedPdf(selectedValue);

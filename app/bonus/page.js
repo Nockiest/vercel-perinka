@@ -29,24 +29,30 @@ const Bonus = () => {
 
   return (
     <div className="bg-primary-color-20">
-      <Hero firstHeading={"BONUSOVÉ ČLÁNKY"} secondHeading={"BONUSOVÉ ČLÁNKY"} />
-      {allPictures.map((pictures, index) => (
-        <BonusPost
-          key={index}
-          reversed={index % 2 === 1}
-          pictures={pictures}
-          setShowFullScreenGallery={setShowFullScreenGallery}
-          setFullScreenGalleryIndex={setFullScreenGalleryIndex}
-          index={index}
-        />
-      ))}
-      {showFullScreenGallery && (
+     
+      {showFullScreenGallery? (
         <BigGallery
           pics={allPictures[fullScreenGalleryIndex]}
           closeFullScreenGallery={closeFullScreenGallery}
          
         />
-      )}
+      ): (
+         <> 
+        <Hero firstHeading={"BONUSOVÉ ČLÁNKY"} secondHeading={"BONUSOVÉ ČLÁNKY"} />
+        {allPictures.map((pictures, index) => (
+          <BonusPost
+            key={index}
+            reversed={index % 2 === 1}
+            pictures={pictures}
+            setShowFullScreenGallery={setShowFullScreenGallery}
+            setFullScreenGalleryIndex={setFullScreenGalleryIndex}
+            index={index}
+          />
+        ))}
+       </>
+      )
+      
+      }
     </div>
   );
 };
