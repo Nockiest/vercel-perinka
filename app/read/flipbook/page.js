@@ -4,7 +4,7 @@ import FlipBook from './flipBook'
 const page = () => {
   return (
     <div>
-        <FlipBook />
+        <FlipBook   />
     </div>
   )
 }

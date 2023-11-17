@@ -71,7 +71,16 @@ module.exports = {
        "1/8": "12%",
        "1/16": "6%",
        "500": 500,
-      }
+      },
+      width: {
+        '200': '200px', // You can change this value as needed
+        '300': '300px', // Another custom width
+      },
+      height: {
+        '350': '500px', // You can change this value as needed
+        '500': '500px', // Another custom height
+      },
+
     },
   },
   plugins: [],

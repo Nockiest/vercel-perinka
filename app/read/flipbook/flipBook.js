@@ -1,85 +1,120 @@
-'use client'
-import { useState } from 'react';
-import styles from '../../flipBookStyle.css'; // Import your CSS file if you have one
-import  Image  from 'next/image';
+"use client";
+// import { useState } from "react";
+// import styles from "../../flipBookStyle.css"; // Import your CSS file if you have one
+import Image from "next/image";
+// import Paper from "./Paper";
+import HTMLFlipBook from 'react-pageflip';
+import { useEffect, useRef } from 'react';
+
  
-const FlipBook = () => {
-  // References to DOM Elements
-  const [currentLocation, setCurrentLocation] = useState(1);
-  const numOfPapers = 3;
-  const maxLocation = numOfPapers + 1;
 
-  const goNextPage = () => {
-    console.log('click',currentLocation)
-    if (currentLocation < maxLocation) {
-      // Your existing goNextPage logic
-     
-      setCurrentLocation(currentLocation + 1);
-    }
-  };
-
-  const goPrevPage = () => {
-    console.log('click',currentLocation)
-    if (currentLocation > 1) {
-      // Your existing goPrevPage logic
-      setCurrentLocation(currentLocation - 1);
-    }
-  };
-
+function FlipBook(props) {
+  const bookHeight = 600
+  const bookWidth =  400
   return (
-    <div className='bookContainer'>
-      <button id="prev-btn" onClick={goPrevPage}  style={{ backgroundColor: 'green', color: 'black' }} >
-       <Image   src="chevron-left-solid.svg" alt="  left" height={28} width={28} />
-      </button>
-
-      <div id="book" className={styles.book}>
-      <div id="book" class="book">
-        <div id="p1" class="paper">
-          <div class="front">
-            <div id="f1" class="front-content">
-              <h1>Front 1</h1>
-            </div>
-          </div>
-          <div class="back">
-            <div id="b1" class="back-content">
-              <h1>Back 1</h1>
-            </div>
-          </div>
-        </div>
-
-        <div id="p2" class="paper">
-          <div class="front">
-            <div id="f2" class="front-content">
-              <h1>Front 2</h1>
-            </div>
-          </div>
-          <div class="back">
-            <div id="b2" class="back-content">
-              <h1>Back 2</h1>
-            </div>
-          </div>
-        </div>
-
-        <div id="p3" class="paper">
-          <div class="front">
-            <div id="f3" class="front-content">
-              <h1>Front 3</h1>
-            </div>
-          </div>
-          <div class="back">
-            <div id="b3" class="back-content">
-              <h1>Back 3</h1>
-            </div>
-          </div>
-        </div>
-      </div>
-      </div>
-
-      <button id="next-btn" onClick={goNextPage}>
-      <Image src="chevron-right-solid.svg" alt="  left" height={28} width={28} />
-      </button>
-    </div>
+      <HTMLFlipBook width={bookWidth} height={bookHeight}>
+        <Image src={"/březen-duben/březen-duben-page-00001.jpg"} alt='page-1' height={bookHeight} width={bookWidth/2} />
+        <Image src={"/březen-duben/březen-duben-page-00002.jpg"} alt='page-2' height={bookHeight} width={bookWidth/2} />
+        <Image src={"/březen-duben/březen-duben-page-00003.jpg"} alt='page-3' height={bookHeight} width={bookWidth/2} />
+        <Image src={"/březen-duben/březen-duben-page-00004.jpg"} alt='page-4' height={bookHeight} width={bookWidth/2} />
+        <Image src={"/březen-duben/březen-duben-page-00005.jpg"} alt='page-5' height={bookHeight} width={bookWidth/2} />
+      </HTMLFlipBook>
   );
-};
+}
+export default FlipBook
 
-export default FlipBook;
+// const FlipBook = () => {
+//   const [currentLocation, setCurrentLocation] = useState(1);
+//   const numOfPapers = 2;
+//   const maxLocation = numOfPapers + 1;
+
+//   const pageContents = [
+//     "Page one",
+//     "Page two",
+//     "Page three",
+//     // Add more pages as needed
+//   ];
+  
+
+//   const goNextPage = () => {
+//     if (currentLocation < maxLocation) {
+//       setCurrentLocation(currentLocation + 1);
+//     }
+//   };
+
+//   const goPrevPage = () => {
+//     if (currentLocation > 1) {
+//       setCurrentLocation(currentLocation - 1);
+//     }
+//   };
+
+//   return (
+//     <div className="bookContainer">
+//       <button
+//         id="prev-btn"
+//         onClick={goPrevPage}
+//         style={{ backgroundColor: "green", color: "black" }}
+//       >
+//         <Image src="chevron-left-solid.svg" alt="left" height={28} width={28} />
+//         {currentLocation}
+//       </button>
+
+//       <div id="book" className="h-500 w-300 flex flex-center m-0 p-0 relative">
+     
+//         {currentLocation}
+    
+//           <Paper
+//           frontPage={pageContents[0]}
+//           backPage={pageContents[1]}
+         
+//           />
+          
+    
+ 
+//       </div>
+
+//       <button id="next-btn" onClick={goNextPage}>
+//         <Image
+//           src="chevron-right-solid.svg"
+//           alt="right"
+//           height={28}
+//           width={28}
+//         />
+//       </button>
+//     </div>
+//   );
+// };
+
+// export default FlipBook;
+
+// export default function PdfViewerComponent(props) {
+// 	const containerRef = useRef(null);
+
+// 	useEffect(() => {
+// 		const container = containerRef.current;
+// 		let instance, PSPDFKit;
+// 		(async function () {
+// 			PSPDFKit = await import('pspdfkit');
+
+// 			PSPDFKit.unload(container); // Ensure that there's only one PSPDFKit instance.
+
+// 			instance = await PSPDFKit.load({
+// 				// Container where PSPDFKit should be mounted.
+// 				container,
+// 				// The document to open.
+// 				document: props.document,
+// 				// Use the public directory URL as a base URL. PSPDFKit will download its library assets from here.
+// 				baseUrl: `${window.location.protocol}//${window.location.host}/${process.env.PUBLIC_URL}`,
+// 			});
+// 		})();
+
+// 		return () => PSPDFKit && PSPDFKit.unload(container);
+// 	}, []);
+
+// 	return (
+// 		<div
+// 			ref={containerRef}
+// 			style={{ width: '100%', height: '100vh' }}
+// 		/>
+// 	);
+// }
