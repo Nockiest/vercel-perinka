@@ -34,7 +34,7 @@ const BonusPost = ({ reversed, pictures, setFullScreenGalleryIndex, setShowFullS
             lobortis. Quisque a neque pretium, dictum tellus vitae, euismod neque. Nulla facilisi.
           </p>
 
-          <div className="ml-auto w-64">
+          <div className="mx-auto  sm:mx-0 sm:ml-auto w-64">
             <h6 className="text-center m-0 mr-8 leading-tight">HONZA NOVÁK</h6>
             <br />
             <h6 className="text-center m-0 mr-8 leading-tight">9.O</h6>

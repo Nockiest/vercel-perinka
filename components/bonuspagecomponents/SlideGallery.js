@@ -23,11 +23,9 @@ const SlideGallery = ({ index, images, handleGalleryButtonClick }) => {
     <div className="m-auto flex flex-col md:flex-row lg:flex-col align-center space-y-2 md:space-y-0">
       <div>
         {images.map((image, index) => (
-          <div key={index} style={{ display: index === currentSlide ? "block" : "none" }}>
-            <div className=" mx-auto w-64 h-64">
-              <div className="pl-2 x-auto flex justify-center items-center w-full h-full mx-auto">
-                <Image src={image.src} alt={image.alt}  width={300} height={300}  className="mx-auto px-auto" />
-              </div>
+          <div key={index} style={{ display: index === currentSlide ? "block" : "none" }} className="mx-auto w-64 h-64">
+            <div className="pl-2 x-auto flex justify-center items-center w-full h-full mx-auto">
+             <Image src={image.src} alt={image.alt} width={300} height={300} className="mx-auto px-auto" />
             </div>
           </div>
         ))}
