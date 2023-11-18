@@ -4,24 +4,47 @@
 import Image from "next/image";
 // import Paper from "./Paper";
 import HTMLFlipBook from 'react-pageflip';
-import { useEffect, useRef } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
- 
 
-function FlipBook(props) {
-  const bookHeight =350
-  const bookWidth = 300
-  return (
-      <HTMLFlipBook width={bookWidth} height={bookHeight}>
-        <Image src={"/březen-duben/březen-duben-page-00001.jpg"} alt='page-1' height={bookHeight} width={bookWidth } />
-        <Image src={"/březen-duben/březen-duben-page-00002.jpg"} alt='page-2' height={bookHeight} width={bookWidth } />
-        <Image src={"/březen-duben/březen-duben-page-00003.jpg"} alt='page-3' height={bookHeight} width={bookWidth } />
-        <Image src={"/březen-duben/březen-duben-page-00004.jpg"} alt='page-4' height={bookHeight} width={bookWidth } />
-        <Image src={"/březen-duben/březen-duben-page-00005.jpg"} alt='page-5' height={bookHeight} width={bookWidth } />
-      </HTMLFlipBook>
-  );
+function FlipBook({ numberOfFiles, directory, bookHeight, bookWidth }) {
+  const [pages, setPages] = useState([])
+  
+  useEffect(() => {
+    console.log(numberOfFiles)
+    setPages([])
+    let newPages = []
+    for (let i = 1; i <= numberOfFiles; i++) {
+      const imagePath = `/${directory}/image-${i}.jpg`; // Assuming the images are in the "public" directory
+
+      newPages.push( // <div key={i} className="flipbook-page">
+      <Image src={imagePath} alt={`page-${i}`} height={bookHeight} width={bookWidth} /> // </div> */}
+      );
+      console.log(newPages);
+    }
+    setPages(newPages)
+   
+}, [numberOfFiles]);
+
+  return <HTMLFlipBook width={bookWidth} height={bookHeight}>{pages}</HTMLFlipBook>;
 }
-export default FlipBook
+
+export default FlipBook;
+
+// function FlipBook(props) {
+//   const bookHeight =350
+//   const bookWidth = 300
+//   return (
+//       <HTMLFlipBook width={bookWidth} height={bookHeight}>
+//         <Image src={"/březen-duben/březen-duben-page-00001.jpg"} alt='page-1' height={bookHeight} width={bookWidth } />
+//         <Image src={"/březen-duben/březen-duben-page-00002.jpg"} alt='page-2' height={bookHeight} width={bookWidth } />
+//         <Image src={"/březen-duben/březen-duben-page-00003.jpg"} alt='page-3' height={bookHeight} width={bookWidth } />
+//         <Image src={"/březen-duben/březen-duben-page-00004.jpg"} alt='page-4' height={bookHeight} width={bookWidth } />
+//         <Image src={"/březen-duben/březen-duben-page-00005.jpg"} alt='page-5' height={bookHeight} width={bookWidth } />
+//       </HTMLFlipBook>
+//   );
+// }
+// export default FlipBook
 
 // const FlipBook = () => {
 //   const [currentLocation, setCurrentLocation] = useState(1);

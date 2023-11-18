@@ -1,12 +1,12 @@
 import React from 'react'
 import FlipBook from './flipBook'
 
-const page = () => {
+const Page = () => {
   return (
     <div>
-        <FlipBook   />
+      <FlipBook numberOfFiles={12} directory="leden-unor-jpg" bookHeight={350} bookWidth={300} />
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default Page;
