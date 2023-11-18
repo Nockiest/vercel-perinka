@@ -32,3 +32,11 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+adding of documents
+extract all documents into single pages in jpg format
+rename them image-1 image-2 ... etc using bulkRenamer function
+put them into the public folder under in a directory
+add new flipbook to read/flipbook with necesarry props
+done

@@ -7,9 +7,10 @@ import HTMLFlipBook from 'react-pageflip';
 import { useEffect, useState, useRef } from 'react';
 
 
-function FlipBook({ numberOfFiles, directory, bookHeight, bookWidth }) {
+function FlipBook({ numberOfFiles, directory  }) {
   const [pages, setPages] = useState([])
-  
+  const bookHeight = 500
+  const bookWidth = 350
   useEffect(() => {
     console.log(numberOfFiles)
     setPages([])
