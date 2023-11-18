@@ -9,15 +9,15 @@ import { useEffect, useRef } from 'react';
  
 
 function FlipBook(props) {
-  const bookHeight = 600
-  const bookWidth =  400
+  const bookHeight =350
+  const bookWidth = 300
   return (
       <HTMLFlipBook width={bookWidth} height={bookHeight}>
-        <Image src={"/březen-duben/březen-duben-page-00001.jpg"} alt='page-1' height={bookHeight} width={bookWidth/2} />
-        <Image src={"/březen-duben/březen-duben-page-00002.jpg"} alt='page-2' height={bookHeight} width={bookWidth/2} />
-        <Image src={"/březen-duben/březen-duben-page-00003.jpg"} alt='page-3' height={bookHeight} width={bookWidth/2} />
-        <Image src={"/březen-duben/březen-duben-page-00004.jpg"} alt='page-4' height={bookHeight} width={bookWidth/2} />
-        <Image src={"/březen-duben/březen-duben-page-00005.jpg"} alt='page-5' height={bookHeight} width={bookWidth/2} />
+        <Image src={"/březen-duben/březen-duben-page-00001.jpg"} alt='page-1' height={bookHeight} width={bookWidth } />
+        <Image src={"/březen-duben/březen-duben-page-00002.jpg"} alt='page-2' height={bookHeight} width={bookWidth } />
+        <Image src={"/březen-duben/březen-duben-page-00003.jpg"} alt='page-3' height={bookHeight} width={bookWidth } />
+        <Image src={"/březen-duben/březen-duben-page-00004.jpg"} alt='page-4' height={bookHeight} width={bookWidth } />
+        <Image src={"/březen-duben/březen-duben-page-00005.jpg"} alt='page-5' height={bookHeight} width={bookWidth } />
       </HTMLFlipBook>
   );
 }
