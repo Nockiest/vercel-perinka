@@ -7,10 +7,12 @@ interface InfoPostProps {
       src: string;
       position: 'left' | 'right';
       alt: string;
+
     };
+    author?: string
   }
 
-  const InfoPost: React.FC<InfoPostProps> = ({ title, textContent, image }) => {
+  const InfoPost: React.FC<InfoPostProps> = ({ title, textContent, image, author }) => {
     const textContentStyle:React.CSSProperties= {
         width: '100%',
         display: 'block'  ,
@@ -21,6 +23,7 @@ interface InfoPostProps {
         <div className={`  md:${image ? 'md:w-1/2' : 'w-full'} p-2`}>
           {title && <h2 className="text-2xl font-bold mb-4">{title}</h2>}
           <p style={textContentStyle}className=" ">{textContent}</p>
+          <p>{author}</p>
         </div>
         {image && (
           <div className={`md:max-w-1/4 md:order-${image.position === 'left' ? 'first' : 'last'}`}>

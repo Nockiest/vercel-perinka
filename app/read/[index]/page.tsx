@@ -29,6 +29,8 @@ function Resume() {
 
   return (
     <div>
+      <button className='z-10 btn background-primary-100'  onClick={() => alert("hello")}>OHODNOTIT</button>
+      <br />
       <select value={selectedPdf} onChange={handleChangePdf}>
         <option value="/květen-červen.pdf">Květen/Červen 2023</option>
         <option value="/březen-duben.pdf">Březen/Duben 2023</option>
