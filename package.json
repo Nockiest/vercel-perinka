@@ -27,7 +27,8 @@
     "react-pageflip": "^2.0.3",
     "react-pdf": "^7.5.1",
     "react-responsive": "^9.0.2",
-    "tailwindcss": "3.3.3"
+    "tailwindcss": "3.3.3",
+    "uuidv4": "^6.2.13"
   },
   "devDependencies": {
     "@fontsource/inika": "^5.0.5",
