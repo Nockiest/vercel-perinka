@@ -47,8 +47,8 @@ const Slider = ({ number, setCurrentNumber, maxNumber }) => {
         onClick={() => handleClick(-1)}
         style={{ transition: "opacity 0.3s" }}
       >
-        <Image src="chevron-left-solid.svg" alt="  left" height={28} width={28} />
- 
+        <Image src="/svg/chevron-left-solid.svg" alt="  left" height={28} width={28} />
+
       </div>
       <div className="space-x-1 flex">
         {[-2, -1, 0, 1, 2].map((move, index) => {
@@ -70,7 +70,7 @@ const Slider = ({ number, setCurrentNumber, maxNumber }) => {
               onClick={() => handleClick(move)}
             >
               <Image
-                src="circle-solid.svg"
+                src="svg/circle-solid.svg"
                 height={Math.abs(move) === 0 ? 20 : Math.abs(move) === 1? 16 : 12}
                 width={Math.abs(move) === 0 ? 20 : Math.abs(move) === 1? 16 : 12}
                 alt={"slider dot"}
@@ -89,8 +89,8 @@ const Slider = ({ number, setCurrentNumber, maxNumber }) => {
         onClick={() => handleClick(1)}
         style={{ transition: "opacity 0.3s" }}
       >
-        <Image src="chevron-right-solid.svg" alt="right" height={28} width={28} />
-   
+        <Image src="svg/chevron-right-solid.svg" alt="right" height={28} width={28} />
+
       </div>
     </div>
   );

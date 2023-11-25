@@ -22,7 +22,7 @@ const BioCard = ({ title, index, imagePath }) => {
         condimentum, vel euismod erat placerat.
       </p>
       <div className="flex justify-center m-2">
-        <Image src="/chat-dots.svg" width={24} height={24} alt={"redakce"} />
+        <Image src="/svg/chat-dots.svg" width={24} height={24} alt={"redakce"} />
       </div>
     </div>
   );

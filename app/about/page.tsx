@@ -1,6 +1,6 @@
 import React from 'react';
-import BioCard from '../../components/BioCard';
-import Hero from '../../components/Hero';
+import BioCard from '../../components/about/BioCard';
+import Hero from '../../components/global/Hero';
 
 type BioCardType = {
   name: string

@@ -1,4 +1,4 @@
-// NavigationItem.js
+ 
 import Link from 'next/link';
 
 const NavigationItem = ({ href, label }) => (

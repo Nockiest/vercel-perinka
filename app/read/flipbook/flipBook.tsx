@@ -24,7 +24,7 @@ function FlipBook({ numberOfFiles, directory  }) {
       console.log(newPages);
     }
     setPages(newPages)
-   
+
 }, [numberOfFiles]);
 
   return <p>removed due to typescript</p>//<HTMLFlipBook width={bookWidth} height={bookHeight}>{pages}</HTMLFlipBook>;
@@ -58,7 +58,7 @@ export default FlipBook;
 //     "Page three",
 //     // Add more pages as needed
 //   ];
-  
+
 
 //   const goNextPage = () => {
 //     if (currentLocation < maxLocation) {
@@ -79,22 +79,22 @@ export default FlipBook;
 //         onClick={goPrevPage}
 //         style={{ backgroundColor: "green", color: "black" }}
 //       >
-//         <Image src="chevron-left-solid.svg" alt="left" height={28} width={28} />
+//         <Image src="/svg/chevron-left-solid.svg" alt="left" height={28} width={28} />
 //         {currentLocation}
 //       </button>
 
 //       <div id="book" className="h-500 w-300 flex flex-center m-0 p-0 relative">
-     
+
 //         {currentLocation}
-    
+
 //           <Paper
 //           frontPage={pageContents[0]}
 //           backPage={pageContents[1]}
-         
+
 //           />
-          
-    
- 
+
+
+
 //       </div>
 
 //       <button id="next-btn" onClick={goNextPage}>

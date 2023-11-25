@@ -1,7 +1,7 @@
 "use client"
 import BigGallery from "../../components/bonuspagecomponents/BigGallerry";
 import BonusPost from "../../components/bonuspagecomponents/BonusPost";
-import Hero from "../../components/Hero";
+import Hero from "../../components/global/Hero";
 import   { useState } from "react";
 
 type URLwithAlt = {
@@ -9,7 +9,7 @@ type URLwithAlt = {
  alt: string
 }
 type BonusPost = {
-   
+
   textContent: string
   imageContent: Array<URLwithAlt>
 }
@@ -19,22 +19,22 @@ const Bonus = () => {
     {
       textContent: "x",
       imageContent: [
-        { src: "/instagram.svg", alt: "Image X" },
-        { src: "/logo copy.png", alt: "Image Y" },
-        { src: "/logofull.png", alt: "Image Z" },
-        { src: "/instagram.svg", alt: "Image Z" },
-        { src: "/logo copy.png", alt: "Image Z" },
+        { src: "/svg/instagram.svg", alt: "Image X" },
+        { src: "/svg/logo copy.png", alt: "Image Y" },
+        { src: "/svg/logofull.png", alt: "Image Z" },
+        { src: "/svg/instagram.svg", alt: "Image Z" },
+        { src: "/svg/logo copy.png", alt: "Image Z" },
       ]
     },
     {
       textContent: "y",
       imageContent: [
-        { src: "/books.jpg", alt: "Image X" },
-        { src: "/logo copy.png", alt: "Image Y" },
-        { src: "/logofull.png", alt: "Image Z" },
+        { src: "/svg/books.jpg", alt: "Image X" },
+        { src: "/svg/logo copy.png", alt: "Image Y" },
+        { src: "/svg/logofull.png", alt: "Image Z" },
       ]
     }
-  ] 
+  ]
   const [showFullScreenGallery, setShowFullScreenGallery] = useState(false);
   const [fullScreenGalleryIndex, setFullScreenGalleryIndex] = useState(null);
 
@@ -45,15 +45,15 @@ const Bonus = () => {
 
   return (
     <div className="bg-primary-color-20">
-     
+
       {showFullScreenGallery? (
         <BigGallery
           pics={contents[fullScreenGalleryIndex].imageContent}
           closeFullScreenGallery={closeFullScreenGallery}
-         
+
         />
       ): (
-         <> 
+         <>
         <Hero firstHeading={"BONUSOVÉ ČLÁNKY"} secondHeading={"BONUSOVÉ ČLÁNKY"} />
         {contents.map((content, index) => (
           <BonusPost
@@ -68,10 +68,10 @@ const Bonus = () => {
         ))}
        </>
       )
-      
+
       }
     </div>
   );
 };
- 
+
 export default Bonus;

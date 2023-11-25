@@ -1,8 +1,8 @@
 import React, { useState } from "react";
- 
+
 
 import Image from "next/image";
-import Slider from "../Slider";
+import Slider from "../global/Slider";
 
 const BigGallery = ({ pics, closeFullScreenGallery }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -39,8 +39,8 @@ const BigGallery = ({ pics, closeFullScreenGallery }) => {
         <Slider number={currentSlide} setCurrentNumber={setCurrentSlide} maxNumber={pics.length - 1} />
       </div>
       <div className="absolute top-0 left-0 m-8" onClick={closeFullScreenGallery}>
-        <Image height={32} width={32} src="circle-left-solid.svg" alt={"escape"} />
-         
+        <Image height={32} width={32} src="/svg/circle-left-solid.svg" alt={"escape"} />
+
       </div>
     </div>
   );

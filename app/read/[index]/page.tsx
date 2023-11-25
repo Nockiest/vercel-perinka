@@ -36,7 +36,7 @@ function Resume() {
         <option value="/komiks.pdf">Komiks</option>
         {/* Add more options for other viewable PDFs */}
       </select>
-      <iframe className="w-full h-screen" src={selectedPdf} style={{ height: "100vh" }} />
+      <iframe className="w-full h-screen" src={`${selectedPdf}`} style={{ height: "100vh" }} />
     </div>
   );
 }

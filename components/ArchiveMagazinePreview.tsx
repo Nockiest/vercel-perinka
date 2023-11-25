@@ -7,8 +7,8 @@ const ArchiveMagazinePreview = ({ name, border, color, bgColor, pdfSrc }) => {
   const router = useRouter();
 
   const handleCistClick = () => {
-    const pdfSourceName = pdfSrc;
-    router.push(`/read/${pdfSourceName}`);
+
+    router.push(`/read/${pdfSrc}`);
   };
 
   return (

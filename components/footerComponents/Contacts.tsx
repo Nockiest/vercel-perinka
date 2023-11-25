@@ -8,15 +8,15 @@ const Contacts = () => {
     <div className="flex flex-col flex-grow justify-between items-center border-4 border-primary-color">
       <Contact
         contactName="Instagram"
-        contactSvgUrl="/instagram.svg"
+        contactSvgUrl="/svg/instagram.svg"
         contactLink="https://instagram.com/perinka_go?igshid=NTc4MTIwNjQ2YQ=="
       />
       <Contact
         contactName="G-mail"
-        contactSvgUrl="/e-mail.svg"
+        contactSvgUrl="/svg/e-mail.svg"
         contactLink="mailto:casopisgo@gopat.cz"
       />
-      <Contact contactName="Tellonym" contactSvgUrl="/telonym.svg" contactLink="https://tellonym.me/perinka_go" />
+      <Contact contactName="Tellonym" contactSvgUrl="/svg/telonym.svg" contactLink="https://tellonym.me/perinka_go" />
     </div>
   );
 };
