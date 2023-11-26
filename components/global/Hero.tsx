@@ -40,7 +40,7 @@ const Hero: FC<HeroProps> = ({ firstHeading, secondHeading, showReadButton = tru
         ))}
       </div>
       <div
-        className="absolute top-1/5 right-0 w-150 left-1/16 md:right-1/2 pr-24 py-4 pl-8 flex flex-col items-start gap-2 bg-gradient-to-br from-primary-color to-white shadow-lg"
+        className="absolute top-1/5 right-0 w-150 left-1/16 md:right-1/2 pr-24 py-4 pl-8 flex flex-col items-start gap-2 bg-gradient-to-br from-primary-color  via-primary-color  to-transparent shadow-lg"
         style={{ boxShadow: '0 2px 6px rgba(0, 0, 0, 0.1)', zIndex: 1 }}
       >
         <h1 className="  w-2/3   text-white whitespace-normal leading-relaxed outlined-text" >
