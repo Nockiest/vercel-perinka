@@ -5,7 +5,7 @@ import Contact from './Contact';
 
 const Contacts = () => {
   return (
-    <div className="flex flex-col md:flex-row justify-center items-center border-4 border-primary-color">
+    <div className="flex flex-col md:flex-row justify-center items-center border-4 border-primary-color w-full md:w-auto  p-2  mx-auto">
       <Contact
         contactName="Instagram"
         contactSvgUrl="/svg/instagram.svg"
