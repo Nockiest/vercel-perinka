@@ -11,12 +11,12 @@ const Section: React.FC<SectionProps> = ({ color, children, classNames, style })
 
 
     const sectionStyle: React.CSSProperties = {
-      padding: '2em 8em', // Add your desired padding
+      // padding: '2em 4em', // Add your desired padding
       ...style,
     };
 
     return (
-      <section className={classNames} style={sectionStyle}>
+      <section className={`p-2 md:p-4 ${classNames}`} style={sectionStyle}>
         {children}
       </section>
     );

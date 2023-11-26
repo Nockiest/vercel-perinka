@@ -3,12 +3,12 @@ import React, { useState } from "react";
 import Slider from "../global/Slider";
 import Image from "next/image";
 import { uuid } from "uuidv4";
-const SlideGallery = ({ index, images, handleGalleryButtonClick }) => {
+const SlideGallery = ({  images, handleGalleryButtonClick }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  const goToSlide = (index) => {
-    setCurrentSlide(index);
-  };
+  // const goToSlide = (index) => {
+  //   setCurrentSlide(index);
+  // };
 
   const goToNextSlide = () => {
     const nextSlide = (currentSlide + 1) % images.length;
@@ -53,7 +53,7 @@ const SlideGallery = ({ index, images, handleGalleryButtonClick }) => {
           </div>
         </div>
         <GalleryButtonRow
-          onGalleryButtonClick={() => handleGalleryButtonClick(index)}
+          onGalleryButtonClick={() => handleGalleryButtonClick( )}
         />
       </div>
     </div>

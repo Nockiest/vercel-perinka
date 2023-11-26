@@ -3,42 +3,42 @@
     --foreground-rgb: 0, 0, 0;
     --background-start-rgb: 214, 219, 220;
     --background-end-rgb: 255, 255, 255;
-    
+
     --primary-color: #9E8751;
     --primary-color-80: rgba(158, 135, 81, 0.8);
     --primary-color-60: rgba(158, 135, 81, 0.6);
     --primary-color-40: rgba(158, 135, 81, 0.4);
     --primary-color-20: rgba(158, 135, 81, 0.2);
-    
+
     --secondary-color: #55EDB2;
     --secondary-color-80: rgba(85, 237, 178, 0.8);
     --secondary-color-60: rgba(85, 237, 178, 0.6);
     --secondary-color-40: rgba(85, 237, 178, 0.4);
     --secondary-color-20: rgba(85, 237, 178, 0.2);
-    
+
     --ternary-color: #EDB93E;
     --ternary-color-80: rgba(237, 185, 62, 0.8);
     --ternary-color-60: rgba(237, 185, 62, 0.6);
     --ternary-color-40: rgba(237, 185, 62, 0.4);
     --ternary-color-20: rgba(237, 185, 62, 0.2);
-    
+
     --error-color: #F00;
     --error-color-80: rgba(255, 0, 0, 0.8);
     --error-color-60: rgba(255, 0, 0, 0.6);
     --error-color-40: rgba(255, 0, 0, 0.4);
     --error-color-20: rgba(255, 0, 0, 0.2);
-    
+
     --text-color: #110E0E;
     --text-color-80: rgba(17, 14, 14, 0.8);
     --text-color-60: rgba(17, 14, 14, 0.6);
     --text-color-40: rgba(17, 14, 14, 0.4);
     --text-color-20: rgba(17, 14, 14, 0.2);
-    
+
     /* Other Variables */
     --main-bg-start: rgb(var(--background-start-rgb));
     --main-bg-end: rgb(var(--background-end-rgb));
 
- 
+
     --h1-font-size: 36px ;
     --h1-mobile-font-size: 32px;
     --h1-font-weight: bold;
@@ -63,7 +63,7 @@
     --h6-mobile-font-size: 12px;
     --h6-font-weight: bold;
 
-    --body-font-size: 12px;
+    --body-font-size: 14px;
     --body-mobile-font-size: 11px;
     --body-font-weight: normal;
 
@@ -72,5 +72,5 @@
     --button-font-size: base;
     --button-mobile-font-size: sm;
     --button-font-weight: bold;
-    
+
   }

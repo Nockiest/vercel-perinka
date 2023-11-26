@@ -6,7 +6,7 @@ import NavigationCol from './NavigationCol'
 
 const Footer = () => {
   return (
-    <div className='flex flex-wrap space-y-4 w-full bg-ternary-color-60'>
+    <div className='flex flex-wrap space-y-4 w-full bg-ternary-color-60 overflow-x-hidden'>
 
 
         <Contacts />

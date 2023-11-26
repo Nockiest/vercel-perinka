@@ -70,7 +70,7 @@ const Slider = ({ number, setCurrentNumber, maxNumber }) => {
               onClick={() => handleClick(move)}
             >
               <Image
-                src="svg/circle-solid.svg"
+                src="/svg/circle-solid.svg"
                 height={Math.abs(move) === 0 ? 20 : Math.abs(move) === 1? 16 : 12}
                 width={Math.abs(move) === 0 ? 20 : Math.abs(move) === 1? 16 : 12}
                 alt={"slider dot"}
@@ -89,7 +89,7 @@ const Slider = ({ number, setCurrentNumber, maxNumber }) => {
         onClick={() => handleClick(1)}
         style={{ transition: "opacity 0.3s" }}
       >
-        <Image src="svg/chevron-right-solid.svg" alt="right" height={28} width={28} />
+        <Image src="/svg/chevron-right-solid.svg" alt="right" height={28} width={28} />
 
       </div>
     </div>
