@@ -31,35 +31,32 @@ const BonusPost: React.FC<{
   const isMediumScreenOrSmaller = useMediaQuery("(max-width: 1000px)");
 
   return (
-    <div className={`p-2 w-full items-center justify-center flex  flex-wrap mx-8  ${reversed ? 'md:flex-row-reverse' : 'md:flex-row'}   `}>
+    <div
+      className={`  w-full items-center justify-center flex  flex-wrap  px-8  ${
+        reversed ? "md:flex-row-reverse" : "md:flex-row"
+      }   `}
+    >
       <Article author={author} textContent={textContent} title={title} />
-      <SlideGallery images={pictures} handleGalleryButtonClick={handleGalleryButtonClick} />
+      <SlideGallery
+        images={pictures}
+        handleGalleryButtonClick={handleGalleryButtonClick}
+      />
     </div>
-
   );
-
 };
 
-
-const Article = ({title, textContent,author}) => {
+const Article = ({ title, textContent, author }) => {
   return (
-    <div className="items-center lg:w-2/3">
-        <h1 className="text-center md:text-left ml-2">{title}</h1>
-        <div
-          className="m-2      mt-8 p-8 border-r-4 border-primary-color"
-          style={{
-            border: "1px solid var(--main-main-100, #9E8751)",
-            background: "#FFF",
-          }}
-          dangerouslySetInnerHTML={{ __html: sanitizeHtml(textContent) }}
-        />
-        {/* <div className="mx-auto sm:mx-0 sm:ml-auto w-64"> */}
-          <h6 className="text-right m-0 mr-8 leading-tight">{author}</h6>
-        {/* </div> */}
-      </div>
+    <div className="items-center   lg:w-2/3">
+      <h1 className="text-center md:text-left ml-2">{title}</h1>
+      <div
+        className="m-2    mt-4 p-8  border-2   border-primary-color "
+        dangerouslySetInnerHTML={{ __html: sanitizeHtml(textContent) }}
+      />
 
-  )
-}
-
+      <h6 className="text-right  pr-8 leading-tight">{author}</h6>
+    </div>
+  );
+};
 
 export default BonusPost;

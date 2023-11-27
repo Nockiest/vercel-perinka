@@ -6,10 +6,6 @@ import { useRouter } from "next/navigation";
 
 
 const HamburgerNavList = () => {
-
- 
-  // Extract the second segment from the pathname
-  
   const handleNavToggle = () => {
     console.log("Nav-toggle")
     document.body.classList.toggle("nav-open");
@@ -18,7 +14,7 @@ const HamburgerNavList = () => {
     const navToggle = document.querySelector(".nav-toggle");
     const navLinks = document.querySelectorAll(".nav__link");
 
-    
+
     const handleNavLinkClick = () => {
       console.log("nav-open")
       document.body.classList.remove("nav-open");
@@ -40,7 +36,7 @@ const HamburgerNavList = () => {
   }, []);
 
     return (
-      <ul className="z-100 nav__list bg-black text-white">
+      <ul className="  nav__list bg-black text-white">
       <li className="nav__item">
         <Link href="/" className="nav__link font-bold text-2xl md:text-base">
           Home
@@ -69,5 +65,5 @@ const HamburgerNavList = () => {
     </ul>
     );
   };
-  
+
   export default HamburgerNavList;

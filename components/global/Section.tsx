@@ -11,7 +11,6 @@ const Section: React.FC<SectionProps> = ({ color, children, classNames, style })
 
 
     const sectionStyle: React.CSSProperties = {
-      // padding: '2em 4em', // Add your desired padding
       ...style,
     };
 

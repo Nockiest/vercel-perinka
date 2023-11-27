@@ -7,9 +7,9 @@ const BioCard = ({ title, index, imagePath }) => {
     <div
       className={`m-auto card ${
         index % 2 === 0 ? "bg-primary-color-60" : " gap-16 bg-white border-solid border-black"
-      } w-72 border-solid border-black p-6`}
+      } w-72 border-solid border-black p-6 `}
     >
-      <div className="flex justify-center m-2">
+      <div className="flex justify-center  ">
         <Image width={200} height={200} src={imagePath} alt={title} />
       </div>
 

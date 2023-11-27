@@ -3,7 +3,7 @@ import React from 'react'
 import NavigationItem from './NavigationItem';
 const NavigationCol = () => {
   return (
-    <div className="   flex flex-col   rounded-lg w-72   ">
+    <div className=" lg:absoulte lg:right-0  flex flex-col   rounded-lg w-72   ">
 
       <NavigationItem href="/read/komiks.pdf" label="Komiks" />
       <NavigationItem href="/about" label="Redakce" />
