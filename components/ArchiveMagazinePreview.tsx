@@ -2,12 +2,11 @@
 
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import React from "react"
+import React from "react";
 const ArchiveMagazinePreview = ({ name, border, color, bgColor, pdfSrc }) => {
   const router = useRouter();
 
   const handleCistClick = () => {
-
     router.push(`/read/${pdfSrc}`);
   };
 
@@ -16,7 +15,7 @@ const ArchiveMagazinePreview = ({ name, border, color, bgColor, pdfSrc }) => {
       className={`${bgColor} flex flex-col   border-solid ${border} border-4 p-4 grid grid-cols-2 gap-y-2 gap-x-4  m-2 `}
     >
       <div className="max-w-96 mx-auto mt-2 space-y-4 flex-1">
-      <h1 className={`whitespace-normal ${color}`}>{name}</h1>
+        <h1 className={`whitespace-normal ${color}`}>{name}</h1>
         <h3 className={`pt-4 ${color}`}>OBSAH</h3>
         <div className="flex flex-col sm:flex-row">
           <div className="  gap-y-2 gap-x-4 pl-4 text-base leading-8">
@@ -35,7 +34,7 @@ const ArchiveMagazinePreview = ({ name, border, color, bgColor, pdfSrc }) => {
           </div>
         </div>
       </div>
-      <div className="mt-6 sm:mt-0 max-w-96 h-96  mx-auto">
+      <div className="mt-6 sm:mt-0 max-w-96    mx-auto">
         <div className="pt-10 w-full   border-3 border-black">
           <Image
             height={256}
@@ -45,15 +44,16 @@ const ArchiveMagazinePreview = ({ name, border, color, bgColor, pdfSrc }) => {
             className="w-full h-full border border-black"
           />
         </div>
-        <div className="  flex flex-col   sm:flex-row px-auto mt-4  ">
-          <button onClick={handleCistClick} className="btn px-auto  bg-secondary-color">
+        <div className="flex justify-center">
+          <button
+            onClick={handleCistClick}
+            className="big-btn px-auto mx-auto bg-secondary-color"
+          >
             ČÍST
           </button>
-          <button className="btn bg-secondary-color  ">KOMIKS</button>
         </div>
-        <div   className="ml-auto w-full mt-4 text-right">
-          2022/2023
-        </div>
+
+        <div className="ml-auto w-full mt-4 text-right">2022/2023</div>
       </div>
     </div>
   );

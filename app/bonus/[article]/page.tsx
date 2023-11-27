@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { ChangeEvent, useEffect, useState } from "react";
 import BigGallery from "../../../components/bonuspagecomponents/BigGallerry";
 import BonusPost from "../../../components/bonuspagecomponents/BonusPost";
+import ShareBtn from "../../../components/buttons/ShareBtn";
 export type URLwithAlt = {
   src: string;
   alt: string;
@@ -18,7 +19,7 @@ type BonusPost = {
 const contents: Array<BonusPost> = [
   {
     reversed: false,
-    title: 'Letní filmy',
+    title: "Letní filmy",
     textContent: `
     <h3><strong>1. Jumanji: Dobrodružství v Hře</strong></h3>
     <p>Pokud máte rádi akční filmy, první díl Jumanji je pro vás ideální letní volbou. Martha, Bethany, Spencer a Fridge se ocitnou uvězněni ve hře Jumanji a musí plnit úkoly s omezeným počtem životů. I když mě film z počátku moc nezaujal, rozhodla jsem se mu dát šanci a nelitovala jsem. Několik scén mě opravdu velmi pobavilo.</p>
@@ -40,17 +41,17 @@ const contents: Array<BonusPost> = [
       { src: "/logo/logo copy.png", alt: "Image Z" },
       { src: "/randomPics/pic1.jpg", alt: "Image X" },
     ],
-    author: 'Valérie Swaczynová, 1.E'
+    author: "Valérie Swaczynová, 1.E",
   },
   {
     textContent: "y",
-    title: 'LIHIVY',
+    title: "LIHIVY",
     imageContent: [
       { src: "/randomPics/pic1.jpg", alt: "Image X" },
       { src: "/logo/logo copy.png", alt: "Image Y" },
       { src: "/logo/logofull.png", alt: "Image Z" },
     ],
-    author: 'Ester Zientková, 7.C'
+    author: "Ester Zientková, 7.C",
   },
 ];
 
@@ -89,12 +90,12 @@ function Article() {
         />
       ) : (
         <>
-          <button
-            className="z-10 btn background-primary-100"
-            onClick={() => alert("hello")}
-          >
-            OHODNOTIT
-          </button>
+          <div className="flex flex-row">
+            <ShareBtn />
+            <button className="btn-clicked">SDÍLET</button>
+          </div>
+
+
           <BonusPost
             title={selectedArticle.title}
             reversed={selectedArticle?.reversed || false}

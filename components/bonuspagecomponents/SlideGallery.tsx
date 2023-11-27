@@ -21,7 +21,7 @@ const SlideGallery = ({  images, handleGalleryButtonClick }) => {
   };
 
   return (
-    <div className="m-auto flex flex-col md:flex-row lg:flex-col align-center space-y-2 md:space-y-0">
+    <div className="m-auto select-none flex flex-col md:flex-row lg:flex-col align-center space-y-2 md:space-y-0">
       <div>
         {images.map((image, index) => (
           <div
@@ -66,7 +66,7 @@ const GalleryButtonRow = ({ onGalleryButtonClick }) => {
       <button className="btn-clicked" onClick={onGalleryButtonClick}>
         GALERIE
       </button>
-      <button className="btn-clicked">SDÍLET</button>
+      {/* <button className="btn-clicked">SDÍLET</button> */}
     </div>
   );
 };

@@ -51,7 +51,7 @@ const Hero: FC<HeroProps> = ({ firstHeading, secondHeading, showReadButton = tru
         {showReadButton && (
           <Link href="/read">
             <button
-              className="p-4 ml-0 absolute bottom-[-16] z-0 rounded bg-neutral text-text-color-80 items-center space-x-2"
+              className="p-4 ml-0 absolute bottom-[-16] z-0 rounded bg-neutral text-text-color-80 items-center space-x-2 border-none"
               style={{ boxShadow: '0 2px 6px rgba(0, 0, 0, 0.1)', zIndex: 1 }}
             >
               <span className="mr-2">ČÍST AKTUÁLNÍ ČÍSLO</span>

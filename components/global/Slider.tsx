@@ -40,14 +40,14 @@ const Slider = ({ number, setCurrentNumber, maxNumber }) => {
   return (
     <div className="flex items-center justify-center" style={{userSelect: "none" }}>
       <div
-        className={`hover:pointer ${hideLeftArrow ? "invisible" : ""}
+        className={`hover:pointer select-none ${hideLeftArrow ? "invisible" : ""}
         transition-all cursor-pointer transform-gpu text-ternary-color-80 hover:scale-110 focus:scale-90 ${
           number === 0 ? "invisible" : ""
         } opacity-${hideLeftArrow ? 0 : 1} `}
         onClick={() => handleClick(-1)}
         style={{ transition: "opacity 0.3s" }}
       >
-        <Image src="/svg/chevron-left-solid.svg" alt="  left" height={28} width={28} />
+        <Image className='select-none' src="/svg/chevron-left-solid.svg" alt="  left" height={28} width={28} />
 
       </div>
       <div className="space-x-1 flex">
@@ -74,6 +74,7 @@ const Slider = ({ number, setCurrentNumber, maxNumber }) => {
                 height={Math.abs(move) === 0 ? 20 : Math.abs(move) === 1? 16 : 12}
                 width={Math.abs(move) === 0 ? 20 : Math.abs(move) === 1? 16 : 12}
                 alt={"slider dot"}
+                className="select-none"
               />
             </div>
           );

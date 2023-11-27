@@ -2,6 +2,7 @@
 import { useRouter, usePathname } from 'next/navigation'
 import { useState, useEffect, ChangeEvent } from "react";
 import React from "react"
+import ShareBtn from '../../../components/buttons/ShareBtn';
 
 function Resume() {
   const router = useRouter();
@@ -29,7 +30,7 @@ function Resume() {
 
   return (
     <div>
-      <button className='z-10 btn background-primary-100'  onClick={() => alert("hello")}>OHODNOTIT</button>
+      <ShareBtn />
       <br />
       <select value={selectedPdf} onChange={handleChangePdf}>
         <option value="/květen-červen.pdf">Květen/Červen 2023</option>

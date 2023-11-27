@@ -42,7 +42,7 @@ const Navbar = () => {
       <div className="flex items-center gap-8 w-212 pr-0">
         <Link href="/">
           <Image
-            src="/logofull.png"
+            src="/logo/logofull.png"
             alt="peřinka logo"
             width={56}
             height={31}

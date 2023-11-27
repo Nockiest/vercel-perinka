@@ -21,25 +21,25 @@ module.exports = {
         "primary-color-60": "var(--primary-color-60)",
         "primary-color-40": "var(--primary-color-40)",
         "primary-color-20": "var(--primary-color-20)",
-        
+
         "secondary-color": "var(--secondary-color)",
         "secondary-color-80": "var(--secondary-color-80)",
         "secondary-color-60": "var(--secondary-color-60)",
         "secondary-color-40": "var(--secondary-color-40)",
         "secondary-color-20": "var(--secondary-color-20)",
-        
+
         "ternary-color": "var(--ternary-color)",
         "ternary-color-80": "var(--ternary-color-80)",
         "ternary-color-60": "var(--ternary-color-60)",
         "ternary-color-40": "var(--ternary-color-40)",
         "ternary-color-20": "var(--ternary-color-20)",
-        
+
         "error-color": "var(--error-color)",
         "error-color-80": "var(--error-color-80)",
         "error-color-60": "var(--error-color-60)",
         "error-color-40": "var(--error-color-40)",
         "error-color-20": "var(--error-color-20)",
-        
+
         "text-color": "var(--text-color)",
         "text-color-80": "var(--text-color-80)",
         "text-color-60": "var(--text-color-60)",
@@ -77,7 +77,7 @@ module.exports = {
         '300': '300px', // Another custom width
       },
       height: {
-        '350': '500px', // You can change this value as needed
+        '350': '350px', // You can change this value as needed
         '500': '500px', // Another custom height
       },
 

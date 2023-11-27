@@ -30,12 +30,13 @@ const BonusPost: React.FC<{
       )}
 
       <div
-        className="ml-8 mr-8 lg:w-1/2 mt-8 p-8 border-r-4 items-center border-primary-color"
-        style={{ border: "1px solid var(--main-main-100, #9E8751)", background: "#FFF" }}
+        className="    items-center  "
+
       >
         <h1 className="ml-2">{title}</h1>
         <div
-          className="m-2"
+          className="m-2  mr-8 lg:w-1/2 mt-8 p-8 border-r-4 border-primary-color"
+          style={{ border: "1px solid var(--main-main-100, #9E8751)", background: "#FFF" }}
           dangerouslySetInnerHTML={{ __html: sanitizeHtml(textContent) }}
 
         />

@@ -13,7 +13,7 @@ const BioCard = ({ title, index, imagePath }) => {
         <Image width={200} height={200} src={imagePath} alt={title} />
       </div>
 
-      <h3>{title} {imagePath} </h3>
+      <h3>{title}  </h3>
       <p className="h-32 ml-2   text-base  leading-8   overflow-hidden">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque
         sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis

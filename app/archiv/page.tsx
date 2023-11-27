@@ -27,6 +27,13 @@ export const Archiv = () => {
           bgColor="bg-květen-color"
           pdfSrc={"leden-únor.pdf"}
         />
+         <ArchiveMagazinePreview
+          name={"Komiks"}
+          color="text-květen-color-2"
+          border="border-květen-color-2"
+          bgColor="bg-květen-color"
+          pdfSrc={"komiks.pdf"}
+        />
       </div>
     </div>
   );
