@@ -77,6 +77,10 @@ p {
     /* text-shadow: -0.5px -0.5px 0 #000, 0.5px -0.5px 0 #000, -0.5px 0.5px 0 #000, 0.5px 0.5px 0 #000; */
   }
 
+  button:hover {
+    transform: scale(1.1); /* You can adjust the scale factor as needed */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Adjust the box-shadow as needed */
+  }
 
   .big-btn {
     min-width: 6rem;
