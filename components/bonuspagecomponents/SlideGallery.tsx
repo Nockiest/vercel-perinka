@@ -6,10 +6,6 @@ import { uuid } from "uuidv4";
 const SlideGallery = ({  images, handleGalleryButtonClick }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // const goToSlide = (index) => {
-  //   setCurrentSlide(index);
-  // };
-
   const goToNextSlide = () => {
     const nextSlide = (currentSlide + 1) % images.length;
     setCurrentSlide(nextSlide);
@@ -21,28 +17,28 @@ const SlideGallery = ({  images, handleGalleryButtonClick }) => {
   };
 
   return (
-    <div className="m-auto select-none flex flex-col md:flex-row lg:flex-col align-center space-y-2 md:space-y-0">
+    <div className="m-auto select-none flex flex-col justify-center align-center space-y-2 md:space-y-0">
       <div>
         {images.map((image, index) => (
           <div
             key={uuid()}
             style={{ display: index === currentSlide ? "block" : "none" }}
-            className="mx-auto w-64 h-64"
+            className="mx-auto flex justify-center items-center w-64 h-64"
           >
-            <div className="pl-2 x-auto flex justify-center items-center w-full h-full mx-auto">
-              <Image
-                src={image.src}
-                alt={image.alt}
-                width={300}
-                height={300}
-                className="mx-auto px-auto"
-              />
-            </div>
-          </div>
+          {/* <div className="  mx-auto flex justify-center items-center w-full h-full  "> */}
+            <Image
+              src={image.src}
+              alt={image.alt}
+              width={300}
+              height={300}
+              className="mx-auto px-auto"
+            />
+          {/* </div> */}
+        </div>
         ))}
       </div>
-      <div className="flex flex-col justify-center items-center mx-auto md:ml-4">
-        <div className="flex pt-2   flex-col md:items-center   mw-auto space-x-4">
+      <div className="flex flex-col justify-center items-center mx-auto ">
+        <div className="flex mt-5   flex-col md:items-center   mw-auto space-x-4">
           <Slider
             number={currentSlide}
             setCurrentNumber={setCurrentSlide}

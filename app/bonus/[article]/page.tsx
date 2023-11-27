@@ -44,7 +44,13 @@ const contents: Array<BonusPost> = [
     author: "Valérie Swaczynová, 1.E",
   },
   {
-    textContent: "y",
+    textContent: `Jedním (respektive dvěma) z výjezdů, které naše škola pořádá, jsou LiHiVy a ZeCheBi čili Literárně-historicko-výtvarný a Zeměpisno-chemicko-biologický výjezd. Zní to možná děsivě, ale já se vás pokusím přesvědčit, že tato septimová akce opravdu stojí za to.
+
+    Prvním úkolem je vybrat si, na který z výjezdů pojedete. Já osobně jsem si vybrala LiHiVy, protože preferuji návštěvy zámků, hradů a podobně před bádáním v přírodě. Lidé se ale často řídí nejen náplní kurzu, ale i tím, kdo z jejich přátel (případně z kantorů) pojede. To rozhodně není špatně a v žádném případě to není tak, že pokud maturujete z OSZ a dějepisu, nesmíte jet na ZeCheBi nebo naopak. Jak jsem nicméně zmínila, mou volbou byly LiHiVy, a proto bych ráda napsala něco o nich.
+
+    Kurz trval dohromady 5 dní, z toho jsme čtyři strávili na Kutnohorsku a jeden v Praze. Bylo nás asi 40 čili polovina ročníku a musím říct, že to je ideální počet. Dokázali jsme tak například každý den sestavit dva volejbalové týmy, ale na druhou stranu jsme se vešli k táboráku i do vlaku. Velkou část dne jsme navíc netrávili se všemi dalšími spolužáky, ale v malých skupinkách, ve kterých jsme se věnovali fotoprojektu od pana profesora Šacha. Naším úkolem bylo během pobytu pořídit 6-10 fotografií tiskové kvality, a to na konkrétní téma (na výběr bylo např. z cedulí či dopravních prostředků). Pokud jsme zrovna čas netrávili právě plněním tohoto úkolu nebo na dobrém obědě, procházeli jsme si např. Kostnici či zámek Zruč nad Sázavou.
+
+    LiHiVy se letos opravdu vydařily, o čemž doufám svědčí i mé přiložené fotografie (jejich autorem jsem já, popř. paní prof. Lukášová).`,
     title: "LIHIVY",
     imageContent: [
       { src: "/randomPics/pic1.jpg", alt: "Image X" },
@@ -52,6 +58,7 @@ const contents: Array<BonusPost> = [
       { src: "/logo/logofull.png", alt: "Image Z" },
     ],
     author: "Ester Zientková, 7.C",
+    reversed: true
   },
 ];
 
@@ -90,7 +97,7 @@ function Article() {
         />
       ) : (
         <>
-          <div className="flex flex-row">
+          <div className="flex flex-row  ">
             <ShareBtn />
             <button className="btn-clicked">SDÍLET</button>
           </div>
