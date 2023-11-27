@@ -84,7 +84,7 @@ div {
     height: 3rem;
     border-radius: 4px;
     border-color: #110e0e;
-
+    text-transform: uppercase;
     /* text-shadow: -0.5px -0.5px 0 #000, 0.5px -0.5px 0 #000, -0.5px 0.5px 0 #000, 0.5px 0.5px 0 #000; */
   }
 

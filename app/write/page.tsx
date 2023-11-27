@@ -24,6 +24,12 @@ const CreatePost: React.FC<CreatePostProps> = ({ isAuth }) => {
     console.log('creating post');
 
     try {
+      // Validate required fields
+      if (!title || !postText || !imageUpload) {
+        alert('Vyplň prosím všechna pole');
+        return;
+      }
+
       // Create the blog post document
       const docRef = await addDoc(fanArticleColRef, {
         title,
@@ -38,16 +44,15 @@ const CreatePost: React.FC<CreatePostProps> = ({ isAuth }) => {
       setAuthor('');
 
       // Show alert with post contents
-      const alertMessage = `Post Title: ${title}\nPost Text: ${postText}\n`;
-      alert(`Post sent!\n\n${alertMessage}`);
-      alert(`Image ID: ${postId} Post ID: ${docRef.id}`);
-
+      const alertMessage = `Titulek: ${title}\n Obsah: ${postText}\n`;
+      alert(`Článek úspěšně zaslán do databáze! S trochou štěstí se objeví v následujícím čísle :-)\n\n${alertMessage}`);
       // Redirect to the home page
       router.push('/');
     } catch (error) {
       console.error('Error creating post:', error);
     }
   };
+
 
   const uploadFile = (postId: string): void => {
     if (!imageUpload) return;
@@ -69,9 +74,9 @@ const CreatePost: React.FC<CreatePostProps> = ({ isAuth }) => {
   return (
     <div className="createPostPage">
       <div className="cpContainer">
-        <h1>Create A Post</h1>
+        <h1>Napsat Článek</h1>
         <div className="inputGp">
-          <label>Title:</label>
+          <label>Titulek:</label>
           <input
             placeholder="Title..."
             value={title}
@@ -79,7 +84,7 @@ const CreatePost: React.FC<CreatePostProps> = ({ isAuth }) => {
           />
         </div>
         <div className="inputGp">
-          <label>Post:</label>
+          <label>Obsah:</label>
           <textarea
             placeholder="Post..."
             value={postText}
@@ -88,13 +93,13 @@ const CreatePost: React.FC<CreatePostProps> = ({ isAuth }) => {
         </div>
 
         <div className="inputGp">
-          <label>Image URL:</label>
+          <label>Obrázek ke článku:</label>
           <input
             type="file"
             onChange={handleImageChange}
           />
         </div>
-        <button className='action-button' onClick={createPost}>Submit Post</button>
+        <button className='action-button' onClick={createPost}>Odeslat Článek</button>
 
       </div>
     </div>
