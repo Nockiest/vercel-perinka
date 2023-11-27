@@ -3,12 +3,13 @@ import React from "react";
 
 import Contacts from "./Contacts";
 import NavigationCol from "./NavigationCol";
+import Link from "next/link";
 
 const Footer = () => {
   return (
     <div className="flex relative flex-wrap space-y-4 w-full bg-ternary-color-60 overflow-x-hidden">
       <Contacts />
-      <div className="flex flex-row lg:flex-none lg:relative w-full items-end justify-center lg:justify-end">
+      <div className="flex flex-row lg:flex-none lg:relative w-full   justify-center lg:justify-end">
         <ButtonsRow />
         <NavigationCol />
       </div>
@@ -24,9 +25,11 @@ const ButtonsRow = () => {
       <button className="big-btn mx-auto px-auto bg-secondary-color-80 hover:bg-secondary-color">
         ODESLAT SVŮJ ČLÁNEK
       </button>
+      <Link href='/write'>
       <button className="big-btn mx-auto px-auto bg-secondary-color-80 hover:bg-secondary-color">
-        OHODNOTIT PEŘINKU
+         OHODNOTIT PEŘINKU
       </button>
+      </Link>
     </div>
 
   );

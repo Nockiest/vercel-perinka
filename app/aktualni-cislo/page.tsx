@@ -32,8 +32,7 @@ const NewNumber = () => {
          />
 
       </Section>
-      {/* <ArticleSummary reversed={false}/>
-      <ArticleSummary reversed={true} /> */}
+ 
     </div>
   )
 }

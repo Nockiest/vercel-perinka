@@ -3,7 +3,7 @@ import React from 'react'
 const ShareBtn = () => {
   return (
     <button
-    className="btn-clicked"
+    className="action-button"
     onClick={() => alert("hello")}
   >
     OHODNOTIT

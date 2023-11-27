@@ -59,7 +59,7 @@ const SlideGallery = ({  images, handleGalleryButtonClick }) => {
 const GalleryButtonRow = ({ onGalleryButtonClick }) => {
   return (
     <div className="flex justify-around md:mt-4  mw-auto ">
-      <button className="btn-clicked" onClick={onGalleryButtonClick}>
+      <button className="action-button" onClick={onGalleryButtonClick}>
         GALERIE
       </button>
       {/* <button className="btn-clicked">SDÍLET</button> */}

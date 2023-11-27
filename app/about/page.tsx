@@ -17,12 +17,13 @@ const AboutUs = () => {
     { title: 'Card 5' },
     { title: 'Card 6' },
     { title: 'Card 7' },
-    { title: 'Card 8' },
+
     { title: 'Card 8' },
     { title: 'Card 9' },
     { title: 'Card 10' },
     { title: 'Card 11' },
     { title: 'Card 12' },
+    { title: 'Card 13' },
   ];
 
   return (
@@ -35,9 +36,9 @@ const AboutUs = () => {
         {cards.map((card, index) => (
           <BioCard
             key={index}
-            title={index}
+            title={card.title}
             index={index}
-            imagePath={`/RedakcePics/img-${index+1}.jpg`}
+            imagePath={`/RedakPics/img-${index+1}.jpg`}
           />
         ))}
       </div>
