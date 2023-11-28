@@ -1,83 +1,29 @@
-import { CSSProperties } from "react";
+import React, { CSSProperties } from 'react';
 
 interface GoogleButtonProps {
-    onClick: () => void;
-  }
+  onClick: () => void;
+}
 
-  const GoogleButton: React.FC<GoogleButtonProps> = ({ onClick }) => {
-
-    const buttonHoverStyles = {
-      WebkitBoxShadow: '0 0 3px 3px rgba(66, 133, 244, .3)',
-      boxShadow: '0 0 3px 3px rgba(66, 133, 244, .3)',
-    };
-
-    const contentWrapperStyles:CSSProperties = {
-      height: '100%',
-      width: '100%',
-      border: '1px solid transparent',
-    };
-
-    const logoWrapperStyles:CSSProperties = {
-      padding: '15px',
-      background: '#fff',
-      width: '48px',
-      height: '100%',
-      borderRadius: '5px',
-      display: 'inline-block',
-    };
-
-    const textContainerStyles:CSSProperties = {
-      fontFamily: 'Roboto, arial, sans-serif',
-      fontWeight: '500',
-      letterSpacing: '.21px',
-      fontSize: '16px',
-      lineHeight: '48px',
-      verticalAlign: 'top',
-      border: 'none',
-    //   display: 'inline-block',
-      textAlign: 'center',
-      width: '180px',
-    };
-    const buttonStyles = {
-        //   position: 'relative',
-        //  top: '50%',
-          //left: '50%',
-          transform: 'translate(-50%, -50%)',
-          margin: '10px',
-          
-        //   display: 'inline-block',
-          width: '240px',
-          height: '50px',
-          backgroundColor: '#4285f4',
-          color: '#fff',
-          borderRadius: '5px',
-          boxShadow: '0 2px 4px 0 rgba(0, 0, 0, .25)',
-          transition: 'background-color .218s, border-color .218s, box-shadow .218s',
-          cursor: 'pointer', // Added cursor pointer
-        };
-
-    return (
-      <div
-        style={buttonStyles}
-        className="g-sign-in-button"
-        onMouseEnter={() => {
-          Object.assign(buttonStyles, buttonHoverStyles);
-        }}
-        onMouseLeave={() => {
-          Object.assign(buttonStyles, { ...buttonStyles, ...buttonHoverStyles });
-        }}
-        onClick={onClick}
-      >
-        <div style={contentWrapperStyles} className="content-wrapper">
-          <div style={logoWrapperStyles} className="logo-wrapper">
-            <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google Logo" />
-          </div>
-          <span style={textContainerStyles} className="text-container">
-            <span>Sign in with Google</span>
-          </span>
+const GoogleButton: React.FC<GoogleButtonProps> = ({ onClick }) => {
+  return (
+    <div
+      className="g-sign-in-button transition-transform transform hover:scale-105 cursor-pointer"
+      onClick={onClick}
+    >
+      <div className="content-wrapper flex items-center justify-center border border-transparent rounded-md">
+        <div className="logo-wrapper p-3 bg-white rounded-l-md">
+          <img
+            src="https://developers.google.com/identity/images/g-logo.png"
+            alt="Google Logo"
+            className="w-6 h-6"
+          />
         </div>
+        <span className="text-container flex-1 text-center p-2">
+          Sign in with Google
+        </span>
       </div>
-    );
-  };
+    </div>
+  );
+};
 
-  export default GoogleButton;
+export default GoogleButton;

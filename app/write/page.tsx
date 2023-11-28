@@ -1,98 +1,77 @@
 "use client";
-import { useState, ChangeEvent, FC } from 'react';
-import  Link  from 'next/link';
-import { v4 as uuidv4 } from 'uuid';
-import { serverTimestamp, addDoc } from 'firebase/firestore';
-import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { auth, fanArticleColRef, storage } from '../../firebase'; // Replace with your actual Firebase config
+import { useState, ChangeEvent, FC, useEffect } from "react";
+import Link from "next/link";
+import { v4 as uuidv4 } from "uuid";
+import { serverTimestamp, addDoc } from "firebase/firestore";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { auth, fanArticleColRef, storage } from "../../firebase"; // Replace with your actual Firebase config
 import { useRouter } from "next/navigation";
-import LoginButton from '../../components/global/LoginButton';
-import { signInWithEmailAndPassword } from '@firebase/auth';
+import LoginButton from "../../components/global/LoginButton";
+import { onAuthStateChanged, signInWithEmailAndPassword } from "@firebase/auth";
 
-type CreatePostProps = {
+
+interface CreatePostProps {
   isAuth: boolean;
 }
 
-const CreatePost:  FC<CreatePostProps> = ({ isAuth }) => {
-  const router = useRouter()
+const CreatePost: FC<CreatePostProps> = ({ isAuth }) => {
+  const router = useRouter();
   const [title, setTitle] = useState<string>("");
   const [postText, setPostText] = useState<string>("");
-  const [author, setAuthor] = useState<string>('');
   const [imageUpload, setImageUpload] = useState<File | null>(null);
+  const [user, setUser] = useState(auth.currentUser); // Initial user state based on current authentication status
+
+  useEffect(() => {
+    // Listen for changes in authentication status
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setUser(user);
+    });
+
+    // Clean up the subscription when the component unmounts
+    return () => unsubscribe();
+  }, []); // Empty dependency array to run the effect only once
 
   const createPost = async (): Promise<void> => {
-
-    if (!isAuth) {
-      console.log('User not authenticated. Redirecting to login page.');
-      router.push('/login');
+    if (!user) {
+      console.log("User not authenticated. Redirecting to login page.");
+      router.push("/login");
       return;
     }
 
     const postId = uuidv4();
     const timeStamp = serverTimestamp();
-    console.log('creating post');
 
     try {
-  //     // Validate required fields
+      // Validate required fields
       if (!title || !postText || !imageUpload) {
-        alert('Vyplň prosím všechna pole');
+        alert("Vyplň prosím všechna pole");
         return;
       }
 
-  //     // Create the blog post document
+      // Create the blog post document with user email
       const docRef = await addDoc(fanArticleColRef, {
         title,
         postText,
         postId,
         timeStamp,
+        userEmail: user.email, // Include the email of the authenticated user
       });
 
-      // uploadFile(postId);
-      setTitle('');
-      setPostText('');
-      setAuthor('');
+      setTitle("");
+      setPostText("");
+      // setAuthor("");
 
       // Show alert with post contents
       const alertMessage = `Titulek: ${title}\n Obsah: ${postText}\n`;
-      alert(`Článek úspěšně zaslán do databáze! S trochou štěstí se objeví v následujícím čísle :-)\n\n${alertMessage}`);
+      alert(
+        `Článek úspěšně zaslán do databáze! S trochou štěstí se objeví v následujícím čísle :-)\n\n${alertMessage}`
+      );
+
       // Redirect to the home page
-      router.push('/');
+      router.push("/");
     } catch (error) {
-      console.error('Error creating post:', error);
+      console.error("Error creating post:", error);
     }
-  };
-
-  const signInWithEmail = async () => {
-    try {
-      // You may want to show a form to the user to enter their email and password
-      const email = prompt('Enter your email:');
-      const password = prompt('Enter your password:');
-
-      if (!email || !password) {
-        // User canceled or did not provide email/password
-        return;
-      }
-
-      // Implement your email sign-in logic using Firebase Authentication
-      //++await  signInWithEmailAndPassword(auth, email, password);
-
-      // After successful sign-in, you may want to set a flag or fetch the user's authentication status
-      // to update the UI accordingly.
-      console.log('Successfully signed in with email!');
-    } catch (error) {
-      console.error('Error signing in with email:', error.message);
-    }
-  };
-
-  const uploadFile = (postId: string): void => {
-    if (!imageUpload) return;
-    const imageRef = ref(storage, `images/${postId}`);
-
-    uploadBytes(imageRef, imageUpload).then((snapshot) => {
-      getDownloadURL(snapshot.ref).then((url) => {
-        console.log(url);
-      });
-    });
   };
 
   const handleImageChange = (event: ChangeEvent<HTMLInputElement>): void => {
@@ -102,47 +81,51 @@ const CreatePost:  FC<CreatePostProps> = ({ isAuth }) => {
   };
 
   return (
-
-    <div className="createPostPage">
-      <div className='mt-2'>
-      <LoginButton />
-      </div>
-
-      {/* <button onClick={signInWithEmail}>Sign In with Email</button> */}
-      <div className="cpContainer">
-        <h1>Napsat Článek</h1>
-        <div className="inputGp">
-          <label>Titulek:</label>
+    <div className="createPostPage flex flex-col items-center h-screen bg-gray-100">
+      <div className="mt-16 cpContainer p-8 bg-white rounded-md shadow-md w-1/2">
+        <h1 className="text-3xl mb-4">Napsat Článek</h1>
+        <div className="inputGp mb-4">
+          <label className="block text-gray-700">Titulek:</label>
           <input
-            placeholder="Title..."
+            type="text"
+            placeholder="Nadpis..."
             value={title}
             onChange={(event) => setTitle(event.target.value)}
+            className="w-full border border-gray-300 p-2 rounded-md"
+            maxLength={100}
           />
         </div>
-        <div className="inputGp">
-          <label>Obsah:</label>
+        <div className="inputGp mb-4">
+          <label className="block text-gray-700">Obsah:</label>
           <textarea
-            placeholder="Post..."
+            placeholder="Obsah článku..."
             value={postText}
             onChange={(event) => setPostText(event.target.value)}
+            className="w-full border border-gray-300 p-2 rounded-md"
+            maxLength={4000}
+            rows={6}
           />
         </div>
 
-        <div className="inputGp">
-          <label>Obrázek ke článku:</label>
+        <div className="inputGp mb-4">
+          <label className="block text-gray-700">Obrázek ke článku:</label>
           <input
             type="file"
-            // onChange={handleImageChange}
+            onChange={handleImageChange}
+            className="w-full border border-gray-300 p-2 rounded-md"
           />
         </div>
-        <button className='action-button' onClick={createPost}>Odeslat Článek</button>
-
-      LoginButton</div>
+        {user ? (
+          <button className="action-button" onClick={createPost}>
+            Odeslat Článek
+          </button>
+        ) : (
+          <LoginButton />
+        )}
+      </div>
     </div>
-    )
-
-}
-
+  );
+};
 
 export default CreatePost;
 

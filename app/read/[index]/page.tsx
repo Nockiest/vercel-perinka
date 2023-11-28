@@ -30,7 +30,7 @@ function Resume() {
 
   return (
     <div>
-      <ShareBtn />
+      <ShareBtn link={''} />
       <br />
       <select value={selectedPdf} onChange={handleChangePdf}>
         <option value="/květen-červen.pdf">Květen/Červen 2023</option>

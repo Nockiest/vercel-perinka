@@ -22,9 +22,9 @@ export type FanArticleValues = {
   id: string
 }
 
-const app = initializeApp(firebaseConfig);
-const db = getFirestore();
-const colRef = collection(db, 'users');
+export const app = initializeApp(firebaseConfig);
+export const db = getFirestore();
+export const colRef = collection(db, 'users');
 export const fanArticleColRef = collection(db, 'fanArticles');
 export const auth = getAuth(app);
 export const provider = new GoogleAuthProvider();
@@ -77,7 +77,7 @@ auth.onAuthStateChanged((user) => {
 
 
 // Function to save data to Firebase
-const sendDataToFirebase = async (formData) => {
+export const sendDataToFirebase = async (formData) => {
 
 
   addDoc(colRef, {
@@ -87,5 +87,3 @@ const sendDataToFirebase = async (formData) => {
     createdAt: serverTimestamp(),
   })
 };
-
-export {  sendDataToFirebase,app,db, colRef };
