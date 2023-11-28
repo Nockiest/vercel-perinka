@@ -13,22 +13,22 @@ const PostHeader = ({ changeViewedArticle, title }) => {
         <div className="flex flex-row absolute left-1/2 transform -translate-x-1/2 items-center">
           {Number(currentNumber) > 0&& <Image
             onClick={() => changeViewedArticle(Number(currentNumber) - 1)}
-            className="select-none cursor-pointer"
+            className="select-none cursor-pointer mr-4"
             src="/svg/chevron-left-solid.svg"
             alt="Left"
-            height={28}
-            width={28}
+            height={14}
+            width={14}
           />}
 
           <h1 className="w-full text-center md:text-left">{title}</h1>
 
           <Image
             onClick={() => changeViewedArticle(Number(currentNumber) + 1)}
-            className="select-none cursor-pointer"
+            className="select-none cursor-pointer ml-4"
             src="/svg/chevron-right-solid.svg"
             alt="Right"
-            height={28}
-            width={28}
+            height={14}
+            width={14}
           />
         </div>
         <ShareBtn link={""} />
