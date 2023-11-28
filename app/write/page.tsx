@@ -1,5 +1,5 @@
 "use client";
-import { useState, ChangeEvent } from 'react';
+import { useState, ChangeEvent, FC } from 'react';
 import  Link  from 'next/link';
 import { v4 as uuidv4 } from 'uuid';
 import { serverTimestamp, addDoc } from 'firebase/firestore';
@@ -9,11 +9,11 @@ import { useRouter } from "next/navigation";
 import LoginButton from '../../components/global/LoginButton';
 import { signInWithEmailAndPassword } from '@firebase/auth';
 
-interface CreatePostProps {
+type CreatePostProps = {
   isAuth: boolean;
 }
 
-const CreatePost: React.FC<CreatePostProps> = ({ isAuth }) => {
+const CreatePost:  FC<CreatePostProps> = ({ isAuth }) => {
   const router = useRouter()
   const [title, setTitle] = useState<string>("");
   const [postText, setPostText] = useState<string>("");
@@ -21,11 +21,10 @@ const CreatePost: React.FC<CreatePostProps> = ({ isAuth }) => {
   const [imageUpload, setImageUpload] = useState<File | null>(null);
 
   const createPost = async (): Promise<void> => {
-    // Check if the user is authenticated
+
     if (!isAuth) {
-      // You can redirect to the login page or show a message here
       console.log('User not authenticated. Redirecting to login page.');
-      router.push('/login'); // Replace with your login page
+      router.push('/login');
       return;
     }
 
@@ -34,13 +33,13 @@ const CreatePost: React.FC<CreatePostProps> = ({ isAuth }) => {
     console.log('creating post');
 
     try {
-      // Validate required fields
+  //     // Validate required fields
       if (!title || !postText || !imageUpload) {
         alert('Vyplň prosím všechna pole');
         return;
       }
 
-      // Create the blog post document
+  //     // Create the blog post document
       const docRef = await addDoc(fanArticleColRef, {
         title,
         postText,
@@ -48,7 +47,7 @@ const CreatePost: React.FC<CreatePostProps> = ({ isAuth }) => {
         timeStamp,
       });
 
-      uploadFile(postId);
+      // uploadFile(postId);
       setTitle('');
       setPostText('');
       setAuthor('');
@@ -103,6 +102,7 @@ const CreatePost: React.FC<CreatePostProps> = ({ isAuth }) => {
   };
 
   return (
+
     <div className="createPostPage">
       <div className='mt-2'>
       <LoginButton />
@@ -132,14 +132,15 @@ const CreatePost: React.FC<CreatePostProps> = ({ isAuth }) => {
           <label>Obrázek ke článku:</label>
           <input
             type="file"
-            onChange={handleImageChange}
+            // onChange={handleImageChange}
           />
         </div>
         <button className='action-button' onClick={createPost}>Odeslat Článek</button>
 
       LoginButton</div>
     </div>
-  );
+    )
+
 }
 
 

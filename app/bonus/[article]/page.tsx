@@ -96,7 +96,7 @@ function Article() {
           closeFullScreenGallery={closeFullScreenGallery}
         />
       ) : (
-        <>
+       
 
 
 
@@ -108,7 +108,7 @@ function Article() {
             textContent={selectedArticle.textContent}
             author={selectedArticle.author}
           />
-        </>
+
       )}
     </div>
   );

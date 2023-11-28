@@ -4,7 +4,8 @@ import { useMediaQuery } from "@react-hook/media-query";
 import { URLwithAlt } from "../../app/bonus/[article]/page";
 import DOMPurify from "dompurify";
 import ShareBtn from "../buttons/ShareBtn";
-import {usePathname, useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import Image from "next/image";
 
 const sanitizeHtml = (htmlString) => {
   return DOMPurify.sanitize(htmlString);
@@ -26,7 +27,7 @@ const BonusPost: React.FC<{
   author,
 }) => {
   const router = useRouter();
-  const pathname = usePathname()
+  const pathname = usePathname();
   const handleGalleryButtonClick = () => {
     setShowFullScreenGallery(true);
     console.log("hello");
@@ -37,11 +38,9 @@ const BonusPost: React.FC<{
     const lastSegment = segments[segments.length - 1];
     console.log(lastSegment);
     if (lastSegment && typeof Number(lastSegment) === "number") {
-      router.push(`/bonus/${Number(lastSegment) -1}`);
+      router.push(`/bonus/${Number(lastSegment) - 1}`);
     }
     // Assuming your current URL is something like '/bonus/x'
-
-
   };
 
   const handleNextButtonClick = () => {
@@ -51,7 +50,6 @@ const BonusPost: React.FC<{
     if (lastSegment && typeof Number(lastSegment) === "number") {
       router.push(`/bonus/${Number(lastSegment) + 1}`);
     }
-
   };
 
   const isMediumScreenOrSmaller = useMediaQuery("(max-width: 1000px)");
@@ -59,28 +57,41 @@ const BonusPost: React.FC<{
   return (
     <>
       <div className="relative flex items-center">
-        <button onClick={handlePrevButtonClick} className="mr-2">
-          Previous
-        </button>
-        <ShareBtn link={''} />
-        <h1 className="absolute left-1/2 transform -translate-x-1/2 text-center md:text-left">
-          {title}
-        </h1>
-        <button onClick={handleNextButtonClick} className="ml-2">
-          Next
-        </button>
-      </div>
+        <div className="flex flex-row absolute left-1/2 transform -translate-x-1/2 items-center">
+          <Image
+            onClick={handlePrevButtonClick}
+            className="select-none cursor-pointer"
+            src="/svg/chevron-left-solid.svg"
+            alt="Left"
+            height={28}
+            width={28}
+          />
 
-      <div
-        className={`  w-full items-center justify-center flex  flex-wrap  px-8  ${
-          reversed ? "md:flex-row-reverse" : "md:flex-row"
-        }   `}
-      >
-        <Article author={author} textContent={textContent} title={title} />
-        <SlideGallery
-          images={pictures}
-          handleGalleryButtonClick={handleGalleryButtonClick}
-        />
+          <h1 className="w-full text-center md:text-left">{title}</h1>
+
+          <Image
+            onClick={handleNextButtonClick}
+            className="select-none cursor-pointer"
+            src="/svg/chevron-right-solid.svg"
+            alt="Right"
+            height={28}
+            width={28}
+          />
+        </div>
+
+        <ShareBtn link={""} />
+      </div>
+      <div className="w-full px-8   items-center">
+        <div className="mb-8">
+          <Article author={author} textContent={textContent} title={title} />
+        </div>
+
+        <div>
+          <SlideGallery
+            images={pictures}
+            handleGalleryButtonClick={handleGalleryButtonClick}
+          />
+        </div>
       </div>
     </>
   );
@@ -88,14 +99,14 @@ const BonusPost: React.FC<{
 
 const Article = ({ title, textContent, author }) => {
   return (
-    <div className="items-center   lg:w-2/3">
-
+    <div className="items-center">
       <div
-        className="m-2    mt-4 p-8  border-2   border-primary-color "
+        className="m-2 gap-16 lg:w-2/3 mx-auto mt-4 p-8   border-x-8 border-primary-color"
+        style={{ fontSize: "18px", lineHeight: "2", textAlign: "justify" }} // Adjust the values as needed
         dangerouslySetInnerHTML={{ __html: sanitizeHtml(textContent) }}
       />
 
-      <h6 className="text-right  pr-8 leading-tight">{author}</h6>
+      <h2 className="text-right mr-32 leading-tight">{author}</h2>
     </div>
   );
 };
