@@ -18,12 +18,25 @@ const SlideGallery = ({  images, handleGalleryButtonClick }) => {
 
   return (
     <div className="m-auto select-none flex flex-col justify-center align-center space-y-2 md:space-y-0">
+      <div className="flex flex-col justify-center items-center mx-auto ">
+        <div className="flex mt-5   flex-col md:items-center   mw-auto space-x-4">
+          <Slider
+            number={currentSlide}
+            setCurrentNumber={setCurrentSlide}
+            maxNumber={images.length - 1}
+          />
+          <div className="ml-auto text-center select-none">
+            {currentSlide + 1}/{images.length}
+          </div>
+        </div>
+
+      </div>
       <div>
         {images.map((image, index) => (
           <div
             key={uuid()}
             style={{ display: index === currentSlide ? "block" : "none" }}
-            className="mx-auto flex justify-center items-center w-64 h-64"
+            className="mx-auto flex justify-center items-center w-64 "
           >
           {/* <div className="  mx-auto flex justify-center items-center w-full h-full  "> */}
             <Image
@@ -36,22 +49,11 @@ const SlideGallery = ({  images, handleGalleryButtonClick }) => {
           {/* </div> */}
         </div>
         ))}
-      </div>
-      <div className="flex flex-col justify-center items-center mx-auto ">
-        <div className="flex mt-5   flex-col md:items-center   mw-auto space-x-4">
-          <Slider
-            number={currentSlide}
-            setCurrentNumber={setCurrentSlide}
-            maxNumber={images.length - 1}
-          />
-          <div className="ml-auto text-center select-none">
-            {currentSlide + 1}/{images.length}
-          </div>
-        </div>
-        <GalleryButtonRow
+         <GalleryButtonRow
           onGalleryButtonClick={() => handleGalleryButtonClick( )}
         />
       </div>
+
     </div>
   );
 };
