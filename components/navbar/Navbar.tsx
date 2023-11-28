@@ -52,14 +52,14 @@ const Navbar = () => {
         <h1 className=" ">Peřinka</h1>
       </div>
       {isMobile ? (
-        <>
+        <div>
           <button className="nav-toggle mt-0" aria-label="toggle navigation">
-            <span className={`hamburger`}></span>
+           <span className={`hamburger`} />
           </button>
           <div className="right-nav nav">
             <HamburgerNavList />
           </div>
-        </>
+        </div>
       ) : (
         <NavList
           handleButtonClick={handleButtonClick}

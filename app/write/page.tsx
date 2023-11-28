@@ -4,8 +4,10 @@ import  Link  from 'next/link';
 import { v4 as uuidv4 } from 'uuid';
 import { serverTimestamp, addDoc } from 'firebase/firestore';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { fanArticleColRef, storage } from '../../firebase'; // Replace with your actual Firebase config
+import { auth, fanArticleColRef, storage } from '../../firebase'; // Replace with your actual Firebase config
 import { useRouter } from "next/navigation";
+import LoginButton from '../../components/global/LoginButton';
+import { signInWithEmailAndPassword } from '@firebase/auth';
 
 interface CreatePostProps {
   isAuth: boolean;
@@ -19,6 +21,14 @@ const CreatePost: React.FC<CreatePostProps> = ({ isAuth }) => {
   const [imageUpload, setImageUpload] = useState<File | null>(null);
 
   const createPost = async (): Promise<void> => {
+    // Check if the user is authenticated
+    if (!isAuth) {
+      // You can redirect to the login page or show a message here
+      console.log('User not authenticated. Redirecting to login page.');
+      router.push('/login'); // Replace with your login page
+      return;
+    }
+
     const postId = uuidv4();
     const timeStamp = serverTimestamp();
     console.log('creating post');
@@ -39,8 +49,8 @@ const CreatePost: React.FC<CreatePostProps> = ({ isAuth }) => {
       });
 
       uploadFile(postId);
-      setTitle("");
-      setPostText("");
+      setTitle('');
+      setPostText('');
       setAuthor('');
 
       // Show alert with post contents
@@ -53,6 +63,27 @@ const CreatePost: React.FC<CreatePostProps> = ({ isAuth }) => {
     }
   };
 
+  const signInWithEmail = async () => {
+    try {
+      // You may want to show a form to the user to enter their email and password
+      const email = prompt('Enter your email:');
+      const password = prompt('Enter your password:');
+
+      if (!email || !password) {
+        // User canceled or did not provide email/password
+        return;
+      }
+
+      // Implement your email sign-in logic using Firebase Authentication
+      //++await  signInWithEmailAndPassword(auth, email, password);
+
+      // After successful sign-in, you may want to set a flag or fetch the user's authentication status
+      // to update the UI accordingly.
+      console.log('Successfully signed in with email!');
+    } catch (error) {
+      console.error('Error signing in with email:', error.message);
+    }
+  };
 
   const uploadFile = (postId: string): void => {
     if (!imageUpload) return;
@@ -73,6 +104,11 @@ const CreatePost: React.FC<CreatePostProps> = ({ isAuth }) => {
 
   return (
     <div className="createPostPage">
+      <div className='mt-2'>
+      <LoginButton />
+      </div>
+
+      {/* <button onClick={signInWithEmail}>Sign In with Email</button> */}
       <div className="cpContainer">
         <h1>Napsat Článek</h1>
         <div className="inputGp">
@@ -101,7 +137,7 @@ const CreatePost: React.FC<CreatePostProps> = ({ isAuth }) => {
         </div>
         <button className='action-button' onClick={createPost}>Odeslat Článek</button>
 
-      </div>
+      LoginButton</div>
     </div>
   );
 }

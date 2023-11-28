@@ -97,10 +97,7 @@ function Article() {
         />
       ) : (
         <>
-          <div className="flex flex-row  ">
-            <ShareBtn />
-            {/* <button className="action-button">SDÍLET</button> */}
-          </div>
+
 
 
           <BonusPost

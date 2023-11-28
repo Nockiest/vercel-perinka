@@ -26,8 +26,8 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore();
 const colRef = collection(db, 'users');
 export const fanArticleColRef = collection(db, 'fanArticles');
-const auth = getAuth(app);
-const provider = new GoogleAuthProvider();
+export const auth = getAuth(app);
+export const provider = new GoogleAuthProvider();
 export const storage = getStorage(app);
 export const signInWithGoogle = () => {
   signInWithPopup(auth, provider)

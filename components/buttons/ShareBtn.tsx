@@ -33,7 +33,7 @@ const ShareBtn = ({ link }) => {
         </div>
       ):(
         <button
-        className="action-button"
+        className="bg-secondary-color-80 hover:bg-secondary-color"
         onClick={toggleModal}
       >
         SDÍLET
