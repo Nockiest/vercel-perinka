@@ -18,6 +18,7 @@ const BonusPost: React.FC<{
   setShowFullScreenGallery: (show: boolean) => void;
   textContent: string;
   author: string;
+  contentLength: number
 }> = ({
   reversed,
   pictures,
@@ -25,6 +26,7 @@ const BonusPost: React.FC<{
   setShowFullScreenGallery,
   textContent,
   author,
+  contentLength
 }) => {
   const router = useRouter();
   const pathname = usePathname();
@@ -46,13 +48,13 @@ const BonusPost: React.FC<{
 
   return (
     <>
-      <PostHeader changeViewedArticle={changeViewedArticle} title={title} />
+      <PostHeader contentLength={contentLength} changeViewedArticle={changeViewedArticle} title={title} />
       <div className="w-full px-8   items-center">
         <div className="mb-8">
           <Article author={author} textContent={textContent} title={title} />
         </div>
 
-   
+
           <SlideGallery
             images={pictures}
             handleGalleryButtonClick={handleGalleryButtonClick}

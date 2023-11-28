@@ -1,5 +1,4 @@
-import React from 'react'
-import DOMPurify from "dompurify";
+ import DOMPurify from "dompurify";
 const sanitizeHtml = (htmlString) => {
     return DOMPurify.sanitize(htmlString);
   };

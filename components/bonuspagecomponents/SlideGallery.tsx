@@ -18,8 +18,11 @@ const SlideGallery = ({ images, handleGalleryButtonClick }) => {
 
   return (
     <div className="m-auto select-none flex flex-col justify-center align-center space-y-2 md:space-y-0">
-      <div className="relative ">
+
       <div className="flex flex-col justify-center items-center mx-auto ">
+      <GalleryButtonRow
+          onGalleryButtonClick={() => handleGalleryButtonClick()}
+        />
         <div className="flex mt-5   flex-col md:items-center   mw-auto space-x-4">
 
           <Slider
@@ -32,32 +35,33 @@ const SlideGallery = ({ images, handleGalleryButtonClick }) => {
           </span>
         </div>
 
+
+
+
       </div>
-      <div className="absoulte right-0">
-        <GalleryButtonRow
-          onGalleryButtonClick={() => handleGalleryButtonClick()}
-        />
-      </div>
-     </div>
+
       <div>
         {images.map((image, index) => (
          <div
          key={uuid()}
          style={{
            display: index === currentSlide ? "block" : "none",
-           height: "250px",
+           height: "300px",
            position: "relative",
            overflow : "visible",
          }}
          className="mx-auto flex justify-center items-center w-64"
        >
-         <Image
+        <img  src={image.src}
+           alt={image.alt} height='300px' />
+           <p className='text-center'>{image.alt}</p>
+         {/* <Image
            src={image.src}
            alt={image.alt}
            layout="fill"
            objectFit="cover"
            objectPosition="center top"
-         />
+         /> */}
        </div>
 
         ))}
