@@ -10,11 +10,8 @@ import LoginButton from "../../components/global/LoginButton";
 import { onAuthStateChanged, signInWithEmailAndPassword } from "@firebase/auth";
 
 
-interface CreatePostProps {
-  isAuth: boolean;
-}
 
-const CreatePost: FC<CreatePostProps> = ({ isAuth }) => {
+const CreatePost  = ( ) => {
   const router = useRouter();
   const [title, setTitle] = useState<string>("");
   const [postText, setPostText] = useState<string>("");

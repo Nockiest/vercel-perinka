@@ -18,16 +18,18 @@ const Footer = () => {
     setShowForm(false);
   };
   return (
-    <div className="flex relative flex-wrap space-y-4 w-full bg-ternary-color-60 overflow-x-hidden">
-      <Contacts />
-      <div className="flex flex-row lg:flex-none lg:relative w-full   justify-center lg:justify-end">
-        <ButtonsRow handleRateButtonClick={handleRateButtonClick} />
-        <NavigationCol />
-      </div>
-
-      {showForm && <RatingForm onClose={handleCloseForm} />}
-
+    <div className=" ">
+  <div className="flex relative flex-wrap w-full bg-ternary-color-60 overflow-x-hidden space-y-4">
+    <Contacts />
+    <div className="flex flex-row lg:flex-none lg:relative w-full justify-center lg:justify-end">
+      <ButtonsRow handleRateButtonClick={handleRateButtonClick} />
+      <NavigationCol />
     </div>
+  </div>
+
+  {showForm && <RatingForm onClose={handleCloseForm} />}
+</div>
+
   );
 };
 
