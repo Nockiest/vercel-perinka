@@ -8,10 +8,9 @@ import { auth, fanArticleColRef, storage } from "../../firebase"; // Replace wit
 import { useRouter } from "next/navigation";
 import LoginButton from "../../components/global/LoginButton";
 import { onAuthStateChanged, signInWithEmailAndPassword } from "@firebase/auth";
+import LogOutBtn from "../../components/global/LogOutBtn";
 
-
-
-const CreatePost  = ( ) => {
+const CreatePost = () => {
   const router = useRouter();
   const [title, setTitle] = useState<string>("");
   const [postText, setPostText] = useState<string>("");
@@ -113,9 +112,12 @@ const CreatePost  = ( ) => {
           />
         </div>
         {user ? (
-          <button className="action-button" onClick={createPost}>
-            Odeslat Článek
-          </button>
+          <div>
+            <button className="action-button" onClick={createPost}>
+              Odeslat Článek
+            </button>
+            <LogOutBtn />
+          </div>
         ) : (
           <LoginButton />
         )}

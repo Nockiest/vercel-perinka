@@ -2,10 +2,11 @@
 import React, {useState} from "react";
 import RatingForm from "../global/RatingForm"; // Adjust the path accordingly
 import { usePathname, useRouter } from 'next/navigation';
-
+import { auth } from "../../firebase";
 import Contacts from "./Contacts";
 import NavigationCol from "./NavigationCol";
 import Link from "next/link";
+import LogOutBtn from "../global/LogOutBtn";
 
 const Footer = () => {
   const [showForm, setShowForm] = useState(false);
@@ -50,6 +51,8 @@ const ButtonsRow = ({ handleRateButtonClick }) => {
       <button onClick={handleRateButtonClick} className="big-btn mx-auto px-auto bg-secondary-color-80 hover:bg-secondary-color">
         OHODNOTIT PEŘINKU
       </button>
+
+      {auth.currentUser && <LogOutBtn/>}
     </div>
   );
 };
