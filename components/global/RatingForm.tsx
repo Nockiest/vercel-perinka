@@ -3,6 +3,8 @@ import { addDoc, serverTimestamp } from "firebase/firestore";
 import { v4 as uuidv4 } from "uuid";
 import { auth, fanArticleColRef, opinionColRef } from "../../firebase"; // Replace with your actual Firebase config
 import LoginButton from "./LoginButton"; // Import your LoginButton component here
+import { FaTimes } from 'react-icons/fa'; // Import the red cross icon from react-icons/fa
+import Image from "next/image";
 
 interface RatingFormProps {
   onClose: () => void;
@@ -76,6 +78,10 @@ const RatingForm: React.FC<RatingFormProps> = ({ onClose }) => {
   return (
     <div className="rating-form-overlay fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gradient-to-b from-primary-color-80 via-background-start-rgb to-background-end-rgb">
       <div className="rating-form-container p-8 rounded-md shadow-lg bg-white">
+      <span className="absolute top-16 right-16 cursor-pointer text-red-500" onClick={onClose}>
+      <Image className='select-none' src="/svg/cross.svg" alt="  left" height={64} width={64} />
+          {/* <FaTimes size={24} /> Use the red cross icon */}
+        </span>
         <h2 className="text-2xl font-bold text-text-color mb-4">Rate the Article</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="flex flex-col">
