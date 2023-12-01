@@ -21,7 +21,7 @@ const Hero: FC<HeroProps> = ({ firstHeading, secondHeading, showReadButton = tru
     return () => clearInterval(interval);
   }, []);
 
-  const imageUrls = [1,2,3, 4, 5, 6].map((num) => `/randomPics/pic${num}.jpg`);
+  const imageUrls = [1, 2, 3, 4, 5, 6].map((num) => `/randomPics2/pic${num}.jpg`);
   const transitionStyle = { transition: 'opacity 1s ease-in-out' };
 
   return (
@@ -32,7 +32,7 @@ const Hero: FC<HeroProps> = ({ firstHeading, secondHeading, showReadButton = tru
             key={index}
             className="w-full h-full absolute top-0 left-0 opacity-0"
             src={imageUrl}
-            alt={`HERO-${index}`}
+            alt={`HERO-${imageUrl}`}
             objectFit='cover'
             layout='fill'
             style={{ ...transitionStyle, opacity: currentImage === index + 1 ? 1 : 0,  }}

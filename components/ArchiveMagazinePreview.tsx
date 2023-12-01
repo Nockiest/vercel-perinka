@@ -12,12 +12,12 @@ const ArchiveMagazinePreview = ({ name, border, color, bgColor, pdfSrc }) => {
 
   return (
     <div
-      className={`${bgColor} flex flex-col   border-solid ${border} border-4 p-4 grid grid-cols-2 gap-y-2 gap-x-4  m-2 `}
+      className={`${bgColor} flex flex-row   border-solid ${border} border-4 p-4   gap-y-1 gap-x-4  m-1 `}
     >
-      <div className="max-w-96 mx-auto mt-2 space-y-4 flex-1">
-        <h1 className={`whitespace-normal ${color}`}>{name}</h1>
+      <div className=" ml-12  mt-2 space-y-4 flex-1">
+        <h1 className={`whitespace-normal font-weight-900 ${color}`}>{name}</h1>
         <h3 className={`pt-4 ${color}`}>OBSAH</h3>
-        <div className="flex flex-col sm:flex-row">
+        <div className="max-h-48 overflow-auto grid grid-cols-1 md:grid-cols-2 gap-x-1/2 sm:flex-row">
           <div className="  gap-y-2 gap-x-4 pl-4 text-base leading-8">
             <li>Word 1</li>
             <li>Word 2</li>

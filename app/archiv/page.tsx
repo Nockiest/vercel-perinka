@@ -5,7 +5,7 @@ export const Archiv = () => {
   return (
     <div>
       <Hero firstHeading={"STÁRÁ ČÍSLA"} secondHeading={"STÁRÁ ČÍSLA"} />
-      <div className="grid grid-cols-1 lg:grid-cols-2      ">
+      <div className="grid grid-cols-1       ">
         <ArchiveMagazinePreview
           name={"Květen/Červen"}
           color="text-leden-color-2"
