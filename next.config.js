@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
   const nextConfig = {
-   
+
   }
 
 //  module.exports = nextConfig
@@ -20,5 +20,8 @@
     });
 
     return config;
+  },
+  images: {
+    domains: ['firebasestorage.googleapis.com'],
   },
 }

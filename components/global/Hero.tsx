@@ -15,13 +15,13 @@ const Hero: FC<HeroProps> = ({ firstHeading, secondHeading, showReadButton = tru
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImage((prevImage) => (prevImage === 6 ? 4 : prevImage + 1));
+      setCurrentImage((prevImage) => (prevImage === 3 ? 1 : prevImage + 1));
     }, 3000);
 
     return () => clearInterval(interval);
   }, []);
 
-  const imageUrls = [1, 2, 3, 4, 5, 6].map((num) => `/randomPics2/pic${num}.jpg`);
+  const imageUrls = [1, 2, 3, 4, 5, 6].map((num) => `/randomPics/pic${num}.jpg`);
   const transitionStyle = { transition: 'opacity 1s ease-in-out' };
 
   return (
