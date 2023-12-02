@@ -21,7 +21,7 @@ type User = {
     name?: string
     class?: Class
 }
-type Author = User
+type AuthorN =  Required<User>;
 
 export type ArticleImage = {
     src: string|File

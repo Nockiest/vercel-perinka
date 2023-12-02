@@ -2,10 +2,13 @@
 import React, { useState } from 'react';
 import { Magazine,ArticleImage, Oppinion, Article } from '../../type/types';
 
+import GOClassSelector from '../../components/global/ClassSelector';
+import UniversalForm from '../../components/global/UniversalForm';
+
 
 const emptyMagazine: Magazine = {
     date: '2023-12-01',
-    komiksSrc: 'path-to-komiks',
+    komiksSrc: 'komiks/1',
     articles: [],
     title: '',
   };
@@ -14,6 +17,7 @@ const emptyMagazine: Magazine = {
     author: {
       email: 'user@example.com',
       name: 'Honza Novak',
+      class: '0.X'
     },
     title: '',
     textContent: 'Article content goes here',
@@ -39,13 +43,30 @@ const emptyMagazine: Magazine = {
     };
 
     const handleArticleChange = (field: string, value: any) => {
-      if (currentArticle) {
-        setCurrentArticle((prevArticle) => ({
-          ...prevArticle,
-          [field]: value,
-        }));
-      }
-    };
+        if (currentArticle) {
+          setCurrentArticle((prevArticle) => {
+            // Create a deep copy of the article
+            const newArticle = { ...prevArticle };
+
+            // Use a helper function to set the nested property
+            const setNestedProperty = (obj: any, path: string[], newValue: any) => {
+              let currentObj = obj;
+              for (let i = 0; i < path.length - 1; i++) {
+                currentObj = currentObj[path[i]];
+              }
+              currentObj[path[path.length - 1]] = newValue;
+            };
+
+            // Split the field into an array of keys
+            const keys = field.split('.');
+
+            // Update the nested property in the new article
+            setNestedProperty(newArticle, keys, value);
+
+            return newArticle;
+          });
+        }
+      };
 
     const handleAddToMagazine = () => {
       if (currentArticle) {
@@ -81,6 +102,7 @@ const emptyMagazine: Magazine = {
       <div className='h-full'>
         <h1>Your Next.js Page</h1>
         <form className='h-full'>
+            <UniversalForm inputData={emptyArticle}  onSubmit={(res) => {console.log('form submitted', res)}}></UniversalForm>
           {currentArticle && (
             <div>
               <label>
@@ -98,7 +120,23 @@ const emptyMagazine: Magazine = {
                   onChange={(e) => handleArticleChange('textContent', e.target.value)}
                 />
               </label>
-              {/* Add more input fields for other properties */}
+              <label>
+                Author Name:
+                <input
+                  type="text"
+                  value={currentArticle.author.name}
+                  onChange={(e) => handleArticleChange('author.name', e.target.value)}
+                />
+                 Author Email:
+                 <input
+                  type="text"
+                  value={currentArticle.author.name}
+                  onChange={(e) => handleArticleChange('author.email', e.target.value)}
+                />
+                 Author Class:
+                 <GOClassSelector onSelection={(value) => handleArticleChange('author.class', value)}/>
+              </label>
+
               <button type="button" className='action-button'onClick={handleAddToMagazine}>
                 Add to Magazine
               </button>
