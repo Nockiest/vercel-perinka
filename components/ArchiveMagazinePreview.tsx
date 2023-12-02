@@ -19,7 +19,7 @@ const ArchiveMagazinePreview = ({ name, border, color, bgColor, pdfSrc, contents
     >
       <div className=" sm:ml-12  mt-2 space-y-4 flex-1">
         <h1 className={`whitespace-normal font-weight-900  ${color}`}>{name}</h1>
-        <h3 className={`pt-4 text-center  border-b-8  ${color}`} style={{ borderColor: color }}>  OBSAH</h3>
+        <h3 className={`pt-4 text-center  border-b-8 md:mr-8  ${color}`} style={{ borderColor: color }}>  OBSAH</h3>
         <div className="max-h-48   overflow-auto grid grid-cols-1 md:grid-cols-2 gap-x-1/2 sm:flex-row">
         <div className="gap-y-2 gap-x-4 pl-4 text-base leading-8">
             {column1.map((word, index) => (
