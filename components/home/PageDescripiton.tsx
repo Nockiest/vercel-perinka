@@ -1,10 +1,12 @@
 import React from "react";
 import Section from "../global/Section";
+import Image from "next/image";
 
 const PageDescripiton = () => {
   return (
-    <Section  classNames="  leading-8  md:w-2/3 indent-1 mx-auto m-3" >
-         <p className="text-base text-center " >
+    <Section  classNames=" px-2 flex flex-col-reverse sm:flex-row-reverse justify-center     indent-1 mx-auto m-3" >
+        <Image src={'/randomPics/pen2d11.png'} className='mx-auto'alt={'pen'} width={140} height={65} />
+         <p className="text-base  leading-6  " >
         Vítáme Vás na stránkách Peřinky, oficiálního studentského časopisu Gymnázia Opatov! Jsme moc rádi, že jste sem zabloudili.
         <br />
 

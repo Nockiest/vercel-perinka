@@ -9,7 +9,7 @@ const Reader = ({selectedPdf, handleChangePdf}) => {
     <option value="/komiks.pdf">Komiks</option>
     {/* Add more options for other viewable PDFs */}
   </select>
-  <iframe     src={selectedPdf} style={{height: '500vh', width:'100vw'}}  /></div>
+  <iframe     src={selectedPdf} style={{height: '200vh', width:'100vw'}}  /></div>
   )
 }
 

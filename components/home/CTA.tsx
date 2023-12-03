@@ -3,16 +3,14 @@ import Image from "next/image";
 import Section from "../global/Section";
 
 const CTA = () => {
-  // <div className="bg-primary-color-40 p-12 flex flex-col items-center justify-center">
-  {
-    /* <div className="flex px-auto mx-auto flex-col-reverse md:flex-row md:justify-center space-x-4 items-center gap-4 mb-2"> */
-  }
+
   return (
     <Section classNames={"bg-primary-color-40  px-auto mx-auto"}>
       <div className=" w-2/3 mx-auto   ">
-        <h1 className="mb-4 text-center mx-auto">PŘIPOJ SE K NÁM!</h1>
+      <h2 className="mb-4 text-center  ">PŘIPOJ SE K NÁM!</h2>
 
-        <p className="text-base leading-8">
+
+        <p className="text-base leading-8  ">
           Časopis Peřinka volá o pomoc! Hledáme veškeré kreativní lidi na
           Opatově, kteří mají chuť a čas podílet se na školním časopise.
           <br />
@@ -23,15 +21,15 @@ const CTA = () => {
           Stále ale hledáme i redaktory a přispěvatele. Jaký je mezi tím rozdíl?
           Redaktor je někdo, kdo se k nám přidá na "plný úvazek" - přidáme ho do
           skupiny, bude pomáhat se skládáním obsahu a podobně. Přispěvatel je
-          kdokoliv, kdo nám na e-mail nebo tellonym pošle svůj příspěvek.
+          kdokoliv, kdo nám na <b><a href='mailto:casopisgo@gopat.cz'>e-mail</a>  </b>  nebo <b><a href='https://tellonym.me/perinka_go'>tellonym pošle svůj příspěvek.</a></b>
           <br />
-          Pokud se chcete přidat, napište nám na e-mail.
+          Pokud se chcete přidat, napište nám na <b><a href='mailto:casopisgo@gopat.cz'>e-mail</a></b>.
           <br />
-          Těšíme se na vás!
+          <b className='text-lg underline'><a href='mailto:casopisgo@gopat.cz'> Těšíme se na vás!</a> </b>
         </p>
 
           <Image
-            src={"/randomPics/pic1.jpg"}
+            src={"/randomPics/help.png"}
             alt="WE NEED YOU"
             width={300}
             height={150}

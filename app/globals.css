@@ -27,6 +27,9 @@ p {
   color: var(--text-color-80)
 }
 
+b {
+  @apply text-lg
+}
 div {
   @apply text-base;
   font-size: var(--body-font-size);

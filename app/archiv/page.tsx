@@ -71,9 +71,9 @@ export const Archiv = () => {
         />
         <ArchiveMagazinePreview
           name={"Komiks"}
-          color="text-květen-color-2"
-          border="border-květen-color-2"
-          bgColor="bg-květen-color"
+          color="black"
+          border="border-black"
+          bgColor="bg-stone-100"
           pdfSrc={"komiks.pdf"}
           contents={contents4}
         />

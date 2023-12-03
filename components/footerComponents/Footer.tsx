@@ -42,11 +42,11 @@ const ButtonsRow = ({ handleRateButtonClick }) => {
 
   return (
     <div className="flex flex-col mx-auto flex-grow pl-2 lg:absolute right-1/2 transform lg:translate-x-2/4">
-      { pathname !== '/write' && (
+      {/* { pathname !== '/write' && (
         <button className="big-btn mx-auto px-auto bg-secondary-color-80 hover:bg-secondary-color">
           <Link href="/write">ODESLAT SVŮJ ČLÁNEK</Link>
         </button>
-      )}
+      )} */}
 
       <button onClick={handleRateButtonClick} className="big-btn mx-auto px-auto bg-secondary-color-80 hover:bg-secondary-color">
         OHODNOTIT PEŘINKU

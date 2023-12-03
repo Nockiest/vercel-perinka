@@ -31,7 +31,7 @@ const AboutUs = () => {
     <Hero  firstHeading={" STUDENTSKÝ</br>ČASOPIS"} secondHeading={"O PEŘINCE"}   />
     <p className="p-4 text-left md:w-1/2 md:text-center mx-auto mt-3"> Školních časopisů se na naší škole vystřídala spousta. Ten první byl založen již rok po vzniku gymnázia a nesl název Peřinka Times. Právě jemu jsme se rozhodli vzdát hold a pojmenovat podle něj i ten náš, který vznikl po několikaleté pauze.
     </p>
-    <h1 className='text-center m-5'>REDAKCE</h1>
+    <h2 className='text-center  m-5'>REDAKCE</h2>
     <div className="bio-grid w-full grid bg-primary-color-20 py-16 px-32  ">
         {cards.map((card, index) => (
           <BioCard
