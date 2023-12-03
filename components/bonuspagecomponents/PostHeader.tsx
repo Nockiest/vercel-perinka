@@ -17,8 +17,8 @@ const PostHeader = ({ changeViewedArticle, title, contentLength }) => {
             className="select-none cursor-pointer mr-4"
             src="/svg/chevron-left-solid.svg"
             alt="Left"
-            height={14}
-            width={14}
+            height={24}
+            width={24}
           />}
 
           {/* <h1 className="w-full text-center md:text-left">{title}</h1> */}
@@ -28,8 +28,8 @@ const PostHeader = ({ changeViewedArticle, title, contentLength }) => {
             className="select-none cursor-pointer ml-4"
             src="/svg/chevron-right-solid.svg"
             alt="Right"
-            height={14}
-            width={14}
+            height={24}
+            width={24}
           />}
         </div>
         <ShareBtn link={""} />

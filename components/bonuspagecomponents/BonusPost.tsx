@@ -50,17 +50,18 @@ const BonusPost: React.FC<{
   const isMediumScreenOrSmaller = useMediaQuery("(max-width: 1000px)");
 
   return (
-    <div>
+
+
+      <div className="bg-primary-color-40 overflow-y-auto ">
       <PostHeader
         contentLength={contentLength}
         changeViewedArticle={changeViewedArticle}
         title={title}
       />
-      <div className="bg-primary-color-20 ">
         <div
           className={`bonus-post transform transition-transform duration-500 ease-in-out  w-full    items-center ${animationClass}`}
         >
-          <Section classNames="bg-primary-color-20 gap-2  ">
+          <Section classNames="  gap-2  ">
             <Article author={author} textContent={textContent} title={title} />
 
             <SlideGallery
@@ -71,7 +72,7 @@ const BonusPost: React.FC<{
           di
         </div>
       </div>
-    </div>
+
   );
 };
 

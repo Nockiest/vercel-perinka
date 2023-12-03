@@ -4,7 +4,7 @@ const sanitizeHtml = (htmlString) => {
   };
 const Article = ({ title, textContent, author }) => {
     return (
-      <div className="items-center lg:w-2/3 mt-4 p-8  mx-auto    border-primary-color ">
+      <div className="items-center lg:w-2/3 mt-4 p-8  mx-auto      ">
         <h2>{title}</h2>
         <div
           className="m-2 gap-16      "
