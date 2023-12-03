@@ -1,8 +1,56 @@
 import React, { useState } from 'react';
 
-const UniversalForm = ({ inputData, onSubmit, parentField = '', resetFormData, onDataChange }) => {
+const ArrayInput = ({ value, onChange }) => {
+
+  if (typeof value === 'object') {
+    value = Object.values(value);
+    // do something with newObj
+  }
+
+  const handleAddField = () => {
+    onChange([...value, '']);
+  };
+
+  const handleFieldChange = (index, fieldValue) => {
+    const updatedValue = [...value];
+    updatedValue[index] = fieldValue;
+    console.log(updatedValue)
+    onChange(updatedValue);
+  };
+
+  const handleRemoveField = (index) => {
+    const updatedValue = [...value];
+    updatedValue.splice(index, 1);
+    onChange(updatedValue);
+  };
+
+  return (
+    <div>
+
+      {value.map((field, index) => (
+
+        <div key={index} className="flex mb-2">
+          <input
+            type="text"
+            value={field}
+            onChange={(e) => handleFieldChange(index, e.target.value)}
+            className="w-full px-3 py-2 border rounded shadow appearance-none  mr-2"
+          />
+          <button type="button" className='action-button pr-2' onClick={() => handleRemoveField(index)}>
+           Del
+          </button>
+        </div>
+      ))}
+      <button type="button" className='action-button' onClick={handleAddField}>
+        Add Field
+      </button>
+    </div>
+  );
+};
+
+const UniversalForm = ({ inputData, onSubmit  , parentField = '', resetFormData=null, onDataChange=null }) => {
   const initialFormState = Object.keys(inputData).reduce((acc, key) => {
-    acc[key] = '';
+    acc[key] = Array.isArray(inputData[key]) ? ['test'] : '';
     return acc;
   }, {});
 
@@ -53,51 +101,45 @@ const UniversalForm = ({ inputData, onSubmit, parentField = '', resetFormData, o
     });
   };
 
+  const renderInputField = (fieldType, fieldId) => {
+    switch (fieldType) {
+      case 'file':
+        return (
+          <input
+            type="file"
+            id={fieldId}
+            onChange={(e) => handleChange(fieldId, e.target.files[0])}
+            className="w-full px-3 py-2 border rounded shadow appearance-none"
+          />
+        );
+      case 'array':
+        return (
+          <ArrayInput
+            value={formData[fieldId] || []}
+            onChange={(value) => handleChange(fieldId, value)}
+          />
+        );
+      default:
+        return (
+          <input
+            type="text"
+            id={fieldId}
+            value={formData[fieldId]}
+            onChange={(e) => handleChange(fieldId, e.target.value)}
+            className="w-full px-3 py-2 border rounded shadow appearance-none"
+          />
+        );
+    }
+  };
+
   return (
     <form className="max-w-md mx-auto p-4 bg-white rounded shadow-md" onSubmit={handleSubmit}>
-      {Object.entries(inputData).map(([field, labelOrSubInputData]) => (
+      {Object.entries(inputData).map(([field, fieldType]) => (
         <div key={field} className="mb-4">
-          {typeof labelOrSubInputData === 'string' ? (
-            <>
-              <label htmlFor={field} className="block text-gray-700">
-                {field}:
-              </label>
-              {inputData[field] === 'file' ? ( // Check if the field is of type 'file'
-                <input
-                  type="file"
-                  id={field}
-                  onChange={(e) => handleChange(field, e.target.files[0])}
-                  className="w-full px-3 py-2 border rounded shadow appearance-none"
-                />
-              ) : (
-                <input
-                  type="text"
-                  id={field}
-                  value={formData[field]}
-                  onChange={(e) => handleChange(field, e.target.value)}
-                  className="w-full px-3 py-2 border rounded shadow appearance-none"
-                />
-              )}
-            </>
-          ) : (
-            <div key={field} className="mb-4">
-              <div className="mb-2 font-bold text-lg">{field}</div>
-              <UniversalForm
-                inputData={labelOrSubInputData}
-                onSubmit={(data) => handleChange(field, data)}
-                parentField={field}
-                resetFormData={(nestedFormData) => {
-                  setFormData((prevData) => ({
-                    ...prevData,
-                    [field]: nestedFormData,
-                  }));
-                }}
-                onDataChange={(nestedData) => {
-                  handleChange(field, nestedData);
-                }}
-              />
-            </div>
-          )}
+          <label htmlFor={field} className="block text-gray-700">
+            {field}:
+          </label>
+          {renderInputField(fieldType, field)}
         </div>
       ))}
       {parentField === '' && (

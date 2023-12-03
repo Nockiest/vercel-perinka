@@ -8,11 +8,12 @@ export default function Home() {
 
       <Hero firstHeading={" STUDENTSKÝ<br />ČASOPIS"} secondHeading={"GYMNÁZIUM OPATOV"}
       showReadButton={true} />
-      <Section >
-        <h1>ARCHIV</h1>
-        <p><a href='/read/květen-červen.pdf'>Test Odkazu</a></p>
-      </Section>
+
       <PageDescripiton />
+      <Section classNames="flex flex-column justify-center">
+        {/* <h1 className="text-center">ARCHIV</h1> */}
+        <button className="action-button mx-auto px-auto"><a href='/read/květen-červen.pdf'>Přejít do archivu</a></button>
+      </Section>
       <CTA />
 
     </main>

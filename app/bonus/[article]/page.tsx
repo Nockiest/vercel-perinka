@@ -5,6 +5,7 @@ import { ChangeEvent, useEffect, useState } from "react";
 import BigGallery from "../../../components/bonuspagecomponents/BigGallerry";
 import BonusPost from "../../../components/bonuspagecomponents/BonusPost";
 import ShareBtn from "../../../components/buttons/ShareBtn";
+import Section from "../../../components/global/Section";
 export type URLwithAlt = {
   src: string;
   alt: string;
@@ -21,17 +22,17 @@ const contents: Array<BonusPost> = [
     reversed: false,
     title: "Letní filmy",
     textContent: `
-    <h2><strong>1. Jumanji: Dobrodružství v Hře</strong></h2>
+    <h4><strong>1. Jumanji: Dobrodružství v Hře</strong></h4>
     <p>Pokud máte rádi akční filmy, první díl Jumanji je pro vás ideální letní volbou. Martha, Bethany, Spencer a Fridge se ocitnou uvězněni ve hře Jumanji a musí plnit úkoly s omezeným počtem životů. I když mě film z počátku moc nezaujal, rozhodla jsem se mu dát šanci a nelitovala jsem. Několik scén mě opravdu velmi pobavilo.</p>
     <br />
-    <h2><strong>2. Avatar: Epické Putování na Planetě Pandora</strong></h2>
+    <h4><strong>2. Avatar: Epické Putování na Planetě Pandora</strong></h4>
     <p>Dvoudílný film Avatar je skvělou volbou pro milovníky sci-fi a fantasy. Kmen Na’vi bojuje o svou planetu Pandoru s lidmi z Země. Originální děj a úžasná tvorba planety a jejích obyvatelů zaručují velký úspěch. Film sice může odradit délkou, ale zejména druhý díl obsahuje pár zbytečných minut.</p>
     <br />
-    <h2><strong>3. Rychlý jako Vítr: Příběh o Lásce k Koním</strong></h2>
+    <h4><strong>3. Rychlý jako Vítr: Příběh o Lásce k Koním</strong></h4>
     <p>Milovníci koní si jistě oblíbí tento příběh. Mika, poslaná na farmu k babičce, objeví hřebce Vichr. I když ho nikdo nedokázal zkrotit, Mika je výjimka. Film je napínavý s promyšleným příběhem a krásným prostředím. Jediné, co bych vytkla, je nekonzistence v překladu jména koně, které se mění v každém dílu.</p>
     <img src="/svg/instagram.svg" alt="Your Image Alt Text" width="300" height="200" class="mx-auto" />
 <br />
-    <h2><strong>4. Piráti z Karibiku: Na Vlnách Podivna</strong></h2>
+    <h4><strong>4. Piráti z Karibiku: Na Vlnách Podivna</strong></h4>
     <p>Jack Sparrow se vydává do Londýna zachránit přítele Gibbse, ale je zatčen britským králem. Ten ho přinutí získat Pramen mládí a přidat se k posádce lodi Pomsta královny Anny. Film nabízí akční, vtipné i napínavé scény a přináší skvělé dobrodružství na moři.</p>  `,
 
     imageContent: [
@@ -100,9 +101,7 @@ function Article() {
       ) : (
 
 
-
-
-          <BonusPost
+<BonusPost
             title={selectedArticle.title}
             reversed={selectedArticle?.reversed || false}
             pictures={selectedArticle?.imageContent}
@@ -111,6 +110,10 @@ function Article() {
             author={selectedArticle.author}
             contentLength ={contents.length}
           />
+
+
+
+
 
       )}
     </div>

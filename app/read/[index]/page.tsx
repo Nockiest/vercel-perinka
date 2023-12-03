@@ -3,6 +3,7 @@ import { useRouter, usePathname } from 'next/navigation'
 import { useState, useEffect, ChangeEvent } from "react";
 import React from "react"
 import ShareBtn from '../../../components/buttons/ShareBtn';
+import Reader from '../Reader';
 
 function Resume() {
   const router = useRouter();
@@ -29,17 +30,10 @@ function Resume() {
   };
 
   return (
-    <div>
+    <div  >
       <ShareBtn link={''} />
-      <br />
-      <select value={selectedPdf} onChange={handleChangePdf}>
-        <option value="/květen-červen.pdf">Květen/Červen 2023</option>
-        <option value="/březen-duben.pdf">Březen/Duben 2023</option>
-        <option value="/leden-únor.pdf">Leden/Únor 2023</option>
-        <option value="/komiks.pdf">Komiks</option>
-        {/* Add more options for other viewable PDFs */}
-      </select>
-      <iframe className="w-full h-screen" src={`${selectedPdf}`} style={{ height: "100vh" }} />
+
+      <Reader selectedPdf={selectedPdf} handleChangePdf={handleChangePdf} />
     </div>
   );
 }

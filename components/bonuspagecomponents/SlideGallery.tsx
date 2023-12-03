@@ -17,13 +17,13 @@ const SlideGallery = ({ images, handleGalleryButtonClick }) => {
   };
 
   return (
-    <div className="m-auto select-none flex flex-col justify-center align-center space-y-2 md:space-y-0">
+    <div className="m-auto select-none flex flex-col justify-center align-center space-y-2 md:space-y-0 mb-2">
 
       <div className="flex flex-col justify-center items-center mx-auto ">
       <GalleryButtonRow
           onGalleryButtonClick={() => handleGalleryButtonClick()}
         />
-        <div className="flex mt-5   flex-col md:items-center   mw-auto space-x-4">
+        {/* <div className="flex mt-5   flex-col md:items-center   mw-auto space-x-4">
 
           <Slider
             number={currentSlide}
@@ -61,10 +61,10 @@ const SlideGallery = ({ images, handleGalleryButtonClick }) => {
            layout="fill"
            objectFit="cover"
            objectPosition="center top"
-         /> */}
+         />
        </div>
 
-        ))}
+        ))} */}
 
       </div>
     </div>

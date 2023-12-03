@@ -27,6 +27,7 @@ export const db = getFirestore();
 export const colRef = collection(db, 'users');
 export const fanArticleColRef = collection(db, 'fanArticles');
 export const opinionColRef = collection(db, 'opinions')
+export const magazinesColRef = collection(db, 'magazines')
 export const auth = getAuth(app);
 export const provider = new GoogleAuthProvider();
 export const storage = getStorage(app);

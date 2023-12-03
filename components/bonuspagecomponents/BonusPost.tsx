@@ -8,6 +8,7 @@ import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
 import Article from "./Article";
 import PostHeader from "./PostHeader";
+import Section from "../global/Section";
 
 
 
@@ -49,17 +50,16 @@ const BonusPost: React.FC<{
   return (
     <>
       <PostHeader contentLength={contentLength} changeViewedArticle={changeViewedArticle} title={title} />
-      <div className="w-full px-8   items-center">
-        <div className="mb-8">
+      <div className="w-full    items-center">
+      <Section classNames="bg-primary-color-20 gap-2  ">
           <Article author={author} textContent={textContent} title={title} />
-        </div>
 
 
           <SlideGallery
             images={pictures}
             handleGalleryButtonClick={handleGalleryButtonClick}
           />
-
+       </Section>
       </div>
     </>
   );

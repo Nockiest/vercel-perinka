@@ -11,7 +11,7 @@ interface HeroProps {
 }
 
 const Hero: FC<HeroProps> = ({ firstHeading, secondHeading, showReadButton = true }) => {
-  const [currentImage, setCurrentImage] = useState<number>(6);
+  const [currentImage, setCurrentImage] = useState<number>(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -21,7 +21,7 @@ const Hero: FC<HeroProps> = ({ firstHeading, secondHeading, showReadButton = tru
     return () => clearInterval(interval);
   }, []);
 
-  const imageUrls = [1, 2, 3, 4, 5, 6].map((num) => `/randomPics/pic${num}.jpg`);
+  const imageUrls = [ 2, 7,8].map((num) => `/randomPics/pic${num}.jpg`);
   const transitionStyle = { transition: 'opacity 1s ease-in-out' };
 
   return (
@@ -44,7 +44,7 @@ const Hero: FC<HeroProps> = ({ firstHeading, secondHeading, showReadButton = tru
         style={{ boxShadow: '0 2px 6px rgba(0, 0, 0, 0.1)', zIndex: 1 }}
       >
         <h1 className="  w-2/3   text-white whitespace-normal leading-relaxed outlined-text" >
-          STUDENTSKÝ <br /> ČASOPIS {}
+          STUDENTSKÝ <br /> ČASOPIS
         </h1>
         {secondHeading !== '' && <h2 className="leading-tight">{secondHeading}</h2>}
 

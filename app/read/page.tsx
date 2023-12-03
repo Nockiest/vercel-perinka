@@ -9,14 +9,16 @@
 // import resume from '../../public/květen-červen.pdf'
 "use client";
 // import { Document, Page, View, Text, Image,  StyleSheet, Font } from "@react-pdf/renderer";
- 
+
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import React from "react"
+import ShareBtn from "../../components/buttons/ShareBtn";
+import Reader from "./Reader";
 function Resume() {
   const router = useRouter();
   const [selectedPdf, setSelectedPdf] = useState("/květen-červen.pdf");
- 
+
   const handleChangePdf = (e) => {
     const selectedValue = e.target.value;
     setSelectedPdf(selectedValue);
@@ -27,21 +29,23 @@ function Resume() {
   };
 
   return (
-    <div>
-      <select value={selectedPdf} onChange={handleChangePdf}>
-        <option value="/květen-červen.pdf">Květen/Červen 2023</option>
-        <option value="/březen-duben.pdf">Březen/Duben 2023</option>
-        <option value="/leden-únor.pdf">Leden/Únor 2023</option>
-        <option value="/komiks.pdf">Komiks</option>
-        {/* Add more options for other viewable PDFs */}
-      </select>
-      <iframe className={"w-full h-screen"} src={selectedPdf} style={{ height: "100vh" }} />
+    <div  >
+       <ShareBtn link={''} />
+       <Reader selectedPdf={selectedPdf} handleChangePdf={handleChangePdf} />
     </div>
   );
 }
 
 export default Resume;
 
+// <select value={selectedPdf} onChange={handleChangePdf}>
+//   <option value="/květen-červen.pdf">Květen/Červen 2023</option>
+//   <option value="/březen-duben.pdf">Březen/Duben 2023</option>
+//   <option value="/leden-únor.pdf">Leden/Únor 2023</option>
+//   <option value="/komiks.pdf">Komiks</option>
+//   {/* Add more options for other viewable PDFs */}
+// </select>
+// <iframe className={"w-full  "} src={selectedPdf} style={{height: '200vh'}} />
 
 // import React, { useState, useEffect, useRef } from 'react';
 

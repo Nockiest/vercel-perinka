@@ -31,11 +31,12 @@ const BigGallery = ({ pics, closeFullScreenGallery }) => {
               <div className="flex opacity-100 justify-center items-center w-full h-full">
                 <Image src={image.src} alt={image.alt} width={2000} height={2000} />
               </div>
+              <p className="text-white text-center">{image.alt}</p>
             </div>
           </div>
         ))}
       </div>
-      <div className="flex flex-col mw-auto space-x-4">
+      <div className="flex flex-col mw-auto mt-8 space-x-4">
         <Slider number={currentSlide} setCurrentNumber={setCurrentSlide} maxNumber={pics.length - 1} />
       </div>
       <div className="absolute top-0 left-0 m-8" onClick={closeFullScreenGallery}>
