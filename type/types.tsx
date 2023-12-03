@@ -21,7 +21,7 @@ type User = {
     name?: string
     class?: Class
 }
-type AuthorN =  Required<User>;
+type Author =  Required<User>;
 
 export type ArticleImage = {
     src: string|File
@@ -42,6 +42,7 @@ export type Article =   {
     image?: ArticleImage;
     author: Author;
     oppinions:  Array<Oppinion>
+    test: File
 } ;
 
 
@@ -50,6 +51,7 @@ export type Magazine =   {
     articles:  Array<Article>
     komiksSrc: string
     title: string
+
 }
 
 

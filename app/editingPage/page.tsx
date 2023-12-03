@@ -13,7 +13,23 @@ const emptyMagazine: Magazine = {
     title: '',
   };
 
-  const emptyArticle: Article = {
+  type ArticleForm = {
+    author: {
+      email: 'user@example.com'
+      name: 'Honza Novak'
+      class: '0.X'
+    }
+    title: '',
+    textContent: 'Article content goes here',
+    image: {
+      src: 'path-to-image1.jpg',
+      alt: 'Image 1',
+      position: 'left',
+    },
+    oppinions: 'array',
+    test: 'file'
+  }
+  const emptyArticle: ArticleForm = {
     author: {
       email: 'user@example.com',
       name: 'Honza Novak',
@@ -26,8 +42,10 @@ const emptyMagazine: Magazine = {
       alt: 'Image 1',
       position: 'left',
     },
-    oppinions: [],
+    oppinions: 'array',
+    test: 'file'
   };
+
 
   const Page = () => {
     const [magazineData, setMagazineData] = useState<Magazine>({ ...emptyMagazine });
@@ -68,20 +86,22 @@ const emptyMagazine: Magazine = {
         }
       };
 
-    const handleAddToMagazine = () => {
-      if (currentArticle) {
-        setMagazineData((prevMagazineData) => ({
-          ...prevMagazineData,
-          articles: prevMagazineData.articles.map((article) =>
-            article === currentArticle ? currentArticle : article
-          ),
-        }));
-        setCurrentArticle(null);
-      }
+    const handleAddToMagazine = (data) => {
+      console.log(data)
+      // if (currentArticle) {
+      //   setMagazineData((prevMagazineData) => ({
+      //     ...prevMagazineData,
+      //     articles: prevMagazineData.articles.map((article) =>
+      //       article === currentArticle ? currentArticle : article
+      //     ),
+      //   }));
+      //   setCurrentArticle(null);
+      // }
     };
 
     const handleSubmit = async () => {
       // Send data to the API route
+
       const response = await fetch('/api/submitMagazine', {
         method: 'POST',
         headers: {
@@ -102,7 +122,7 @@ const emptyMagazine: Magazine = {
       <div className='h-full'>
         <h1>Your Next.js Page</h1>
         <form className='h-full'>
-            <UniversalForm inputData={emptyArticle}  onSubmit={(res) => {console.log('form submitted', res)}}></UniversalForm>
+            <UniversalForm resetFormData={handleAddToMagazine} inputData={emptyArticle}  onSubmit={(res) => {console.log('form submitted', res)}}></UniversalForm>
           {currentArticle && (
             <div>
               <label>
