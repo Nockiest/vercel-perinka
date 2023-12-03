@@ -2,7 +2,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
 import React from "react"
- 
+
 const NavList = ({ handleButtonClick, activeButton }) => {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -33,14 +33,14 @@ const NavList = ({ handleButtonClick, activeButton }) => {
    } else {
     router.push(`/${buttonName}`)
    }
-    
- 
+
+
   };
 
   return (
-    <div className="btn-row flex  m-4 ">
+    <div className="btn-row flex h-20 mx-4 ">
       {navButtons.map((button) => {
-       
+
        return  (
         <button
           key={button.name}
@@ -57,5 +57,3 @@ const NavList = ({ handleButtonClick, activeButton }) => {
 };
 
 export default NavList;
-
- 

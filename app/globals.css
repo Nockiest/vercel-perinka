@@ -19,7 +19,7 @@
 }
 
 p {
-  @apply text-base;
+  @apply text-sm sm:text-base;
   font-size: var(--body-font-size);
   font-family: nunito, sans-serif;
   font-weight: 400;
@@ -37,42 +37,35 @@ div {
 }
 @layer components {
   h1 {
-    @apply text-4xl font-bold;
-    font-size: var(--h1-font-size);
-    font-family: "Roboto";
-    margin: 8px 0px
+    @apply sm:text-4xl  text-3xl font-bold mb-4 text-gray-900 flex items-center;
+    font-family: "Roboto", sans-serif;
   }
 
   h2 {
-    @apply text-3xl font-bold;
-    font-size: var(--h2-font-size);
-    font-family: "Roboto";
-    margin: 2px
+    @apply sm:text-3xl  text-2xl font-bold mb-2 text-gray-800;
+    font-family: "Roboto", sans-serif;
   }
 
   h3 {
-    @apply text-2xl font-bold;
-    font-size: var(--h3-font-size);
-    font-family: "Oswald";
+    @apply sm:text-2xl  text-xl font-bold mb-2 text-gray-700;
+    font-family: "Oswald", sans-serif;
   }
 
   h4 {
-    @apply text-xl font-bold;
-    font-size: var(--h4-font-size);
-    font-family: "Sans";
+    @apply sm:text-xl  text-lg font-bold mb-2 text-gray-600;
+    font-family: "Sans", sans-serif;
   }
 
   h5 {
-    @apply text-lg font-bold;
-    font-size: var(--h5-font-size);
+    @apply  sm:text-lg text-base font-bold mb-2 text-gray-600;
     font-family: "sans-serif";
   }
 
   h6 {
-    @apply text-base font-bold;
-    font-size: var(--h6-font-size);
+    @apply sm:text-base  text-sm font-bold mb-2 text-gray-500;
     font-family: "sans-serif";
   }
+
 
   button {
     @apply font-normal leading-tight uppercase m-4 p-3;
@@ -81,7 +74,7 @@ div {
     font-weight: 700;
     transition: box-shadow 150ms;
     min-width: 5rem;
-    height: 3rem;
+    min-height: 3rem;
     border-radius: 4px;
     border-color: #110e0e;
     text-transform: uppercase;
@@ -100,7 +93,7 @@ div {
   }
 
   .nav-btn {
-    @apply bg-[var(--primary-color-40)] p-3 lg:p-4 justify-center items-center md:m-2 rounded-lg;
+    @apply bg-[var(--primary-color-40)] py-1 px-2 lg:px-3 justify-center items-center md:m-2 rounded-lg;
     transition: box-shadow 150ms;
     box-shadow: none;
   }
@@ -181,6 +174,7 @@ div {
     height: 3px;
     border-radius: 1em;
     transition: transform 250ms ease-in-out;
+
   }
 
   .hamburger::before,
@@ -240,7 +234,7 @@ div {
     border: 0;
     cursor: pointer;
     position: absolute;
-    right: 1em;
+    right: 10%;
     top: 1em;
     z-index: 1000;
   }

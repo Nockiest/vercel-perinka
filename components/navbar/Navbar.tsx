@@ -38,8 +38,8 @@ const Navbar = () => {
   }, [pathname]);
 
   return (
-    <div className="h-20 flex px-8 justify-between items-center bg-[var(--primary-color-20)] xl:box-shadow-xl">
-      <div className="flex items-center gap-8   pr-0">
+    <div className=" py-1 flex px-8 justify-between items-center bg-[var(--primary-color-20)] xl:box-shadow-xl">
+      <div className="flex items-center gap-4    ">
         <Link href="/">
           <Image
             src="/logo/logofull.png"
@@ -49,14 +49,14 @@ const Navbar = () => {
             className="cursor-pointer"
           />
         </Link>
-        <h1 className=" ">Peřinka</h1>
+        <h1 className=" mt-3 items-center">Peřinka</h1>
       </div>
       {isMobile ? (
         <div>
-          <button className="nav-toggle mt-0" aria-label="toggle navigation">
+          <button className="nav-toggle mt-0 mr-4" aria-label="toggle navigation">
            <span className={`hamburger`} />
           </button>
-          <div className="right-nav nav">
+          <div className="  nav">
             <HamburgerNavList />
           </div>
         </div>
