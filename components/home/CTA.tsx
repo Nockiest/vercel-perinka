@@ -5,9 +5,9 @@ import Section from "../global/Section";
 const CTA = () => {
 
   return (
-    <Section classNames={"bg-primary-color-40  px-auto mx-auto"}>
-      <div className=" w-2/3 mx-auto   ">
-      <h2 className="mb-4 text-center  ">PŘIPOJ SE K NÁM!</h2>
+    <Section classNames={"flex bg-primary-color-40 flex-col sm:flex-row    px-auto mx-auto"}>
+      <div className=" mt-8  sm:w-2/3 mx-auto    ">
+      <h2 className="mb-4   text-center  ">PŘIPOJ SE K NÁM!</h2>
 
 
         <p className="text-base leading-8  ">
@@ -27,17 +27,20 @@ const CTA = () => {
           <br />
           <b className='text-lg underline'><a href='mailto:casopisgo@gopat.cz'> Těšíme se na vás!</a> </b>
         </p>
-
-          <Image
+        </div>
+        <div className="sm:w-1/3 h-64 p-0 mx-auto md:my-auto"  >
+        <Image
             src={"/randomPics/help.png"}
             alt="WE NEED YOU"
             width={300}
             height={150}
             className="p-4  mx-auto"
           />
+        </div>
 
-        {/* </div> */}
-      </div>
+
+
+
     </Section>
 
     // </div>

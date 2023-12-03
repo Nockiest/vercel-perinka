@@ -15,7 +15,7 @@ const Section: React.FC<SectionProps> = ({ color, children, classNames, style })
     };
 
     return (
-      <section className={`p-2 mt-4 mx-auto md:p-4 md:px-32 ${classNames}`} style={sectionStyle}>
+      <section className={`px-8 mt-4 py-4 mx-auto md:p-4 md:px-32 ${classNames}`} style={sectionStyle}>
         {children}
       </section>
     );

@@ -14,7 +14,7 @@ export default function Home() {
       />
 
       <PageDescripiton />
-      <Section classNames="leading-8  bg-primary-color-40 flex flex-col sm:flex-row justify-center       ">
+      <Section classNames="leading-8 px-8 bg-primary-color-40 flex flex-col sm:flex-row justify-center       ">
         <Image
           src={"/randomPics/book.png"}
           className="mx-auto"
