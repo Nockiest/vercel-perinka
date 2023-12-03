@@ -26,10 +26,10 @@ const ShareBtn = ({ link }) => {
 
 
       {showModal?   (
-        <div className="modal flex flex-row">
-          <button className='btn-clicked' onClick={shareOnTwitter}>SDÍLET NA TWITTERU</button>
-          <button className='btn-clicked' onClick={shareOnInstagram}>SDÍLET NA INSTAGRAMU</button>
-          <button className='action-button' onClick={toggleModal}>ZAVŘÍT</button>
+        <div className="modal flex flex-row z-10">
+          <button className='btn-clicked z-10' onClick={shareOnTwitter}>SDÍLET NA TWITTERU</button>
+          <button className='btn-clicked z-10' onClick={shareOnInstagram}>SDÍLET NA INSTAGRAMU</button>
+          <button className='action-button z-10' onClick={toggleModal}>ZAVŘÍT</button>
         </div>
       ):(
         <button

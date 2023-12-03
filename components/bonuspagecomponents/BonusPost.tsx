@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import SlideGallery from "./SlideGallery";
 import { useMediaQuery } from "@react-hook/media-query";
 import { URLwithAlt } from "../../app/bonus/[article]/page";
@@ -10,8 +10,6 @@ import Article from "./Article";
 import PostHeader from "./PostHeader";
 import Section from "../global/Section";
 
-
-
 const BonusPost: React.FC<{
   reversed: boolean;
   pictures: Array<URLwithAlt>;
@@ -19,7 +17,7 @@ const BonusPost: React.FC<{
   setShowFullScreenGallery: (show: boolean) => void;
   textContent: string;
   author: string;
-  contentLength: number
+  contentLength: number;
 }> = ({
   reversed,
   pictures,
@@ -27,10 +25,11 @@ const BonusPost: React.FC<{
   setShowFullScreenGallery,
   textContent,
   author,
-  contentLength
+  contentLength,
 }) => {
   const router = useRouter();
   const pathname = usePathname();
+  const [animationClass, setAnimationClass] = useState("");
   const handleGalleryButtonClick = () => {
     setShowFullScreenGallery(true);
     console.log("hello");
@@ -40,33 +39,40 @@ const BonusPost: React.FC<{
     const segments = pathname.split("/");
     const lastSegment = segments[segments.length - 1];
     console.log(lastSegment);
+    setAnimationClass(reversed ? "translate-x-full" : "-translate-x-full");
     if (lastSegment && typeof Number(lastSegment) === "number") {
-      router.push(`/bonus/${number}`);
+      setTimeout(() => {
+        router.push(`/bonus/${number}`);
+      }, 500); // Adjust the delay to match your transition duration
     }
   };
 
   const isMediumScreenOrSmaller = useMediaQuery("(max-width: 1000px)");
 
   return (
-    <>
-      <PostHeader contentLength={contentLength} changeViewedArticle={changeViewedArticle} title={title} />
-      <div className="w-full    items-center">
-      <Section classNames="bg-primary-color-20 gap-2  ">
-          <Article author={author} textContent={textContent} title={title} />
+    <div>
+      <PostHeader
+        contentLength={contentLength}
+        changeViewedArticle={changeViewedArticle}
+        title={title}
+      />
+      <div className="bg-primary-color-20 ">
+        <div
+          className={`bonus-post transform transition-transform duration-500 ease-in-out  w-full    items-center ${animationClass}`}
+        >
+          <Section classNames="bg-primary-color-20 gap-2  ">
+            <Article author={author} textContent={textContent} title={title} />
 
-
-          <SlideGallery
-            images={pictures}
-            handleGalleryButtonClick={handleGalleryButtonClick}
-          />
-       </Section>
+            <SlideGallery
+              images={pictures}
+              handleGalleryButtonClick={handleGalleryButtonClick}
+            />
+          </Section>
+          di
+        </div>
       </div>
-    </>
+    </div>
   );
 };
-
-
-
-
 
 export default BonusPost;

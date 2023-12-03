@@ -11,7 +11,7 @@ const PostHeader = ({ changeViewedArticle, title, contentLength }) => {
 
     return (
       <div className="bg-stone-100 relative flex items-center">
-        <div className="flex flex-row absolute left-1/2 transform -translate-x-1/2 items-center">
+        <div className="flex flex-row absolute gap-4 left-1/2 transform -translate-x-1/2 items-center">
           {Number(currentPostNumber) > 0&& <Image
             onClick={() => changeViewedArticle(Number(currentPostNumber) - 1)}
             className="select-none cursor-pointer mr-4"
@@ -21,7 +21,7 @@ const PostHeader = ({ changeViewedArticle, title, contentLength }) => {
             width={14}
           />}
 
-          <h1 className="w-full text-center md:text-left">{title}</h1>
+          {/* <h1 className="w-full text-center md:text-left">{title}</h1> */}
 
          {Number(currentPostNumber)  < contentLength-1 && <Image
             onClick={() => changeViewedArticle(Number(currentPostNumber) + 1)}

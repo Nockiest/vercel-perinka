@@ -27,7 +27,7 @@ function PostPreview({ heading, text, image, releaseDate, href }) {
     };
 
     return (
-      <div className="flex relative flex-col w-2/3 gap-16 p-4 shadow-md">
+      <div className="flex relative flex-col w-2/3 gap-16 p-6 shadow-md">
         <a href={href}>
 
 
@@ -41,7 +41,7 @@ function PostPreview({ heading, text, image, releaseDate, href }) {
 
             <p className="overflow-hidden   overflow-ellipsis">{text}</p>
           </div>
-          <p className="  ">{releaseDate}</p>
+          <p className=" absolute bottom-0 right-2">{releaseDate}</p>
          </div>
         </a>
       </div>

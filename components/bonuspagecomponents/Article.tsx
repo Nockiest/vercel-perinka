@@ -4,7 +4,7 @@ const sanitizeHtml = (htmlString) => {
   };
 const Article = ({ title, textContent, author }) => {
     return (
-      <div className="items-center lg:w-2/3 mt-4 p-8  mx-auto   border-8 border-primary-color ">
+      <div className="items-center lg:w-2/3 mt-4 p-8  mx-auto    border-primary-color ">
         <h2>{title}</h2>
         <div
           className="m-2 gap-16      "
@@ -12,7 +12,7 @@ const Article = ({ title, textContent, author }) => {
           dangerouslySetInnerHTML={{ __html: sanitizeHtml(textContent) }}
          />
 
-        <h2 className="text-right mr-32 leading-tight">{author}</h2>
+        <h2 className="text-right  leading-tight">{author}</h2>
       </div>
     );
   };
