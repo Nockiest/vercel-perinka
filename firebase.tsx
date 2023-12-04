@@ -70,13 +70,7 @@ auth.onAuthStateChanged((user) => {
   }
 });
 
-// export const fetchPosts = async () => {
-//   const colRef = collection(db, 'BlogPosts');
-//   const snapshot = await onSnapshot(colRef);
-//   const postsData = snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-//   return postsData;
-// };
-
+ 
 
 // Function to save data to Firebase
 export const sendDataToFirebase = async (formData) => {

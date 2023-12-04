@@ -38,6 +38,7 @@
   },
   "devDependencies": {
     "@fontsource/inika": "^5.0.5",
+    "encoding": "^0.1.13",
     "file-loader": "^6.2.0"
   }
 }
