@@ -33,7 +33,16 @@ function PostPreview({ heading, text, image, releaseDate, href }) {
 
 
         <div className="flex flex-col  sm:flex-row md:h-32 bg-white border-b border-black">
-        <Image src={image} alt={image} width={120} height={240} className="object-cover" />
+        <div>
+        <img
+          src={image}
+          alt={image}
+          // className="object-fit-cover"
+          style={{width: '120px', height: '120px', objectFit: 'cover'}}
+          // width={120}
+          // height={240}
+        />
+          </div>
 
           <div className="flex flex-col w-full md:gap-2 p-2">
             <h4 className="cursor-pointer" onClick={handlePostClick}>

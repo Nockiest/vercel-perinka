@@ -4,8 +4,8 @@ import { useRouter } from "next/navigation";
 import { ChangeEvent, useEffect, useState } from "react";
 import BigGallery from "../../../components/bonuspagecomponents/BigGallerry";
 import BonusPost from "../../../components/bonuspagecomponents/BonusPost";
-import ShareBtn from "../../../components/buttons/ShareBtn";
-import Section from "../../../components/global/Section";
+// import ShareBtn from "../../../components/buttons/ShareBtn";
+// import Section from "../../../components/global/Section";
 export type URLwithAlt = {
   src: string;
   alt: string;
@@ -36,7 +36,7 @@ const contents: Array<BonusPost> = [
     <p>Jack Sparrow se vydává do Londýna zachránit přítele Gibbse, ale je zatčen britským králem. Ten ho přinutí získat Pramen mládí a přidat se k posádce lodi Pomsta královny Anny. Film nabízí akční, vtipné i napínavé scény a přináší skvělé dobrodružství na moři.</p>  `,
 
     imageContent: [
-      { src: "/svg/instagram.svg", alt: "popisek X", },
+      { src: "/svg/instagram.svg", alt: "popisek X" },
       { src: "/logo/logo copy.png", alt: "popisek Y" },
       { src: "/logo/logofull.png", alt: "popisek Z" },
       { src: "/svg/instagram.svg", alt: "popisek Z" },
@@ -61,7 +61,7 @@ const contents: Array<BonusPost> = [
       { src: "/logo/logofull.png", alt: "popisek Z" },
     ],
     author: "Ester Zientková, 7.C",
-    reversed: true
+    reversed: true,
   },
 ];
 
@@ -99,22 +99,15 @@ function Article() {
           closeFullScreenGallery={closeFullScreenGallery}
         />
       ) : (
-
-
-<BonusPost
-            title={selectedArticle.title}
-            reversed={selectedArticle?.reversed || false}
-            pictures={selectedArticle?.imageContent}
-            setShowFullScreenGallery={setShowFullScreenGallery}
-            textContent={selectedArticle.textContent}
-            author={selectedArticle.author}
-            contentLength ={contents.length}
-          />
-
-
-
-
-
+        <BonusPost
+          title={selectedArticle.title}
+          reversed={selectedArticle?.reversed || false}
+          pictures={selectedArticle?.imageContent}
+          setShowFullScreenGallery={setShowFullScreenGallery}
+          textContent={selectedArticle.textContent}
+          author={selectedArticle.author}
+          contentLength={contents.length}
+        />
       )}
     </div>
   );
