@@ -23,6 +23,7 @@ type User = {
 }
 type Author =  Required<User>;
 
+export type MagazineReleaseDate = '2/2023'| '4/2023'|'6/2023'| '9/2023'
 export type ArticleImage = {
     src: string|File
     alt: string
@@ -43,6 +44,7 @@ export type Article =   {
     author: Author;
     oppinions:  Array<Oppinion>
     test: File
+    releaseDate: MagazineReleaseDate
 } ;
 
 
@@ -61,6 +63,7 @@ export type InfoPostProps = {
     image?:ArticleImage
     author?: string;
     imageUrlOrId: string | File;
+    releaseDate:MagazineReleaseDate
   }
   export type FirebaseInfoPostContent = Omit<InfoPostProps, 'imageSource' > ;
 // {

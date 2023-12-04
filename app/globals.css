@@ -30,6 +30,10 @@ p {
 b {
   @apply text-lg
 }
+
+i {
+  color: var(--text-color-100)
+}
 div {
   @apply text-base;
   font-size: var(--body-font-size);

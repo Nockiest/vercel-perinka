@@ -5,18 +5,20 @@ import { FirebaseInfoPostContent } from "../../type/types";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { v4 as uuidv4 } from "uuid";
 import InfoPost from "./InfoPost";
+import UniversalForm from "../../components/global/UniversalForm";
 
 const defaultFormData: FirebaseInfoPostContent = {
   title: "",
   textContent: "",
   author: "",
   image: {
-    imgSource: "",
+    src: "",
     position: "left",
     alt: "",
     size: { x: 0, y: 0 },
   },
-  imageUrlOrId: ''
+  imageUrlOrId: 'file',
+  releaseDate: '2/2023'
 };
 
 const ArticleEditor = ({ onAddArticle }) => {
@@ -95,7 +97,7 @@ const ArticleEditor = ({ onAddArticle }) => {
           ...prevData,
           image: {
             ...prevData.image,
-            imgSource: downloadURL,
+            src: downloadURL,
           },
         }));
       }
@@ -115,10 +117,11 @@ const ArticleEditor = ({ onAddArticle }) => {
 
   return (
     <div className="p-4 md:my-2 mx-0 md:mx-10 flex flex-col   items-center justify-center gap-8">
+      {/* <UniversalForm inputData={defaultFormData} onSubmit={handleSubmit}/> */}
       <form onSubmit={handleSubmit} className="w-full max-w-md space-y-4">
         <div className="flex flex-col">
           <label htmlFor="title" className="text-text-color mb-1">
-            Title:
+            Nadpis:
           </label>
           <input
             type="text"
@@ -133,7 +136,7 @@ const ArticleEditor = ({ onAddArticle }) => {
 
         <div className="flex flex-col">
           <label htmlFor="textContent" className="text-text-color mb-1">
-            Text Content:
+            Shrnutí článku pro stránku aktuální číslo:
           </label>
           <textarea
             id="textContent"
@@ -147,7 +150,7 @@ const ArticleEditor = ({ onAddArticle }) => {
 
         <div className="flex flex-col">
           <label htmlFor="position" className="text-text-color mb-1">
-            Image Position:
+            pozice obrázku na stránce aktuální číslo:
           </label>
           <select
             name="position"
@@ -155,8 +158,8 @@ const ArticleEditor = ({ onAddArticle }) => {
             onChange={handleImageInputChange}
             className="border border-text-color p-2 rounded-md"
           >
-            <option value="left">Left</option>
-            <option value="right">Right</option>
+            <option value="left">Nalevo</option>
+            <option value="right">Napravo</option>
           </select>
         </div>
 
@@ -226,6 +229,19 @@ const ArticleEditor = ({ onAddArticle }) => {
               setImageUpload(event.target.files[0]);
             }}
           />
+        </div>
+        <div className="flex flex-col">
+          <label htmlFor="image" className="text-text-color mb-1">
+            Vydání Článku:
+          </label>
+          <select name="releaseDate" onChange={handleInputChange}>
+            <option value="2/2023">2/2023</option>
+            <option value="4/2023">4/2023</option>
+            <option value="6/2023">6/2023</option>
+            <option value="6/2023">9/2023</option>
+          </select>
+
+
         </div>
 
         <button

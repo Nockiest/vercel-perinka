@@ -15,14 +15,8 @@ export default function Home() {
 
       <PageDescripiton />
       <Section classNames="leading-8 px-8 bg-primary-color-40 flex flex-col sm:flex-row justify-center       ">
-        <Image
-          src={"/randomPics/book.png"}
-          className="mx-auto"
-          alt={"book"}
-          width={140}
-          height={65}
-        />
-        <p className="   text-base   ">
+      <Image src={'/randomPics/pen2d11.png'} className='mx-auto'alt={'pen'} width={140} height={65} />
+        <p className="   text-base    ">
           Těšte se můžete na rozhovory s učiteli, aktuality ve světě, nebo na
           zajímavosti z prostředí gymnázia! Můžete se zapojit do publikací
           zaslíním svého vlastního článku. Nejlepší práce se objeví v novém
@@ -30,11 +24,19 @@ export default function Home() {
         </p>
       </Section>
 
-      <Section classNames="flex leading-8  flex-column justify-center">
+      <Section classNames="flex leading-8  flex-col sm:flex-row gap-x-0  justify-center">
         {/* <h1 className="text-center">ARCHIV</h1> */}
-        <button className="action-button mx-auto px-auto">
+        <button className="action-button   px-auto">
           <a href="/read/květen-červen.pdf">Přejít do archivu</a>
         </button>
+        <Image
+          src={"/randomPics/book.png"}
+          //className="mx-auto"
+          alt={"book"}
+          width={140}
+          height={65}
+        />
+
       </Section>
       <CTA />
     </main>

@@ -9,8 +9,8 @@ const ArchiveMagazinePreview = ({ name, border, color, bgColor, pdfSrc, contents
     router.push(`/read/${pdfSrc}`);
   };
 
-  const column1 = contents.slice(0, Math.ceil(contents.length / 2));
-  const column2 = contents.slice(Math.ceil(contents.length / 2));
+  const column1 = contents? contents.slice(0, Math.ceil(contents.length / 2)): [];
+  const column2 = contents? contents.slice(Math.ceil(contents.length / 2)): [];
 
 
   return (
