@@ -12,10 +12,10 @@ import PostPreview from "../../components/bonuspagecomponents/BonusArticlePrevie
 
 const Bonus = () => {
   const links = [
-    { href: 'bonus/0', label: 'Lihihvy', image: '/randomPics/pic1.jpg' },
-    { href: 'bonus/1', label: 'Pro Hráče z Opatova', image: '/bonus/bloonsTd6.png' },
-    { href: 'bonus/2', label: 'Letní Filmy', image: '/bonus/Avatar.png' },
-    { href: 'bonus/3', label: 'Lihihvy', image: '/randomPics/pic1.jpg' },
+    { href: 'bonus/0', label: 'Lihihvy', image: '/randomPics/pic1.jpg', autor: 'Ester Zientková, 7.C' },
+    { href: 'bonus/1', label: 'Pro Hráče z Opatova', image: '/bonus/bloonsTd6.png', autor: 'Jan Ackermann, 2.S' },
+    { href: 'bonus/2', label: 'Letní Filmy', image: '/bonus/Avatar.png', autor:  'Valérie Swaczynová, 1.E'},
+    { href: 'bonus/3', label: 'Lihihvy', image: '/randomPics/pic1.jpg' , autor: 'Ester Zientková, 7.C' },
   ];
 
   return (
@@ -24,7 +24,7 @@ const Bonus = () => {
         <Hero firstHeading={"BONUSOVÉ ČLÁNKY"} secondHeading={"BONUSOVÉ ČLÁNKY"} />
         <div className=" flex my-4 gap-4 flex-col items-center justify-evenly">
           {links.map((link, index) => (
-            <PostPreview heading={link.label} text={'lorem something lorem something lorem something lorem something lorem something lorem something lorem something lorem something lorem something lorem something '} releaseDate={'xxxx:xx:xx'} image={link.image} href={link.href} />
+            <PostPreview heading={link.label} key={index} text={'lorem something lorem something lorem something lorem something lorem something lorem something lorem something lorem something lorem something lorem something '} releaseDate={'xxxx:xx:xx'} image={link.image} href={link.href} />
 
           ))}
         </div>

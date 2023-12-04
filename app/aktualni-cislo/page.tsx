@@ -1,35 +1,27 @@
-'use client'
-import ArticleSummary from '../../components/ArticleSummary';
-import Hero from '../../components/global/Hero';
-import React, { useEffect, useState } from 'react';
-import Section from '../../components/global/Section';
-import InfoPost from './InfoPost';
-import ArticleEditor from './ArticleEditor';
-import { collection, getDocs } from 'firebase/firestore';
-import { db, storage } from '../../firebase';
-
-function consoleENV (){
-  console.log('consoling ', process.env.NEXT_PUBLIC_ARTICLE_EDIT_PASSWORD)
-  console.log('consoling ', process.env )
-}
+"use client";
+import ArticleSummary from "../../components/ArticleSummary";
+import Hero from "../../components/global/Hero";
+import React, { useEffect, useState } from "react";
+import Section from "../../components/global/Section";
+import InfoPost from "./InfoPost";
+import ArticleEditor from "./ArticleEditor";
+import { collection, getDocs } from "firebase/firestore";
+import { db, storage } from "../../firebase";
 
 const NewNumber = () => {
-
-
   const [articles, setArticles] = useState([]);
-
-  const [password, setPassword] = useState('');
+  const [password, setPassword] = useState("");
   const [isPasswordCorrect, setIsPasswordCorrect] = useState(false);
 
   const handleAddArticle = (newArticleId) => {
     // Handle any logic after adding a new article
-    console.log('New article added with ID:', newArticleId);
+    console.log("New article added with ID:", newArticleId);
   };
 
   useEffect(() => {
     const fetchArticles = async () => {
       try {
-        const articlesCollection = collection(db, 'articleSummaries');
+        const articlesCollection = collection(db, "articleSummaries");
         const articlesSnapshot = await getDocs(articlesCollection);
 
         const articlesData = articlesSnapshot.docs.map((doc) => ({
@@ -38,9 +30,9 @@ const NewNumber = () => {
         }));
 
         setArticles(articlesData);
-        console.log('set articles', articlesData);
+        console.log("set articles", articlesData);
       } catch (error) {
-        console.error('Error fetching articles:', error);
+        console.error("Error fetching articles:", error);
       }
     };
 
@@ -52,10 +44,10 @@ const NewNumber = () => {
   };
   const handlePasswordSubmit = async () => {
     try {
-      const response = await fetch('/api/checkPassword', {
-        method: 'POST',
+      const response = await fetch("/api/checkPassword", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({ password }),
       });
@@ -70,58 +62,49 @@ const NewNumber = () => {
         setIsPasswordCorrect(false);
       }
     } catch (error) {
-      console.error('Error checking password:', error);
+      console.error("Error checking password:", error);
     }
   };
-  // const handlePasswordSubmit = () => {
-  //   // Check if the entered password is correct (you can replace 'yourPassword' with your actual password)
-
-  //   consoleENV()
-  //   if (password ===  process.env.NEXT_PUBLIC_ARTICLE_EDIT_PASSWORD) {
-  //     setIsPasswordCorrect(true);
-  //   } else {
-  //     setIsPasswordCorrect(false);
-  //   }
-  // };
-
 
   return (
     <div>
-
-      <Hero firstHeading={"AKTUÁLNÍ <br />ČÍSLO"} secondHeading={"AKTUÁLNÍ ČÍSLO"} />
+      <Hero
+        firstHeading={"AKTUÁLNÍ <br />ČÍSLO"}
+        secondHeading={"AKTUÁLNÍ ČÍSLO"}
+      />
       {articles.map((article, index) => (
         <Section
           key={article.id}
-          classNames={index % 2 === 1 ? 'bg-stone-300' : ''}
+          classNames={index % 2 === 1 ? "bg-stone-300" : ""}
         >
           <InfoPost
             title={article.title}
             textContent={article.textContent}
             image={article.image}
             imageUrlOrId={article.id} // Pass article ID to InfoPost
+            releaseDate="2/2023"
           />
         </Section>
       ))}
-     <div>
-        <label htmlFor="password">Enter Password:</label>
-        <input
-          type="password"
-          id="password"
-          value={password}
-          onChange={handlePasswordChange}
-        />
-        <button onClick={handlePasswordSubmit}>Submit Password</button>
-      </div>
-
-      {/* Render ArticleEditor only when the password is correct */}
-      {/* {isPasswordCorrect && ( */}
-        <ArticleEditor onAddArticle={handleAddArticle} />
-      {/* )} */}
     </div>
   );
 };
+export default NewNumber;
+// {/* <div>
+//   <label htmlFor="password">Enter Password:</label>
+//   <input
+//     type="password"
+//     id="password"
+//     value={password}
+//     onChange={handlePasswordChange}
+//   />
+//   <button onClick={handlePasswordSubmit}>Submit Password</button>
+// </div> */}
 
-
+// {/* Render ArticleEditor only when the password is correct */}
+// {/* {isPasswordCorrect && ( */}
+//   {/* <ArticleEditor onAddArticle={handleAddArticle} /> */}
+// {/* )} */}
 // const NewNumber = () => {
 
 //   return (
@@ -193,5 +176,3 @@ const NewNumber = () => {
 //     </div>
 //   )
 // }
-
-export default NewNumber
