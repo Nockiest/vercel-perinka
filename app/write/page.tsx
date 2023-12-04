@@ -124,7 +124,7 @@ const CreatePost = () => {
   //     </div>
   //   </div>
   // );
-  return <></>
+  return <div>x</div>
 };
 
 export default CreatePost;

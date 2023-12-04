@@ -1,13 +1,17 @@
-'use client'
-import React, { useEffect, useState } from 'react'
+// File: pages/archiv/page.tsx
+
+'use client';
+
+import React, { useEffect, useState } from 'react';
 import Hero from '../../components/global/Hero';
 import ArchiveMagazinePreview from '../../components/ArchiveMagazinePreview';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../firebase';
-export const Archiv = () => {
-  const [titles, setTitles] = useState<Array<string> |null>(null)
-  useEffect(() => {
 
+const ArchivPage = () => {
+  const [titles, setTitles] = useState<Array<string> | null>(null);
+
+  useEffect(() => {
     const fetchArticles = async () => {
       try {
         const articlesCollection = collection(db, 'articleSummaries');
@@ -23,6 +27,50 @@ export const Archiv = () => {
 
     fetchArticles();
   }, []);
+
+  return (
+    <div>
+      <Hero firstHeading={'STÁRÁ ČÍSLA'} secondHeading={'STÁRÁ ČÍSLA'} />
+      <div className="grid grid-cols-1">
+      <ArchiveMagazinePreview
+          name={"Květen/Červen"}
+          color="text-leden-color-2"
+          border="border-leden-color-2"
+          bgColor="bg-leden-color"
+          pdfSrc={"květen-červen.pdf"}
+          contents={titles }
+        />
+        <ArchiveMagazinePreview
+          name={"Březen/Duben"}
+          color="text-březen-color-2"
+          border="border-březen-color-2"
+          bgColor="bg-březen-color"
+          pdfSrc={"březen-duben.pdf"}
+          contents={titles}
+        />
+        <ArchiveMagazinePreview
+          name={"Leden/Únor"}
+          color="text-květen-color-2"
+          border="border-květen-color-2"
+          bgColor="bg-květen-color"
+          pdfSrc={"leden-únor.pdf"}
+          contents={titles}
+        />
+        <ArchiveMagazinePreview
+          name={"Komiks"}
+          color="black"
+          border="border-black"
+          bgColor="bg-stone-100"
+          pdfSrc={"komiks.pdf"}
+          contents={titles}
+        />
+      </div>
+    </div>
+  );
+};
+
+export default ArchivPage;
+
 
   // const contents1 = [
   //   'Lorem ipsum',
@@ -63,44 +111,3 @@ export const Archiv = () => {
   //   'Ut enim ad',
   //   'Minim veniam',
   // ];
-  return (
-    <div>
-      <Hero firstHeading={"STÁRÁ ČÍSLA"} secondHeading={"STÁRÁ ČÍSLA"} />
-      <div className="grid grid-cols-1">
-        <ArchiveMagazinePreview
-          name={"Květen/Červen"}
-          color="text-leden-color-2"
-          border="border-leden-color-2"
-          bgColor="bg-leden-color"
-          pdfSrc={"květen-červen.pdf"}
-          contents={titles }
-        />
-        <ArchiveMagazinePreview
-          name={"Březen/Duben"}
-          color="text-březen-color-2"
-          border="border-březen-color-2"
-          bgColor="bg-březen-color"
-          pdfSrc={"březen-duben.pdf"}
-          contents={titles}
-        />
-        <ArchiveMagazinePreview
-          name={"Leden/Únor"}
-          color="text-květen-color-2"
-          border="border-květen-color-2"
-          bgColor="bg-květen-color"
-          pdfSrc={"leden-únor.pdf"}
-          contents={titles}
-        />
-        <ArchiveMagazinePreview
-          name={"Komiks"}
-          color="black"
-          border="border-black"
-          bgColor="bg-stone-100"
-          pdfSrc={"komiks.pdf"}
-          contents={titles}
-        />
-      </div>
-    </div>
-  );
-};
-export default Archiv
