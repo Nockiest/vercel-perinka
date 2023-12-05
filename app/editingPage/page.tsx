@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Magazine,ArticleImage, Oppinion, Article } from '../../type/types';
 import { v4 as uuidv4 } from "uuid";
 import GOClassSelector from '../../components/global/ClassSelector';
-import UniversalForm from '../../components/global/UniversalForm';
+import UniversalForm from '../../components/global/universalForn/UniversalForm';
 import { db, magazinesColRef, storage } from '../../firebase';
 import { addDoc } from 'firebase/firestore';
 import { getDownloadURL, uploadBytes } from 'firebase/storage';

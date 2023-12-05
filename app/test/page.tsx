@@ -1,12 +1,16 @@
 'use client'
 import React, { useState } from 'react'
-import UniversalForm from '../../components/global/UniversalForm'
+import UniversalForm from '../../components/global/universalForn/UniversalForm'
 
 const page = () => {
 
     const inputData = {
         x: '',
-        y: '',
+        // y: 'button',
+        // c: 'checkbox',
+        // d: 'reset',
+        // e: 'submit',
+        // f: 'checkbox',
         a: 'array',
         z: 'file',
         b: {

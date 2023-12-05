@@ -5,7 +5,7 @@ import { FirebaseInfoPostContent } from "../../type/types";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { v4 as uuidv4 } from "uuid";
 import InfoPost from "./InfoPost";
-import UniversalForm from "../../components/global/UniversalForm";
+import UniversalForm from "../../components/global/universalForn/UniversalForm";
 
 const defaultFormData: FirebaseInfoPostContent = {
   title: "",
