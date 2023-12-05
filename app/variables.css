@@ -1,76 +1,212 @@
 :root {
-    /* Colors */
-    --foreground-rgb: 0, 0, 0;
-    --background-start-rgb: 214, 219, 220;
-    --background-end-rgb: 255, 255, 255;
-
-    --primary-color: #9E8751;
-    --primary-color-80: rgba(158, 135, 81, 0.8);
-    --primary-color-60: rgba(158, 135, 81, 0.6);
-    --primary-color-40: rgba(158, 135, 81, 0.4);
-    --primary-color-20: rgba(158, 135, 81, 0.2);
-
-    --secondary-color: #55EDB2;
-    --secondary-color-80: rgba(85, 237, 178, 0.8);
-    --secondary-color-60: rgba(85, 237, 178, 0.6);
-    --secondary-color-40: rgba(85, 237, 178, 0.4);
-    --secondary-color-20: rgba(85, 237, 178, 0.2);
-
-    --ternary-color: #EDB93E;
-    --ternary-color-80: rgba(237, 185, 62, 0.8);
-    --ternary-color-60: rgba(237, 185, 62, 0.6);
-    --ternary-color-40: rgba(237, 185, 62, 0.4);
-    --ternary-color-20: rgba(237, 185, 62, 0.2);
-
-    --error-color: #F00;
-    --error-color-80: rgba(255, 0, 0, 0.8);
-    --error-color-60: rgba(255, 0, 0, 0.6);
-    --error-color-40: rgba(255, 0, 0, 0.4);
-    --error-color-20: rgba(255, 0, 0, 0.2);
-
-    --text-color: #110E0E;
-    --text-color-80: rgba(17, 14, 14, 0.8);
-    --text-color-60: rgba(17, 14, 14, 0.6);
-    --text-color-40: rgba(17, 14, 14, 0.4);
-    --text-color-20: rgba(17, 14, 14, 0.2);
-
-    /* Other Variables */
-    --main-bg-start: rgb(var(--background-start-rgb));
-    --main-bg-end: rgb(var(--background-end-rgb));
+  /* Colors */
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
 
 
-    --h1-font-size: 44.79px ;
-    --h1-mobile-font-size: 32px;
-    --h1-font-weight: bold;
+  /* --primary-color: rgba(44, 62, 80, 1);
+  --secondary-color: rgba(52, 152, 219, 1);
+  --tertiary-color: rgba(155, 89, 182, 1);
+  --text-color: rgba(236, 240, 241, 1);
 
-    --h2-font-size: 37.32px;
-    --h2-mobile-font-size:  28px;
-    --h2-font-weight: bold;
+  --primary-color-80: rgba(44, 62, 80, 0.8);
+  --primary-color-60: rgba(44, 62, 80, 0.6);
+  --primary-color-40: rgba(44, 62, 80, 0.4);
+  --primary-color-20: rgba(44, 62, 80, 0.2);
 
-    --h3-font-size: 31.1px;
-    --h3-mobile-font-size: 20px;
-    --h3-font-weight: bold;
+  --secondary-color-80: rgba(52, 152, 219, 0.8);
+  --secondary-color-60: rgba(52, 152, 219, 0.6);
+  --secondary-color-40: rgba(52, 152, 219, 0.4);
+  --secondary-color-20: rgba(52, 152, 219, 0.2);
 
-    --h4-font-size: 25.92px;
-    --h4-mobile-font-size: 18px;
-    --h4-font-weight: bold;
+  --tertiary-color-80: rgba(155, 89, 182, 0.8);
+  --tertiary-color-60: rgba(155, 89, 182, 0.6);
+  --tertiary-color-40: rgba(155, 89, 182, 0.4);
+  --tertiary-color-20: rgba(155, 89, 182, 0.2);
 
-    --h5-font-size: 21.6px;
-    --h5-mobile-font-size: 16px;
-    --h5-font-weight: bold;
+  --text-color-80: rgba(236, 240, 241, 0.8);
+  --text-color-60: rgba(236, 240, 241, 0.6);
+  --text-color-40: rgba(236, 240, 241, 0.4);
+  --text-color-20: rgba(236, 240, 241, 0.2); */
+  /* --primary-color: rgba(52, 152, 219, 1);
+  --secondary-color: rgba(231, 76, 60, 1);
+  --tertiary-color: rgba(243, 156, 18, 1);
+  --text-color: rgba(255, 255, 255, 1);
 
-    --h6-font-size: 18px;
-    --h6-mobile-font-size: 12px;
-    --h6-font-weight: bold;
+  --primary-color-80: rgba(52, 152, 219, 0.8);
+  --primary-color-60: rgba(52, 152, 219, 0.6);
+  --primary-color-40: rgba(52, 152, 219, 0.4);
+  --primary-color-20: rgba(52, 152, 219, 0.2);
 
-    --body-font-size: 15px;
-    --body-mobile-font-size: 11px;
-    --body-font-weight: normal;
+  --secondary-color-80: rgba(231, 76, 60, 0.8);
+  --secondary-color-60: rgba(231, 76, 60, 0.6);
+  --secondary-color-40: rgba(231, 76, 60, 0.4);
+  --secondary-color-20: rgba(231, 76, 60, 0.2);
 
-    --button-padding: 4;
-    --button-mobile-padding: 2;
-    --button-font-size: base;
-    --button-mobile-font-size: sm;
-    --button-font-weight: bold;
+  --tertiary-color-80: rgba(243, 156, 18, 0.8);
+  --tertiary-color-60: rgba(243, 156, 18, 0.6);
+  --tertiary-color-40: rgba(243, 156, 18, 0.4);
+  --tertiary-color-20: rgba(243, 156, 18, 0.2);
 
-  }
+  --text-color-80: rgba(255, 255, 255, 0.8);
+  --text-color-60: rgba(255, 255, 255, 0.6);
+  --text-color-40: rgba(255, 255, 255, 0.4);
+  --text-color-20: rgba(255, 255, 255, 0.2); */
+
+  /* --primary-color: rgba(211, 84, 0, 1);
+  --primary-color-80: rgba(211, 84, 0, 0.8);
+  --primary-color-60: rgba(211, 84, 0, 0.6);
+  --primary-color-40: rgba(211, 84, 0, 0.4);
+  --primary-color-20: rgba(211, 84, 0, 0.2);
+
+  --secondary-color: rgba(230, 126, 34, 1);
+  --secondary-color-80: rgba(230, 126, 34, 0.8);
+  --secondary-color-60: rgba(230, 126, 34, 0.6);
+  --secondary-color-40: rgba(230, 126, 34, 0.4);
+  --secondary-color-20: rgba(230, 126, 34, 0.2);
+
+  --ternary-color: rgba(243, 156, 18, 1);
+  --ternary-color-80: rgba(243, 156, 18, 0.8);
+  --ternary-color-60: rgba(243, 156, 18, 0.6);
+  --ternary-color-40: rgba(243, 156, 18, 0.4);
+  --ternary-color-20: rgba(243, 156, 18, 0.2);
+
+  --error-color: #f00;
+  --error-color-80: rgba(255, 0, 0, 0.8);
+  --error-color-60: rgba(255, 0, 0, 0.6);
+  --error-color-40: rgba(255, 0, 0, 0.4);
+  --error-color-20: rgba(255, 0, 0, 0.2);
+
+  --text-color: rgba(44, 62, 80, 1);
+  --text-color-80: rgba(44, 62, 80, 0.8);
+  --text-color-60: rgba(44, 62, 80, 0.6);
+  --text-color-40: rgba(44, 62, 80, 0.4);
+  --text-color-20: rgba(44, 62, 80, 0.2); */
+  /* --primary-color: rgba(243, 156, 18, 1);
+  --primary-color-80: rgba(243, 156, 18, 0.8);
+  --primary-color-60: rgba(243, 156, 18, 0.6);
+  --primary-color-40: rgba(243, 156, 18, 0.4);
+  --primary-color-20: rgba(243, 156, 18, 0.2);
+
+  --secondary-color: rgba(46, 204, 113, 1);
+  --secondary-color-80: rgba(46, 204, 113, 0.8);
+  --secondary-color-60: rgba(46, 204, 113, 0.6);
+  --secondary-color-40: rgba(46, 204, 113, 0.4);
+  --secondary-color-20: rgba(46, 204, 113, 0.2);
+
+  --ternary-color: rgba(52, 152, 219, 1);
+  --ternary-color-80: rgba(52, 152, 219, 0.8);
+  --ternary-color-60: rgba(52, 152, 219, 0.6);
+  --ternary-color-40: rgba(52, 152, 219, 0.4);
+  --ternary-color-20: rgba(52, 152, 219, 0.2);
+
+  --error-color: #f00;
+  --error-color-80: rgba(255, 0, 0, 0.8);
+  --error-color-60: rgba(255, 0, 0, 0.6);
+  --error-color-40: rgba(255, 0, 0, 0.4);
+  --error-color-20: rgba(255, 0, 0, 0.2);
+
+  --text-color: rgba(255, 255, 255, 1);
+  --text-color-80: rgba(255, 255, 255, 0.8);
+  --text-color-60: rgba(255, 255, 255, 0.6);
+  --text-color-40: rgba(255, 255, 255, 0.4);
+  --text-color-20: rgba(255, 255, 255, 0.2); */
+  /* --primary-color: rgba(52, 152, 219, 1);
+  --primary-color-80: rgba(52, 152, 219, 0.8);
+  --primary-color-60: rgba(52, 152, 219, 0.6);
+  --primary-color-40: rgba(52, 152, 219, 0.4);
+  --primary-color-20: rgba(52, 152, 219, 0.2);
+
+  --secondary-color: rgba(46, 204, 113, 1);
+  --secondary-color-80: rgba(46, 204, 113, 0.8);
+  --secondary-color-60: rgba(46, 204, 113, 0.6);
+  --secondary-color-40: rgba(46, 204, 113, 0.4);
+  --secondary-color-20: rgba(46, 204, 113, 0.2);
+
+  --ternary-color: rgba(243, 156, 18, 1);
+  --ternary-color-80: rgba(243, 156, 18, 0.8);
+  --ternary-color-60: rgba(243, 156, 18, 0.6);
+  --ternary-color-40: rgba(243, 156, 18, 0.4);
+  --ternary-color-20: rgba(243, 156, 18, 0.2);
+
+  --error-color: #f00;
+  --error-color-80: rgba(255, 0, 0, 0.8);
+  --error-color-60: rgba(255, 0, 0, 0.6);
+  --error-color-40: rgba(255, 0, 0, 0.4);
+  --error-color-20: rgba(255, 0, 0, 0.2);
+
+  --text-color: rgba(52, 73, 94, 1);
+  --text-color-80: rgba(52, 73, 94, 0.8);
+  --text-color-60: rgba(52, 73, 94, 0.6);
+  --text-color-40: rgba(52, 73, 94, 0.4);
+  --text-color-20: rgba(52, 73, 94, 0.2); */
+
+  --primary-color: rgba(158, 135, 81);
+  --primary-color-80: rgba(158, 135, 81, 0.8);
+  --primary-color-60: rgba(158, 135, 81, 0.6);
+  --primary-color-40: rgba(158, 135, 81, 0.4);
+  --primary-color-20: rgba(158, 135, 81, 0.2);
+
+  --secondary-color: #55edb2;
+  --secondary-color-80: rgba(85, 237, 178, 0.8);
+  --secondary-color-60: rgba(85, 237, 178, 0.6);
+  --secondary-color-40: rgba(85, 237, 178, 0.4);
+  --secondary-color-20: rgba(85, 237, 178, 0.2);
+
+  --ternary-color: #edb93e;
+  --ternary-color-80: rgba(237, 185, 62, 0.8);
+  --ternary-color-60: rgba(237, 185, 62, 0.6);
+  --ternary-color-40: rgba(237, 185, 62, 0.4);
+  --ternary-color-20: rgba(237, 185, 62, 0.2);
+
+  --error-color: #f00;
+  --error-color-80: rgba(255, 0, 0, 0.8);
+  --error-color-60: rgba(255, 0, 0, 0.6);
+  --error-color-40: rgba(255, 0, 0, 0.4);
+  --error-color-20: rgba(255, 0, 0, 0.2);
+
+  --text-color: #110e0e;
+  --text-color-80: rgba(17, 14, 14, 0.8);
+  --text-color-60: rgba(17, 14, 14, 0.6);
+  --text-color-40: rgba(17, 14, 14, 0.4);
+  --text-color-20: rgba(17, 14, 14, 0.2);
+
+  /* Other Variables */
+  --main-bg-start: rgb(var(--background-start-rgb));
+  --main-bg-end: rgb(var(--background-end-rgb));
+
+  --h1-font-size: 44.79px;
+  --h1-mobile-font-size: 32px;
+  --h1-font-weight: bold;
+
+  --h2-font-size: 37.32px;
+  --h2-mobile-font-size: 28px;
+  --h2-font-weight: bold;
+
+  --h3-font-size: 31.1px;
+  --h3-mobile-font-size: 20px;
+  --h3-font-weight: bold;
+
+  --h4-font-size: 25.92px;
+  --h4-mobile-font-size: 18px;
+  --h4-font-weight: bold;
+
+  --h5-font-size: 21.6px;
+  --h5-mobile-font-size: 16px;
+  --h5-font-weight: bold;
+
+  --h6-font-size: 18px;
+  --h6-mobile-font-size: 12px;
+  --h6-font-weight: bold;
+
+  --body-font-size: 15px;
+  --body-mobile-font-size: 11px;
+  --body-font-weight: normal;
+
+  --button-padding: 4;
+  --button-mobile-padding: 2;
+  --button-font-size: base;
+  --button-mobile-font-size: sm;
+  --button-font-weight: bold;
+}

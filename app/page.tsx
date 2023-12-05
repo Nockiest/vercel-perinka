@@ -31,7 +31,7 @@ export default function Home() {
         </button>
         <Image
           src={"/randomPics/book.png"}
-          //className="mx-auto"
+          className="mx-auto sm:mx-0"
           alt={"book"}
           width={140}
           height={65}

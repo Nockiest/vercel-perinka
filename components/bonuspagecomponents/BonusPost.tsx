@@ -69,7 +69,7 @@ const BonusPost: React.FC<{
               handleGalleryButtonClick={handleGalleryButtonClick}
             />
           </Section>
-          di
+
         </div>
       </div>
 

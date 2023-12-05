@@ -1,7 +1,4 @@
-// File: pages/archiv/page.tsx
-
 'use client';
-
 import React, { useEffect, useState } from 'react';
 import Hero from '../../components/global/Hero';
 import ArchiveMagazinePreview from '../../components/ArchiveMagazinePreview';
