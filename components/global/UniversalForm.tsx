@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const ArrayInput = ({ value, onChange }) => {
 
@@ -63,10 +63,19 @@ const UniversalForm = ({ inputData, onSubmit  , parentField = '', resetFormData=
     resetForm(); // Reset the form after submission
   };
 
-  const handleChange = (field, value) => {
+
+const handleChange = (field, value) => {
+    console.log(field[0], value)
     setFormData((prevData) => {
       if (typeof prevData[field] === 'object' && typeof value === 'object') {
         // If the field is an object and the new value is an object, merge them
+        console.log(1, {
+          ...prevData,
+          [field]: {
+            ...prevData[field],
+            ...value,
+          },
+        } )
         return {
           ...prevData,
           [field]: {
@@ -75,7 +84,7 @@ const UniversalForm = ({ inputData, onSubmit  , parentField = '', resetFormData=
           },
         };
       } else {
-        // Otherwise, update the field directly
+        console.log(2)
         return {
           ...prevData,
           [field]: value,
@@ -85,13 +94,16 @@ const UniversalForm = ({ inputData, onSubmit  , parentField = '', resetFormData=
 
     onDataChange && onDataChange({ [field]: value });
   };
+  useEffect(() => {
+    onDataChange && onDataChange({ formData })
+  }, [formData])
 
   const resetForm = () => {
     setFormData((prevData) => {
       const updatedData = { ...prevData };
 
       Object.entries(inputData).forEach(([field, labelOrSubInputData]) => {
-        if (typeof labelOrSubInputData !== 'string') {
+        if (typeof labelOrSubInputData !== 'string' && resetFormData) {
           // For nested forms, set the specific key to the nested form's data
           updatedData[field] = resetFormData(field);
         }
@@ -100,15 +112,16 @@ const UniversalForm = ({ inputData, onSubmit  , parentField = '', resetFormData=
       return updatedData;
     });
   };
-
+  console.log(inputData, onSubmit  , parentField , resetFormData , onDataChange  , 'input data')
   const renderInputField = (fieldType, fieldId) => {
+    console.log(typeof fieldType==='object' , fieldType, fieldId)
     switch (fieldType) {
       case 'file':
         return (
           <input
             type="file"
             id={fieldId}
-            onChange={(e) => handleChange(fieldId, e.target.files[0])}
+            onChange={(e) => handleChange(fieldId, e.target.files)}
             className="w-full px-3 py-2 border rounded shadow appearance-none"
           />
         );
@@ -119,7 +132,18 @@ const UniversalForm = ({ inputData, onSubmit  , parentField = '', resetFormData=
             onChange={(value) => handleChange(fieldId, value)}
           />
         );
+      case fieldType instanceof Object:
+
+        console.log('field, type' ,fieldType,)
+        return (
+          <UniversalForm
+            inputData={fieldType}
+            onSubmit={(value) => handleChange(fieldId, value)}
+            parentField={fieldId}
+          />
+        );
       default:
+        console.log(fieldType, fieldType instanceof Object, ' is asigned a regular text field')
         return (
           <input
             type="text"
@@ -131,6 +155,7 @@ const UniversalForm = ({ inputData, onSubmit  , parentField = '', resetFormData=
         );
     }
   };
+
 
   return (
     <form className="max-w-md mx-auto p-4 bg-white rounded shadow-md" onSubmit={handleSubmit}>
