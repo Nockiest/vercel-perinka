@@ -1,3 +1,6 @@
+Those are the files for my school's magazine website. You can see the website demo at this link https://vercel-perinka.vercel.app/
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
